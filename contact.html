@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Articlarity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans flex flex-col min-h-screen">
+
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4">
+            <a href="index.html" class="text-2xl font-bold text-gray-800">Articlarity</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 max-w-4xl">
+        <h1 class="text-4xl font-bold mb-8">Contact Us</h1>
+
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+            <p class="text-lg text-gray-700 mb-6">
+                We'd love to hear from you! Whether you have a question about our tools, need assistance, or want to
+                suggest a new feature, our team is ready to answer all your questions.
+            </p>
+
+            <div class="space-y-4">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900">Email Us</h3>
+                    <a href="mailto:multicodestudio@gmail.com"
+                        class="text-blue-600 hover:text-blue-800 hover:underline">multicodestudio@gmail.com</a>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900">Follow Us</h3>
+                    <div class="flex space-x-4 mt-2">
+                        <a href="#" class="text-blue-600 hover:underline">Twitter</a>
+                        <a href="#" class="text-blue-600 hover:underline">LinkedIn</a>
+                        <a href="#" class="text-blue-600 hover:underline">Instagram</a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-8 border-gray-100">
+
+            <!-- Writing Section -->
+            <div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">Write a Message</h3>
+                <div class="space-y-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                            <input type="text" id="mail-name" placeholder="John Doe"
+                                class="w-full border-gray-300 rounded-lg shadow-sm p-3 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Reason</label>
+                            <select id="mail-reason"
+                                class="w-full border-gray-300 rounded-lg shadow-sm p-3 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"
+                                onchange="updateSubjectPlaceholder()">
+                                <option value="support">Support Request</option>
+                                <option value="feedback">Feedback / Suggestion</option>
+                                <option value="business">Business Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                        <input type="text" id="mail-subject" placeholder="How can we help?"
+                            class="w-full border-gray-300 rounded-lg shadow-sm p-3 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <textarea id="mail-body" rows="6" placeholder="Type your detailed message here..."
+                            class="w-full border-gray-300 rounded-lg shadow-sm p-3 border focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none"></textarea>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <button onclick="sendMail()"
+                            class="flex-1 bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors shadow-lg flex justify-center items-center gap-2">
+                            <span>📤</span> Send Email
+                        </button>
+                        <button onclick="previewMail()"
+                            class="flex-1 bg-gray-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-700 transition-colors shadow">
+                            Preview First
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preview Section (Hidden by Default) -->
+            <div id="mail-preview" class="hidden mt-8 bg-gray-50 p-6 rounded-xl border border-gray-200">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-gray-900">Email Preview</h3>
+                    <span class="text-xs font-mono text-gray-500 bg-gray-200 px-2 py-1 rounded">Draft</span>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-sm border space-y-3 mb-6">
+                    <div class="flex border-b pb-2">
+                        <span class="text-gray-500 w-20 text-sm font-bold">To:</span>
+                        <span class="text-gray-800 font-mono text-sm">multicodestudio@gmail.com</span>
+                    </div>
+                    <div class="flex border-b pb-2">
+                        <span class="text-gray-500 w-20 text-sm font-bold">Subject:</span>
+                        <span id="preview-subject" class="text-gray-800 font-bold text-sm"></span>
+                    </div>
+                    <div class="pt-2">
+                        <p id="preview-body"
+                            class="text-gray-700 whitespace-pre-wrap font-serif text-sm leading-relaxed"></p>
+                    </div>
+                    <div class="pt-4 text-gray-500 text-sm italic border-t mt-4">
+                        Sent by: <span id="preview-name"></span> via Articlarity Contact Form
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <button onclick="sendMail()"
+                        class="flex-1 bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition-colors shadow-lg flex justify-center items-center gap-2">
+                        <span>🚀</span> Open in Mail App
+                    </button>
+                    <button onclick="editMail()"
+                        class="px-6 py-3 text-gray-600 font-bold hover:text-gray-900 hover:bg-gray-200 rounded-lg transition-colors">
+                        Edit
+                    </button>
+                </div>
+            </div>
+
+            <script>
+                function updateSubjectPlaceholder() {
+                    const reason = document.getElementById('mail-reason').value;
+                    const subjectInput = document.getElementById('mail-subject');
+                    if (reason === 'support') subjectInput.placeholder = "Help with PDF Merger tool";
+                    if (reason === 'feedback') subjectInput.placeholder = "I love the new dark mode!";
+                    if (reason === 'business') subjectInput.placeholder = "Partnership opportunity";
+                }
+
+                function previewMail() {
+                    const name = document.getElementById('mail-name').value;
+                    const subject = document.getElementById('mail-subject').value;
+                    const body = document.getElementById('mail-body').value;
+
+                    if (!subject || !body) {
+                        alert("Please fill in a subject and message.");
+                        return;
+                    }
+
+                    document.getElementById('preview-subject').innerText = subject;
+                    document.getElementById('preview-body').innerText = body;
+                    document.getElementById('preview-name').innerText = name || 'Anonymous';
+
+                    document.getElementById('mail-preview').classList.remove('hidden');
+                    // Scroll to preview
+                    document.getElementById('mail-preview').scrollIntoView({ behavior: 'smooth' });
+                }
+
+                function editMail() {
+                    document.getElementById('mail-preview').classList.add('hidden');
+                    document.getElementById('mail-name').focus();
+                }
+
+                function sendMail() {
+                    const name = document.getElementById('mail-name').value || "User";
+                    const subject = document.getElementById('mail-subject').value;
+                    const body = document.getElementById('mail-body').value;
+
+                    const finalBody = `Hi Articlarity Team,\n\n${body}\n\n--\nSent by: ${name}`;
+
+                    const mailtoLink = `mailto:multicodestudio@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(finalBody)}`;
+                    window.location.href = mailtoLink;
+                }
+            </script>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-8 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Articlarity. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 text-sm mt-4">
+                <a href="index.html" class="hover:text-white">Home</a>
+                <a href="privacy-policy.html" class="hover:text-white">Privacy</a>
+                <a href="terms.html" class="hover:text-white">Terms</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

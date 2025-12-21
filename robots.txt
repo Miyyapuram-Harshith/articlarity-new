@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://articlarity.com/sitemap.xml
