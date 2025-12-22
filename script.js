@@ -1271,6 +1271,69 @@ const wordCounterPage = `
     </div>
 `;
 
+const privacyModePage = `
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+        
+        <div class="mb-12">
+            <h1 class="text-3xl font-bold mb-4 text-gray-900 border-b pb-4">Maximum Privacy Mode</h1>
+            <p class="text-lg text-gray-600 mb-8 max-w-2xl">
+                Articlarity is designed with a "Privacy First" architecture. 
+                Learn how we process files securely without ever uploading them to a cloud server.
+            </p>
+            
+            <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 mb-8">
+                 <div class="flex items-start gap-4">
+                    <span class="text-4xl">🛡️</span>
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-900 mb-2">Offline Processing</h3>
+                         <p class="text-blue-800 leading-relaxed">
+                            Unlike most online tools, we do not have a backend server that sees your files. 
+                            When you select a PDF or Image, it stays in your browser's memory (RAM). 
+                            Our algorithms (WebAssembly) run directly on your device to process the data.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+             <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white border border-gray-200 p-6 rounded-xl shadow-sm">
+                    <div class="text-3xl mb-3">⚡</div>
+                    <h4 class="font-bold text-gray-800 mb-2">Zero Latency</h4>
+                    <p class="text-sm text-gray-600">Since there is no upload, there is no waiting time. Processing is instant.</p>
+                </div>
+                 <div class="bg-white border border-gray-200 p-6 rounded-xl shadow-sm">
+                    <div class="text-3xl mb-3">🔐</div>
+                    <h4 class="font-bold text-gray-800 mb-2">GDPR Compliant</h4>
+                    <p class="text-sm text-gray-600">Your data never leaves your control, making it inherently compliant with data privacy laws.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Content -->
+        <article class="prose prose-slate max-w-none">
+            <h3 class="text-2xl font-bold text-slate-900 mb-4">Technical Details</h3>
+            <p class="text-slate-700 mb-6">
+                We utilize technologies like <strong>WebAssembly (WASM)</strong>, <strong>FFmpeg.wasm</strong>, and <strong>PDF.js</strong> to bring desktop-class performance to the web.
+            </p>
+
+            <h3 class="text-2xl font-bold text-slate-900 mb-4">FAQ</h3>
+             <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer">
+                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
+                    Does it work without internet?
+                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="p-4 text-slate-600 border-t border-slate-200">
+                    Yes! Once the page loads, you can disconnect from WiFi and still use all tools fully.
+                </div>
+            </details>
+            
+            <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
+                <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
+            </div>
+        </article>
+    </div>
+`;
+
 const routes = {
     '/': dashboardPage,
     '/attendance-calculator': attendancePage,
@@ -1287,6 +1350,7 @@ const routes = {
     '/page-numberer': pageNumberPage,
     '/case-converter': caseConverterPage,
     '/word-counter': wordCounterPage,
+    '/privacy-mode': privacyModePage,
 };
 
 function render(pathOverride) {
@@ -1315,7 +1379,6 @@ function render(pathOverride) {
     }
 
     // Normalized path
-    // Normalized path
     const content = routes[cleanPath] || routes['/'];
     if (!routes[cleanPath] && cleanPath !== '/') {
         // 404 Handler
@@ -1323,7 +1386,10 @@ function render(pathOverride) {
             <div class="text-center py-20">
                 <h2 class="text-4xl font-bold text-gray-800 mb-4">404</h2>
                 <p class="text-gray-600 mb-6">Tool not found or page missing.</p>
-                <a href="/" class="text-blue-600 font-bold hover:underline">Go Home</a>
+                <p class="text-sm text-gray-400 mb-8 font-mono bg-gray-100 inline-block px-3 py-1 rounded">Path: ${cleanPath}</p>
+                <div>
+                     <a href="/" class="text-blue-600 font-bold hover:underline">Go Home</a>
+                </div>
             </div>
         `;
         return;
