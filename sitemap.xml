@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url><loc>https://articlarity.com/</loc></url>
-<url><loc>https://articlarity.com/about.html</loc></url>
-<url><loc>https://articlarity.com/contact.html</loc></url>
-<url><loc>https://articlarity.com/privacy-policy.html</loc></url>
-<url><loc>https://articlarity.com/terms.html</loc></url>
-<url><loc>https://articlarity.com/disclaimer.html</loc></url>
+  <url><loc>https://articlarity.com/</loc></url>
+  <url><loc>https://articlarity.com/about.html</loc></url>
+  <url><loc>https://articlarity.com/contact.html</loc></url>
+  <url><loc>https://articlarity.com/privacy-policy.html</loc></url>
+  <url><loc>https://articlarity.com/terms.html</loc></url>
+  <url><loc>https://articlarity.com/disclaimer.html</loc></url>
 
-<url><loc>https://articlarity.com/arranger/</loc></url>
-<url><loc>https://articlarity.com/assets/</loc></url>
-<url><loc>https://articlarity.com/attendance/</loc></url>
-<url><loc>https://articlarity.com/case/</loc></url>
-<url><loc>https://articlarity.com/compressor/</loc></url>
-<url><loc>https://articlarity.com/counter/</loc></url>
-<url><loc>https://articlarity.com/humanizer/</loc></url>
-<url><loc>https://articlarity.com/img-to-pdf/</loc></url>
-<url><loc>https://articlarity.com/mp4-to-mp3/</loc></url>
-<url><loc>https://articlarity.com/pagenumber/</loc></url>
-<url><loc>https://articlarity.com/pdf-splitter/</loc></url>
-<url><loc>https://articlarity.com/pdf-tools/</loc></url>
-<url><loc>https://articlarity.com/qr/</loc></url>
-<url><loc>https://articlarity.com/file-merger/</loc></url>
-<url><loc>https://articlarity.com/watermark/</loc></url>
+  <url><loc>https://articlarity.com/arranger/</loc></url>
+  <url><loc>https://articlarity.com/assets/</loc></url>
+  <url><loc>https://articlarity.com/attendance/</loc></url>
+  <url><loc>https://articlarity.com/case/</loc></url>
+  <url><loc>https://articlarity.com/compressor/</loc></url>
+  <url><loc>https://articlarity.com/counter/</loc></url>
+  <url><loc>https://articlarity.com/humanizer/</loc></url>
+  <url><loc>https://articlarity.com/img-to-pdf/</loc></url>
+  <url><loc>https://articlarity.com/mp4-to-mp3/</loc></url>
+  <url><loc>https://articlarity.com/pagenumber/</loc></url>
+  <url><loc>https://articlarity.com/pdf-splitter/</loc></url>
+  <url><loc>https://articlarity.com/pdf-tools/</loc></url>
+  <url><loc>https://articlarity.com/qr/</loc></url>
+  <url><loc>https://articlarity.com/file-merger/</loc></url>
+  <url><loc>https://articlarity.com/watermark/</loc></url>
 
 </urlset>
