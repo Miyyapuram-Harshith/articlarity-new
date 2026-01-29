@@ -41,6 +41,14 @@ const dashboardPage = `
                     🚀 Explore Tools
                 </button>
             </div>
+
+            <!-- Popular Tools Links -->
+            <p class="text-sm text-slate-500 mt-8 animate-fade-in delay-100">
+                <span class="font-semibold text-slate-700">Popular Tools:</span> 
+                <a href="/file-merger" class="text-blue-600 hover:underline hover:text-blue-700 transition-colors mx-1">File Merger</a>, 
+                <a href="/img-to-pdf" class="text-blue-600 hover:underline hover:text-blue-700 transition-colors mx-1">Image to PDF</a>, 
+                <a href="/pdf-compressor" class="text-blue-600 hover:underline hover:text-blue-700 transition-colors mx-1">Compress PDF</a>
+            </p>
         </div>
         
         <!-- Tools Grid -->
