@@ -18,6 +18,22 @@ function initApp() {
     }
     render();
 }
+// ===== Google Analytics (GA4) =====
+(function () {
+  const gaScript = document.createElement('script');
+  gaScript.async = true;
+  gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z4GEB7P85V';
+  document.head.appendChild(gaScript);
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  window.gtag = gtag;
+
+  gtag('js', new Date());
+  gtag('config', 'G-Z4GEB7P85V', {
+    send_page_view: false
+  });
+})();
 
 
 // --- TEMPLATES ---
@@ -1406,6 +1422,14 @@ function render(pathOverride) {
     appRoot.innerHTML = content;
     window.scrollTo(0, 0);
 
+    // ===== GA4 SPA PAGE VIEW TRACKING =====
+if (window.gtag) {
+  gtag('event', 'page_view', {
+    page_path: cleanPath,
+    page_title: document.title
+  });
+}
+    
     // Show/Hide Back Button
     const backBtn = document.getElementById('back-to-tools');
     if (backBtn) {
