@@ -546,15 +546,15 @@ const attendancePage = `
                 <div class="space-y-6">
                     <div>
                         <label class="block text-sm font-bold text-gray-700 dark:text-slate-200 mb-2">Total Classes Conducted</label>
-                        <input type="number" id="att-total" class="w-full border-2 border-gray-200 dark:border-slate-700 p-4 rounded-xl text-xl font-bold focus:border-yellow-500 outline-none" placeholder="e.g. 50">
+                        <input type="number" id="att-total" class="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white border-2 border-gray-200 dark:border-slate-700 p-4 rounded-xl text-xl font-bold focus:border-yellow-500 outline-none" placeholder="e.g. 50">
                     </div>
                     <div>
                         <label class="block text-sm font-bold text-gray-700 dark:text-slate-200 mb-2">Classes Attended</label>
-                        <input type="number" id="att-present" class="w-full border-2 border-gray-200 dark:border-slate-700 p-4 rounded-xl text-xl font-bold focus:border-yellow-500 outline-none" placeholder="e.g. 40">
+                        <input type="number" id="att-present" class="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white border-2 border-gray-200 dark:border-slate-700 p-4 rounded-xl text-xl font-bold focus:border-yellow-500 outline-none" placeholder="e.g. 40">
                     </div>
                     <div>
                          <label class="block text-sm font-bold text-gray-700 dark:text-slate-200 mb-2">Target Percentage</label>
-                        <input type="number" id="att-target" class="w-full border-2 border-gray-200 dark:border-slate-700 p-4 rounded-xl text-xl font-bold focus:border-yellow-500 outline-none" value="75">
+                        <input type="number" id="att-target" class="w-full bg-white dark:bg-slate-900 text-gray-900 dark:text-white border-2 border-gray-200 dark:border-slate-700 p-4 rounded-xl text-xl font-bold focus:border-yellow-500 outline-none" value="75">
                     </div>
                 </div>
 
@@ -2789,10 +2789,10 @@ function initAttendance() {
 
             if (needed <= 0) {
                 // This handles edge cases where rounding might be tricky close to the target
-                msgDisplay.className = "bg-green-100 text-green-800 p-3 rounded-lg";
+                msgDisplay.className = "bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 p-3 rounded-lg";
                 msgDisplay.innerHTML = `You are practically at the target! Just attend the next class to be safe.`;
             } else {
-                msgDisplay.className = "bg-red-100 text-red-800 p-3 rounded-lg";
+                msgDisplay.className = "bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 p-3 rounded-lg";
                 msgDisplay.innerHTML = `⚠️ You are Short!<br>You need to attend <strong>${needed}</strong> more classes consecutively to reach ${target}%.`;
             }
         }
@@ -2802,10 +2802,10 @@ function initAttendance() {
             const bunkable = Math.floor((100 * present - target * total) / target);
 
             if (bunkable > 0) {
-                msgDisplay.className = "bg-green-100 text-green-800 p-3 rounded-lg";
+                msgDisplay.className = "bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 p-3 rounded-lg";
                 msgDisplay.innerHTML = `✅ Safe Zone!<br>You can bunk <strong>${bunkable}</strong> classes and still stay above ${target}%.`;
             } else {
-                msgDisplay.className = "bg-yellow-100 text-yellow-800 p-3 rounded-lg";
+                msgDisplay.className = "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 p-3 rounded-lg";
                 msgDisplay.innerHTML = `✅ You are on target, but don't bunk any classes right now!`;
             }
 
