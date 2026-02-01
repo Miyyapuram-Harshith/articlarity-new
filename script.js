@@ -18,22 +18,6 @@ function initApp() {
     }
     render();
 }
-// ===== Google Analytics (GA4) =====
-(function () {
-  const gaScript = document.createElement('script');
-  gaScript.async = true;
-  gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z4GEB7P85V';
-  document.head.appendChild(gaScript);
-
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  window.gtag = gtag;
-
-  gtag('js', new Date());
-  gtag('config', 'G-Z4GEB7P85V', {
-    send_page_view: false
-  });
-})();
 
 
 // --- TEMPLATES ---
@@ -44,11 +28,11 @@ const dashboardPage = `
         
         <!-- Hero Section -->
         <div class="text-center py-16 px-4">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
                 Smart tools for every mind — <br class="hidden md:block">
                 <span class="bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text">from students to creators</span>
             </h1>
-            <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-10">
+            <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10">
                 A complete suite of free, privacy-focused tools. Process files locally on your device—no uploads, no waiting.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -59,11 +43,11 @@ const dashboardPage = `
             </div>
 
             <!-- Popular Tools Links -->
-            <p class="text-sm text-slate-500 mt-8 animate-fade-in delay-100">
-                <span class="font-semibold text-slate-700">Popular Tools:</span> 
-                <a href="/file-merger" class="text-blue-600 hover:underline hover:text-blue-700 transition-colors mx-1">File Merger</a>, 
-                <a href="/img-to-pdf" class="text-blue-600 hover:underline hover:text-blue-700 transition-colors mx-1">Image to PDF</a>, 
-                <a href="/pdf-compressor" class="text-blue-600 hover:underline hover:text-blue-700 transition-colors mx-1">Compress PDF</a>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-8 animate-fade-in delay-100">
+                <span class="font-semibold text-slate-700 dark:text-slate-300">Popular Tools:</span> 
+                <a href="/file-merger" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">File Merger</a>, 
+                <a href="/img-to-pdf" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">Image to PDF</a>, 
+                <a href="/pdf-compressor" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">Compress PDF</a>
             </p>
         </div>
         
@@ -72,95 +56,95 @@ const dashboardPage = `
             
             <!-- Category: PDF Tools -->
             <div>
-                <h3 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-                    <span class="bg-red-100 text-red-600 p-2 rounded-lg text-xl">📄</span> PDF Tools
+                <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-2">
+                    <span class="bg-red-100 text-red-600 dark:text-red-400 p-2 rounded-lg text-xl">📄</span> PDF Tools
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    ${createToolCard('Universal Merger', 'Combine PDF, Images, Text, and more.', '/file-merger', '🧩', 'bg-red-50 text-red-600', 'border-red-100 hover:border-red-300')}
-                    ${createToolCard('PDF Splitter', 'Extract pages or split into custom ranges.', '/pdf-splitter', '✂️', 'bg-red-50 text-red-600', 'border-red-100 hover:border-red-300')}
-                    ${createToolCard('Img to PDF', 'Convert JPG, PNG, etc., to a single PDF.', '/img-to-pdf', '📸', 'bg-red-50 text-red-600', 'border-red-100 hover:border-red-300')}
-                    ${createToolCard('PDF Compressor', 'Shrink PDF file size instantly.', '/pdf-compressor', '🗜️', 'bg-red-50 text-red-600', 'border-red-100 hover:border-red-300')}
-                    ${createToolCard('PDF Arranger', 'Reorder or delete pages visually.', '/pdf-arranger', '📑', 'bg-red-50 text-red-600', 'border-red-100 hover:border-red-300')}
-                    ${createToolCard('Watermark PDF', 'Add customized text watermarks.', '/pdf-watermark', '✒️', 'bg-red-50 text-red-600', 'border-red-100 hover:border-red-300')}
-                    ${createToolCard('Page Numberer', 'Add page numbers to PDF documents.', '/page-numberer', '🔢', 'bg-red-50 text-red-600', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('Universal Merger', 'Combine PDF, Images, Text, and more.', '/file-merger', '🧩', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('PDF Splitter', 'Extract pages or split into custom ranges.', '/pdf-splitter', '✂️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('Img to PDF', 'Convert JPG, PNG, etc., to a single PDF.', '/img-to-pdf', '📸', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('PDF Compressor', 'Shrink PDF file size instantly.', '/pdf-compressor', '🗜️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('PDF Arranger', 'Reorder or delete pages visually.', '/pdf-arranger', '📑', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('Watermark PDF', 'Add customized text watermarks.', '/pdf-watermark', '✒️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('Page Numberer', 'Add page numbers to PDF documents.', '/page-numberer', '🔢', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
                 </div>
             </div>
 
             <!-- Category: Image & Video -->
             <div>
-                <h3 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-                    <span class="bg-green-100 text-green-600 p-2 rounded-lg text-xl">🖼️</span> Image & Video
+                <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-6 flex items-center gap-2">
+                    <span class="bg-green-100 text-green-600 dark:text-green-400 p-2 rounded-lg text-xl">🖼️</span> Image & Video
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    ${createToolCard('Smart Img Compressor', 'Compress to specific size (<100KB).', '/image-compressor-100kb', '📉', 'bg-green-50 text-green-600', 'border-green-100 hover:border-green-300')}
-                    ${createToolCard('MP4 to MP3', 'Extract audio from video files locally.', '/mp4-to-mp3', '🎵', 'bg-green-50 text-green-600', 'border-green-100 hover:border-green-300')}
-                    ${createToolCard('QR Generator', 'Create custom QR codes.', '/qr-generator', '📱', 'bg-green-50 text-green-600', 'border-green-100 hover:border-green-300')}
+                    ${createToolCard('Smart Img Compressor', 'Compress to specific size (<100KB).', '/image-compressor-100kb', '📉', 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400', 'border-green-100 hover:border-green-300')}
+                    ${createToolCard('MP4 to MP3', 'Extract audio from video files locally.', '/mp4-to-mp3', '🎵', 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400', 'border-green-100 hover:border-green-300')}
+                    ${createToolCard('QR Generator', 'Create custom QR codes.', '/qr-generator', '📱', 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400', 'border-green-100 hover:border-green-300')}
                 </div>
             </div>
 
             <!-- Category: AI & Text -->
             <div>
-                <h3 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-                    <span class="bg-purple-100 text-purple-600 p-2 rounded-lg text-xl">🤖</span> AI & Text Tools
+                <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-6 flex items-center gap-2">
+                    <span class="bg-purple-100 text-purple-600 dark:text-purple-400 p-2 rounded-lg text-xl">🤖</span> AI & Text Tools
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    ${createToolCard('AI Humanizer', 'Rewrite AI text to sound natural.', '/ai-humanizer', '📝', 'bg-purple-50 text-purple-600', 'border-purple-100 hover:border-purple-300')}
-                    ${createToolCard('Case Converter', 'UPPER, lower, Title Case transformations.', '/case-converter', 'Aa', 'bg-purple-50 text-purple-600', 'border-purple-100 hover:border-purple-300')}
-                    ${createToolCard('Word Counter Pro', 'Count words, chars, and paragraphs.', '/word-counter', '📊', 'bg-purple-50 text-purple-600', 'border-purple-100 hover:border-purple-300')}
+                    ${createToolCard('AI Humanizer', 'Rewrite AI text to sound natural.', '/ai-humanizer', '📝', 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400', 'border-purple-100 hover:border-purple-300')}
+                    ${createToolCard('Case Converter', 'UPPER, lower, Title Case transformations.', '/case-converter', 'Aa', 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400', 'border-purple-100 hover:border-purple-300')}
+                    ${createToolCard('Word Counter Pro', 'Count words, chars, and paragraphs.', '/word-counter', '📊', 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400', 'border-purple-100 hover:border-purple-300')}
                 </div>
             </div>
 
             <!-- Category: Student Utilities -->
             <div>
-                <h3 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
-                    <span class="bg-yellow-100 text-yellow-600 p-2 rounded-lg text-xl">🎓</span> Utilities
+                <h3 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-6 flex items-center gap-2">
+                    <span class="bg-yellow-100 text-yellow-600 dark:text-yellow-400 p-2 rounded-lg text-xl">🎓</span> Utilities
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    ${createToolCard('Attendance Calc', 'Check if you can skip or need to attend.', '/attendance-calculator', '📅', 'bg-yellow-50 text-yellow-600', 'border-yellow-100 hover:border-yellow-300')}
+                    ${createToolCard('Attendance Calc', 'Check if you can skip or need to attend.', '/attendance-calculator', '📅', 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400', 'border-yellow-100 hover:border-yellow-300')}
                 </div>
             </div>
 
         </div>
 
         <!-- Features / Why Us Section -->
-        <section class="grid md:grid-cols-3 gap-8 py-12 border-t border-slate-200">
-            <div class="p-6 bg-white rounded-xl shadow-sm border border-slate-100">
+        <section class="grid md:grid-cols-3 gap-8 py-12 border-t border-slate-200 dark:border-slate-700">
+            <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100">
                 <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl mb-4">🔒</div>
-                <h3 class="text-xl font-bold text-slate-900 mb-2">Maximum Privacy</h3>
-                <p class="text-slate-600">Your files never leave your device. All processing (compression, merging, splitting) happens locally in your browser using WebAssembly.</p>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Maximum Privacy</h3>
+                <p class="text-slate-600 dark:text-slate-400">Your files never leave your device. All processing (compression, merging, splitting) happens locally in your browser using WebAssembly.</p>
             </div>
-            <div class="p-6 bg-white rounded-xl shadow-sm border border-slate-100">
+            <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100">
                 <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-2xl mb-4">⚡</div>
-                <h3 class="text-xl font-bold text-slate-900 mb-2">Lightning Fast</h3>
-                <p class="text-slate-600">No upload or download wait times. Because files process on your machine, operations are near-instantaneous even for large documents.</p>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Lightning Fast</h3>
+                <p class="text-slate-600 dark:text-slate-400">No upload or download wait times. Because files process on your machine, operations are near-instantaneous even for large documents.</p>
             </div>
-            <div class="p-6 bg-white rounded-xl shadow-sm border border-slate-100">
+            <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100">
                 <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-2xl mb-4">💎</div>
-                <h3 class="text-xl font-bold text-slate-900 mb-2">Free Forever</h3>
-                <p class="text-slate-600">Access premium-grade PDF and Image tools without subscriptions, watermarks, or hidden paywalls. A truly free resource for everyone.</p>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Free Forever</h3>
+                <p class="text-slate-600 dark:text-slate-400">Access premium-grade PDF and Image tools without subscriptions, watermarks, or hidden paywalls. A truly free resource for everyone.</p>
             </div>
         </section>
 
         <!-- FAQ Section -->
         <section class="max-w-3xl mx-auto py-8">
-            <h2 class="text-3xl font-bold text-slate-900 text-center mb-10">Frequently Asked Questions</h2>
+            <h2 class="text-3xl font-bold text-slate-900 dark:text-white text-center mb-10">Frequently Asked Questions</h2>
             
             <div class="space-y-6">
                 <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-2">Is Articlarity really free?</h4>
-                    <p class="text-slate-600">Yes, Articlarity is 100% free to use. We support the platform through unintrusive advertisements, allowing us to keep these tools accessible to students and creators worldwide.</p>
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Is Articlarity really free?</h4>
+                    <p class="text-slate-600 dark:text-slate-400">Yes, Articlarity is 100% free to use. We support the platform through unintrusive advertisements, allowing us to keep these tools accessible to students and creators worldwide.</p>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-2">Are my files secure?</h4>
-                    <p class="text-slate-600">Absolutely. Unlike other online converters, we do not upload your files to a cloud server. Everything is processed directly on your computer, tablet, or phone. This means your sensitive documents remain private.</p>
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Are my files secure?</h4>
+                    <p class="text-slate-600 dark:text-slate-400">Absolutely. Unlike other online converters, we do not upload your files to a cloud server. Everything is processed directly on your computer, tablet, or phone. This means your sensitive documents remain private.</p>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-2">Do I need an account?</h4>
-                    <p class="text-slate-600">No account or login is required. You can start using any tool instantly.</p>
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Do I need an account?</h4>
+                    <p class="text-slate-600 dark:text-slate-400">No account or login is required. You can start using any tool instantly.</p>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold text-slate-900 mb-2">What is the AI Humanizer?</h4>
-                    <p class="text-slate-600">The AI Humanizer uses advanced language models to rewrite AI-generated text (from ChatGPT, Claude, etc.) into more natural, human-sounding language. It requires your own API key to function securely locally.</p>
+                    <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">What is the AI Humanizer?</h4>
+                    <p class="text-slate-600 dark:text-slate-400">The AI Humanizer uses advanced language models to rewrite AI-generated text (from ChatGPT, Claude, etc.) into more natural, human-sounding language. It requires your own API key to function securely locally.</p>
                 </div>
             </div>
         </section>
@@ -168,45 +152,45 @@ const dashboardPage = `
     </div>
 `;
 
-function createToolCard(title, desc, link, icon, iconBg = 'bg-blue-50 text-blue-600', borderClass = 'border-gray-200') {
+function createToolCard(title, desc, link, icon, iconBg = 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400', borderClass = 'border-gray-200 dark:border-slate-700') {
     return `
-    <a href="${link}" class="tool-card block bg-white p-6 rounded-xl border ${borderClass} shadow-sm hover:shadow-md transition-all group">
+    <a href="${link}" class="tool-card block bg-white dark:bg-slate-800 p-6 rounded-xl border ${borderClass} shadow-sm hover:shadow-md transition-all group">
         <div class="w-12 h-12 ${iconBg} rounded-lg flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">${icon}</div>
-        <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">${title}</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">${desc}</p>
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:text-blue-400 transition-colors">${title}</h3>
+        <p class="text-gray-500 dark:text-slate-400 text-sm leading-relaxed">${desc}</p>
     </a>`;
 }
 
 // 2. UNIVERSAL MERGER (UPDATED TEMPLATE)
 const universalMergerPage = `
-    <div class="max-w-6xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <div class="max-w-6xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
         <!-- Tool Interface -->
         <div class="mb-16">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 border-b pb-4">Universal Visual Merger</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-3xl">
+            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">Universal Visual Merger</h1>
+            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-3xl">
                 The ultimate file combiner. Merge PDF files, Images (JPG, PNG), and Text documents into a single, organized PDF file. 
-                <span class="text-blue-600 font-bold">Drag and drop</span> to reorder pages visually before merging.
+                <span class="text-blue-600 dark:text-blue-400 font-bold">Drag and drop</span> to reorder pages visually before merging.
             </p>
             
-            <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+            <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 dark:border-slate-700">
                 <div class="flex gap-4 mb-8">
-                    <label class="flex-1 cursor-pointer bg-white border-2 border-dashed border-blue-400 hover:bg-blue-50 rounded-xl flex flex-col items-center justify-center p-8 transition-all group shadow-sm hover:shadow-md h-64">
+                    <label class="flex-1 cursor-pointer bg-white dark:bg-slate-800 border-2 border-dashed border-blue-400 hover:bg-blue-50 dark:bg-blue-900/20 rounded-xl flex flex-col items-center justify-center p-8 transition-all group shadow-sm hover:shadow-md h-64">
                         <span class="text-5xl mb-4 group-hover:scale-110 transition-transform">📂</span>
-                        <span class="font-bold text-xl text-slate-700 group-hover:text-blue-700">Click to Select Files</span>
-                        <span class="text-sm text-slate-500 mt-2">PDF, JPG, PNG, TXT supported</span>
+                        <span class="font-bold text-xl text-slate-700 dark:text-slate-300 group-hover:text-blue-700 dark:text-blue-300">Click to Select Files</span>
+                        <span class="text-sm text-slate-500 dark:text-slate-400 mt-2">PDF, JPG, PNG, TXT supported</span>
                         <input type="file" id="universal-merger-input" accept=".pdf, image/*, text/plain" multiple class="hidden">
                     </label>
                 </div>
 
-                <div id="merger-status" class="hidden p-4 mb-6 bg-blue-100 text-blue-800 rounded-lg font-bold text-center animate-pulse border border-blue-200">
+                <div id="merger-status" class="hidden p-4 mb-6 bg-blue-100 text-blue-800 dark:text-blue-200 rounded-lg font-bold text-center animate-pulse border border-blue-200">
                     Processing files...
                 </div>
 
                 <div id="merger-ui" class="hidden">
                     <div class="flex justify-between items-center mb-6">
-                        <h3 class="font-bold text-gray-700 text-lg">Pages Ready to Merge (<span id="merger-page-count" class="text-blue-600">0</span>)</h3>
-                        <button onclick="document.getElementById('universal-merger-input').click()" class="bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-4 py-2 rounded-lg font-bold shadow-sm transition-colors text-sm">
+                        <h3 class="font-bold text-gray-700 dark:text-slate-200 text-lg">Pages Ready to Merge (<span id="merger-page-count" class="text-blue-600 dark:text-blue-400">0</span>)</h3>
+                        <button onclick="document.getElementById('universal-merger-input').click()" class="bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 text-gray-700 dark:text-slate-200 hover:bg-gray-50 dark:bg-slate-900 px-4 py-2 rounded-lg font-bold shadow-sm transition-colors text-sm">
                             + Add More Files
                         </button>
                     </div>
@@ -220,7 +204,7 @@ const universalMergerPage = `
                     </button>
                 </div>
                 
-                <a id="merger-download-link" class="hidden block w-full bg-green-500 text-white text-center py-4 rounded-xl font-bold text-xl hover:bg-green-600 mt-6 shadow-lg shadow-green-500/30 transition-all" href="#" download="merged_articlarity.pdf">
+                <a id="merger-download-link" class="hidden block w-full bg-green-50 dark:bg-green-900/200 text-white text-center py-4 rounded-xl font-bold text-xl hover:bg-green-600 mt-6 shadow-lg shadow-green-500/30 transition-all" href="#" download="merged_articlarity.pdf">
                     Download Ready! 🎉
                 </a>
             </div>
@@ -228,32 +212,74 @@ const universalMergerPage = `
 
         <!-- SEO Content -->
         <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Why is this Unique?</h3>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Why is this Unique?</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>Cross-Format:</strong> Most mergers only do PDF+PDF. We allow PDF+Image+Text mixing.</li>
                 <li><strong>Control:</strong> Visual sorting allows you to arrange the final document order perfectly.</li>
                 <li><strong>Privacy:</strong> All merging happens in your browser memory.</li>
             </ul>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">How it works</h3>
-            <ol class="list-decimal pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">How it works</h3>
+            <ol class="list-decimal pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>Select Files:</strong> Pick any combination of PDFs, Photos, or Notes.</li>
                 <li><strong>Rearrange:</strong> Drag files to set the order.</li>
                 <li><strong>Merge:</strong> Click button to generate the unified PDF.</li>
             </ol>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">FAQ</h3>
-             <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer">
-                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
-                    Can I merge a JPG with a PDF?
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-4 text-slate-600 border-t border-slate-200">
-                    Yes! The tool automatically converts the image to a PDF page and stitches it into the final document.
-                </div>
-            </details>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
+            <div class="space-y-4">
             
-            <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I combine images and PDFs?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes! You can mix PDF files, images (JPG, PNG), and text files. The tool automatically converts everything into a single seamless PDF document.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Is there a file size limit?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Since processing happens locally on your device, the limit depends on your available RAM. Generally, you can merge hundreds of pages or up to 500MB comfortably.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I reorder pages?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Absolutely. After selecting files, you can drag and drop the thumbnails to arrange them in your desired order before merging.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Are my files safe?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. We use WebAssembly technology to process files entirely in your browser. No documents are ever uploaded to a server.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does it preserve quality?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes, the tool maintains the original resolution of your PDFs and images during the merge process.
+        </div>
+    </details>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
                 <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
             </div>
         </article>
@@ -262,36 +288,36 @@ const universalMergerPage = `
 
 // 3. IMAGE TO PDF CONVERTER
 const imgToPdfPage = `
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
         <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 border-b pb-4">Image to PDF Converter</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl">
+            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">Image to PDF Converter</h1>
+            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
                 Convert your photos (JPG, PNG, GIF, BMP, WebP) into a high-quality PDF document. 
                 Great for creating portfolios, sharing photo albums, or submitting scanned assignments.
             </p>
             
-            <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200">
+            <div class="bg-gray-50 dark:bg-slate-900 p-6 rounded-2xl border border-gray-200 dark:border-slate-700">
                 <div class="flex gap-4 mb-6">
-                    <label class="flex-1 cursor-pointer bg-white border-2 border-dashed border-blue-400 hover:bg-blue-50 rounded-xl flex flex-col items-center justify-center p-8 transition-all shadow-sm hover:shadow-md h-48">
+                    <label class="flex-1 cursor-pointer bg-white dark:bg-slate-800 border-2 border-dashed border-blue-400 hover:bg-blue-50 dark:bg-blue-900/20 rounded-xl flex flex-col items-center justify-center p-8 transition-all shadow-sm hover:shadow-md h-48">
                         <span class="text-4xl mb-4 group-hover:scale-110 transition-transform">📸</span>
-                        <span class="font-bold text-blue-700 text-lg">Add Images</span>
+                        <span class="font-bold text-blue-700 dark:text-blue-300 text-lg">Add Images</span>
                         <span class="text-sm text-blue-400 mt-1">JPG, PNG, GIF, WEBP</span>
                         <input type="file" id="img-to-pdf-input" accept="image/*" multiple class="hidden">
                     </label>
                 </div>
 
                 <div id="img-to-pdf-ui" class="hidden">
-                    <div class="flex flex-col sm:flex-row justify-between items-center mb-6 bg-white p-4 rounded-xl shadow-sm border border-gray-100 gap-4">
+                    <div class="flex flex-col sm:flex-row justify-between items-center mb-6 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-gray-100 dark:border-slate-800 gap-4">
                          <div class="flex items-center gap-4">
-                            <span class="font-bold text-gray-700 bg-gray-100 px-3 py-1 rounded-full text-sm">Images: <span id="img-count" class="text-blue-600">0</span></span>
-                            <select id="pdf-size" class="border-gray-200 bg-gray-50 border p-2 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none">
+                            <span class="font-bold text-gray-700 dark:text-slate-200 bg-gray-100 px-3 py-1 rounded-full text-sm">Images: <span id="img-count" class="text-blue-600 dark:text-blue-400">0</span></span>
+                            <select id="pdf-size" class="border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-900 border p-2 rounded-lg text-sm font-medium focus:ring-2 focus:ring-blue-500 outline-none">
                                 <option value="a4">PDF Format: A4</option>
                                 <option value="letter">PDF Format: US Letter</option>
                                 <option value="fit">Fit to Image Size</option>
                             </select>
                          </div>
-                         <button onclick="document.getElementById('img-to-pdf-input').click()" class="text-sm bg-blue-100 text-blue-700 px-3 py-1.5 rounded-lg font-bold hover:bg-blue-200 transition-colors">
+                         <button onclick="document.getElementById('img-to-pdf-input').click()" class="text-sm bg-blue-100 text-blue-700 dark:text-blue-300 px-3 py-1.5 rounded-lg font-bold hover:bg-blue-200 transition-colors">
                             + Add More
                          </button>
                     </div>
@@ -305,39 +331,81 @@ const imgToPdfPage = `
                     </button>
                 </div>
                 
-                <div id="img-to-pdf-status" class="hidden mt-4 text-center font-bold text-gray-600 p-3 bg-gray-100 rounded-lg animate-pulse"></div>
+                <div id="img-to-pdf-status" class="hidden mt-4 text-center font-bold text-gray-600 dark:text-slate-300 p-3 bg-gray-100 rounded-lg animate-pulse"></div>
             </div>
         </div>
 
         <!-- SEO Content -->
         <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Features</h3>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Features</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>Multiple Files:</strong> Select 100+ images at once.</li>
                 <li><strong>Auto-Fit:</strong> Automatically adjusts image to fit A4 page size nicely.</li>
                 <li><strong>Visual Order:</strong> Images are added in the order you select them.</li>
             </ul>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Supported Formats</h3>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Supported Formats</h3>
              <div class="flex gap-2 flex-wrap mb-8">
-                <span class="bg-gray-100 px-3 py-1 rounded text-sm font-bold text-gray-600">JPG</span>
-                <span class="bg-gray-100 px-3 py-1 rounded text-sm font-bold text-gray-600">PNG</span>
-                <span class="bg-gray-100 px-3 py-1 rounded text-sm font-bold text-gray-600">WEBP</span>
-                <span class="bg-gray-100 px-3 py-1 rounded text-sm font-bold text-gray-600">GIF</span>
+                <span class="bg-gray-100 px-3 py-1 rounded text-sm font-bold text-gray-600 dark:text-slate-300">JPG</span>
+                <span class="bg-gray-100 px-3 py-1 rounded text-sm font-bold text-gray-600 dark:text-slate-300">PNG</span>
+                <span class="bg-gray-100 px-3 py-1 rounded text-sm font-bold text-gray-600 dark:text-slate-300">WEBP</span>
+                <span class="bg-gray-100 px-3 py-1 rounded text-sm font-bold text-gray-600 dark:text-slate-300">GIF</span>
             </div>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">FAQ</h3>
-             <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer">
-                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
-                    Does it compress files?
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-4 text-slate-600 border-t border-slate-200">
-                    The tool maintains high quality by default. If you need smaller size, use our "PDF Compressor" tool after converting.
-                </div>
-            </details>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
+            <div class="space-y-4">
             
-            <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does it reduce image quality?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            No by default. It embeds images at their original quality. If you need a smaller file, you can use our PDF Compressor tool afterward.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            What image formats are supported?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            We support all common formats including JPG, PNG, WEBP, GIF, and BMP.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I combine multiple images?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. You can select or drag-and-drop hundreds of images at once and convert them into a single scrolled PDF.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            How do I rearrange the images?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Simply drag the image thumbnails into your preferred sequence before clicking 'Convert'.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does it work offline?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. Once the page is loaded, you can disconnect from the internet and convert files securely.
+        </div>
+    </details>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
                 <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
             </div>
         </article>
@@ -346,36 +414,36 @@ const imgToPdfPage = `
 
 // 4. PDF SPLITTER
 const pdfSplitterPage = `
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
         <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 border-b pb-4">PDF Splitter</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl">
+            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">PDF Splitter</h1>
+            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
                 Split a large PDF document into separate pages or extract specific page ranges (e.g., Pages 1-5). 
                 Save only what you need and discard the rest.
             </p>
             
-            <div class="bg-red-50 p-6 rounded-2xl border border-red-100">
-                <input type="file" id="split-input" accept=".pdf" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white file:text-red-700 hover:file:bg-red-100 mb-6 cursor-pointer shadow-sm">
+            <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-2xl border border-red-100">
+                <input type="file" id="split-input" accept=".pdf" class="block w-full text-sm text-slate-500 dark:text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white dark:bg-slate-800 file:text-red-700 hover:file:bg-red-100 mb-6 cursor-pointer shadow-sm">
                 
-                <div class="grid md:grid-cols-2 gap-6 bg-white p-6 rounded-xl shadow-sm">
+                <div class="grid md:grid-cols-2 gap-6 bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm">
                     <div>
                         <label class="font-bold flex items-center gap-2 mb-2">
                             <input type="radio" name="split-mode" value="all" checked class="accent-red-600 w-5 h-5"> 
                             Extract All Pages
                         </label>
-                        <p class="text-xs text-gray-500 ml-7">Creates a ZIP file containing every single page as a separate PDF.</p>
+                        <p class="text-xs text-gray-500 dark:text-slate-400 ml-7">Creates a ZIP file containing every single page as a separate PDF.</p>
                     </div>
                     <div>
                         <label class="font-bold flex items-center gap-2 mb-2">
                             <input type="radio" name="split-mode" value="range" class="accent-red-600 w-5 h-5"> 
                             Extract Range
                         </label>
-                        <input id="split-range" placeholder="e.g. 1-5, 8, 10-12" class="w-full border-2 border-gray-200 p-2 rounded-lg ml-7 mt-1 focus:border-red-500 outline-none" disabled>
+                        <input id="split-range" placeholder="e.g. 1-5, 8, 10-12" class="w-full border-2 border-gray-200 dark:border-slate-700 p-2 rounded-lg ml-7 mt-1 focus:border-red-500 outline-none" disabled>
                     </div>
                 </div>
 
-                <div id="split-status" class="hidden mt-4 text-center font-bold text-red-600 animate-pulse">Processing split...</div>
+                <div id="split-status" class="hidden mt-4 text-center font-bold text-red-600 dark:text-red-400 animate-pulse">Processing split...</div>
 
                 <button id="btn-split" class="w-full mt-6 bg-red-600 text-white py-4 rounded-xl font-bold text-xl hover:bg-red-700 shadow-lg shadow-red-600/20 transition-all hover:scale-[1.01]">
                     Split PDF ✂️
@@ -385,37 +453,79 @@ const pdfSplitterPage = `
 
         <!-- SEO Content -->
         <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Use Cases</h3>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Use Cases</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>Legal:</strong> Extract specific contract pages.</li>
                 <li><strong>Books:</strong> Split a large ebook into chapters.</li>
                 <li><strong>Invoices:</strong> Separate bulk invoices into individual files.</li>
             </ul>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Methods</h3>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Methods</h3>
              <div class="grid md:grid-cols-2 gap-4 mb-8">
-                <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="bg-gray-50 dark:bg-slate-900 p-4 rounded-lg">
                     <h4 class="font-bold text-red-700">Explode</h4>
                     <p class="text-sm">Turn a 10-page PDF into 10 separate files instantly.</p>
                 </div>
-                <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="bg-gray-50 dark:bg-slate-900 p-4 rounded-lg">
                     <h4 class="font-bold text-red-700">Custom Extract</h4>
                     <p class="text-sm">Pick specific pages like "1,3,5" to create a new summarized PDF.</p>
                 </div>
             </div>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">FAQ</h3>
-             <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer">
-                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
-                    Is it secure?
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-4 text-slate-600 border-t border-slate-200">
-                    Yes. Unlike server-side splitters, we don't upload your document. It is cut locally.
-                </div>
-            </details>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
+            <div class="space-y-4">
             
-            <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I extract a single page?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. Choose 'Extract Range' and simply type the page number (e.g., '5') to save just that page.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            How do I split every page into a separate file?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Select the 'Extract All Pages' option. This will save every page of your PDF as an individual file (downloaded as a ZIP).
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I extract multiple ranges?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. Ranges like '1-3, 5, 8-10' are supported to create a custom PDF from selected parts.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Is the metadata preserved?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes, the title and author properties of the original PDF are generally preserved in the extracted files.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Is it fast for large files?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Extremely fast. It cuts the PDF structurally without re-rendering, so even large books split in seconds.
+        </div>
+    </details>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
                 <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
             </div>
         </article>
@@ -423,38 +533,38 @@ const pdfSplitterPage = `
 `;
 // ... (Attendance, Compressor, PDF Compressor, Humanizer, Password, etc. pages are unchanged) ...
 const attendancePage = `
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
         <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 border-b pb-4">Attendance Calculator</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl">
+            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">Attendance Calculator</h1>
+            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
                 Attendance Calc is a smart, browser-based attendance calculator that helps students check whether they need to attend or can safely skip classes. 
                 Just enter your attended classes and total classes, and the tool instantly tells you your percentage.
             </p>
             
-            <div class="bg-yellow-50 p-6 rounded-2xl border border-yellow-100 max-w-lg mx-auto">
+            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-2xl border border-yellow-100 max-w-lg mx-auto">
                 <div class="space-y-6">
                     <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-2">Total Classes Conducted</label>
-                        <input type="number" id="att-total" class="w-full border-2 border-gray-200 p-4 rounded-xl text-xl font-bold focus:border-yellow-500 outline-none" placeholder="e.g. 50">
+                        <label class="block text-sm font-bold text-gray-700 dark:text-slate-200 mb-2">Total Classes Conducted</label>
+                        <input type="number" id="att-total" class="w-full border-2 border-gray-200 dark:border-slate-700 p-4 rounded-xl text-xl font-bold focus:border-yellow-500 outline-none" placeholder="e.g. 50">
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-2">Classes Attended</label>
-                        <input type="number" id="att-present" class="w-full border-2 border-gray-200 p-4 rounded-xl text-xl font-bold focus:border-yellow-500 outline-none" placeholder="e.g. 40">
+                        <label class="block text-sm font-bold text-gray-700 dark:text-slate-200 mb-2">Classes Attended</label>
+                        <input type="number" id="att-present" class="w-full border-2 border-gray-200 dark:border-slate-700 p-4 rounded-xl text-xl font-bold focus:border-yellow-500 outline-none" placeholder="e.g. 40">
                     </div>
                     <div>
-                         <label class="block text-sm font-bold text-gray-700 mb-2">Target Percentage</label>
-                        <input type="number" id="att-target" class="w-full border-2 border-gray-200 p-4 rounded-xl text-xl font-bold focus:border-yellow-500 outline-none" value="75">
+                         <label class="block text-sm font-bold text-gray-700 dark:text-slate-200 mb-2">Target Percentage</label>
+                        <input type="number" id="att-target" class="w-full border-2 border-gray-200 dark:border-slate-700 p-4 rounded-xl text-xl font-bold focus:border-yellow-500 outline-none" value="75">
                     </div>
                 </div>
 
                 <div class="mt-8 space-y-4">
-                    <button id="btn-calc-attendance" class="w-full bg-yellow-500 text-white py-4 rounded-xl font-bold text-xl hover:bg-yellow-600 shadow-lg shadow-yellow-500/20 transition-all hover:scale-[1.01]">
+                    <button id="btn-calc-attendance" class="w-full bg-yellow-50 dark:bg-yellow-900/200 text-white py-4 rounded-xl font-bold text-xl hover:bg-yellow-600 shadow-lg shadow-yellow-500/20 transition-all hover:scale-[1.01]">
                         Calculate Status 📊
                     </button>
-                    <div id="att-result" class="hidden p-6 bg-white rounded-xl border border-yellow-200 text-center shadow-sm">
-                         <p class="text-sm text-gray-500 uppercase tracking-wide font-semibold">Current Attendance</p>
-                         <h3 id="att-percentage" class="text-4xl font-extrabold text-blue-600 my-2">0%</h3>
+                    <div id="att-result" class="hidden p-6 bg-white dark:bg-slate-800 rounded-xl border border-yellow-200 text-center shadow-sm">
+                         <p class="text-sm text-gray-500 dark:text-slate-400 uppercase tracking-wide font-semibold">Current Attendance</p>
+                         <h3 id="att-percentage" class="text-4xl font-extrabold text-blue-600 dark:text-blue-400 my-2">0%</h3>
                         <div id="att-message" class="text-lg font-medium mt-4 p-3 rounded-lg"></div>
                     </div>
                 </div>
@@ -463,84 +573,117 @@ const attendancePage = `
 
         <!-- SEO Content -->
         <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Why use Attendance Calculator?</h3>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700 mb-6">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Why use Attendance Calculator?</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-6">
                 <li><strong>Avoid Shortages:</strong> Avoid attendance shortages and detentions.</li>
                 <li><strong>Plan Leaves:</strong> Plan whether you can miss tomorrow’s class safely.</li>
                 <li><strong>Meet Criteria:</strong> Helps maintain above 75% attendance rule mandated by most universities.</li>
             </ul>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Key Features</h3>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Key Features</h3>
             <div class="grid md:grid-cols-3 gap-4 mb-8">
-                 <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                    <h4 class="font-bold text-slate-800">Instant</h4>
-                    <p class="text-sm text-slate-600">Calculates percentage instantly.</p>
+                 <div class="bg-gray-50 dark:bg-slate-900 p-4 rounded-lg border border-gray-100 dark:border-slate-800">
+                    <h4 class="font-bold text-slate-800 dark:text-slate-100">Instant</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400">Calculates percentage instantly.</p>
                 </div>
-                <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                    <h4 class="font-bold text-slate-800">Predictive</h4>
-                    <p class="text-sm text-slate-600">tells you how many classes to attend.</p>
+                <div class="bg-gray-50 dark:bg-slate-900 p-4 rounded-lg border border-gray-100 dark:border-slate-800">
+                    <h4 class="font-bold text-slate-800 dark:text-slate-100">Predictive</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400">tells you how many classes to attend.</p>
                 </div>
-                <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                    <h4 class="font-bold text-slate-800">Private</h4>
-                    <p class="text-sm text-slate-600">No login required, works offline.</p>
+                <div class="bg-gray-50 dark:bg-slate-900 p-4 rounded-lg border border-gray-100 dark:border-slate-800">
+                    <h4 class="font-bold text-slate-800 dark:text-slate-100">Private</h4>
+                    <p class="text-sm text-slate-600 dark:text-slate-400">No login required, works offline.</p>
                 </div>
             </div>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">FAQ</h3>
-             <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer mb-2">
-                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
-                    Is this accurate for universities?
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-4 text-slate-600 border-t border-slate-200">
-                    Yes. It works with any attendance rule: 75%, 80%, etc. Just adjust the target percentage.
-                </div>
-            </details>
-            <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer">
-                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
-                    Does it work offline?
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-4 text-slate-600 border-t border-slate-200">
-                    Yes — all calculation happens in your browser.
-                </div>
-            </details>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
+            <div class="space-y-4">
             
-            <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Is this calculation accurate?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes, it uses the standard formula: (Presented / Total) * 100. It works for all universities and schools.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does it save my data?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Your data is stored locally in your browser so you don't have to re-enter it next time. It is never sent to us.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            What if my target is 80%?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            You can adjust the 'Target Percentage' field to any number (e.g., 60, 75, 80, 85) to see how many classes you need.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does it account for future classes?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            The 'Predictive' mode tells you exactly how many upcoming classes you must attend to hit your target.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Do I need to sign up?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            No account is required. The tool is free and open for everyone.
+        </div>
+    </details>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
                 <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
             </div>
         </article>
     </div>
 `;
 const compressorPage = `
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
         <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 border-b pb-4">Smart Image Compressor</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl">
+            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">Smart Image Compressor</h1>
+            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
                 Smart Image Compressor reduces image file size to a specific target — including under 100KB — while preserving clarity. 
                 Perfect for uploading documents, college forms, job portals, and online submissions.
             </p>
             
             <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl border border-green-100">
-                <div id="drop-zone" class="bg-white border-2 border-dashed border-green-400 rounded-xl p-10 text-center cursor-pointer hover:bg-green-50 transition-colors shadow-sm">
+                <div id="drop-zone" class="bg-white dark:bg-slate-800 border-2 border-dashed border-green-400 rounded-xl p-10 text-center cursor-pointer hover:bg-green-50 dark:bg-green-900/20 transition-colors shadow-sm">
                     <span class="text-5xl block mb-2">📉</span>
                     <p class="text-xl font-bold text-green-700">Click or Drag Image</p>
                     <p class="text-sm text-green-500 mt-1">JPG, PNG, WEBP supported</p>
                     <input type="file" id="img-input" class="hidden" accept="image/*">
                 </div>
 
-                <div id="img-controls" class="hidden mt-8 space-y-6 bg-white p-6 rounded-xl shadow-sm">
+                <div id="img-controls" class="hidden mt-8 space-y-6 bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm">
                     <div class="flex gap-2 p-1 bg-gray-100 rounded-lg">
-                        <button id="mode-manual" class="flex-1 py-2 rounded-md bg-white shadow-sm text-sm font-bold text-gray-800 transition-all">Manual Control</button>
-                        <button id="mode-auto" class="flex-1 py-2 rounded-md text-gray-500 text-sm font-bold hover:bg-gray-200 transition-all">Target Size (KB)</button>
+                        <button id="mode-manual" class="flex-1 py-2 rounded-md bg-white dark:bg-slate-800 shadow-sm text-sm font-bold text-gray-800 dark:text-slate-100 transition-all">Manual Control</button>
+                        <button id="mode-auto" class="flex-1 py-2 rounded-md text-gray-500 dark:text-slate-400 text-sm font-bold hover:bg-gray-200 transition-all">Target Size (KB)</button>
                     </div>
 
                     <!-- Manual UI -->
                     <div id="manual-ui">
                         <div class="flex justify-between mb-2">
-                            <label class="font-bold text-gray-700">Quality Level</label>
-                            <span class="font-mono bg-blue-100 text-blue-800 px-2 rounded"><span id="qual-val">80</span>%</span>
+                            <label class="font-bold text-gray-700 dark:text-slate-200">Quality Level</label>
+                            <span class="font-mono bg-blue-100 text-blue-800 dark:text-blue-200 px-2 rounded"><span id="qual-val">80</span>%</span>
                         </div>
                         <input type="range" id="qual-slider" min="1" max="100" value="80" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-green-600">
                         <p class="text-xs text-gray-400 mt-2 text-right">Lower % = Smaller Size</p>
@@ -548,22 +691,22 @@ const compressorPage = `
 
                     <!-- Auto UI -->
                     <div id="auto-ui" class="hidden">
-                        <label class="block text-sm font-bold text-gray-700 mb-2">Target File Size (KB)</label>
+                        <label class="block text-sm font-bold text-gray-700 dark:text-slate-200 mb-2">Target File Size (KB)</label>
                         <div class="flex gap-2">
-                            <input type="number" id="target-kb" value="100" class="w-full border-2 border-gray-200 p-3 rounded-lg focus:border-green-500 outline-none" placeholder="e.g. 50">
+                            <input type="number" id="target-kb" value="100" class="w-full border-2 border-gray-200 dark:border-slate-700 p-3 rounded-lg focus:border-green-500 outline-none" placeholder="e.g. 50">
                             <button id="btn-auto-compress" class="bg-green-600 text-white px-6 rounded-lg font-bold hover:bg-green-700">Go</button>
                         </div>
-                        <p class="text-xs text-gray-500 mt-2">We will try to reduce quality until it fits this size.</p>
+                        <p class="text-xs text-gray-500 dark:text-slate-400 mt-2">We will try to reduce quality until it fits this size.</p>
                     </div>
 
                     <div class="grid grid-cols-2 gap-4 text-center bg-slate-50 p-4 rounded-xl border border-slate-100">
                         <div>
-                            <p class="text-xs text-gray-500 uppercase font-bold tracking-wider">Original</p>
-                            <p id="orig-size" class="text-lg font-bold text-slate-700">0 KB</p>
+                            <p class="text-xs text-gray-500 dark:text-slate-400 uppercase font-bold tracking-wider">Original</p>
+                            <p id="orig-size" class="text-lg font-bold text-slate-700 dark:text-slate-300">0 KB</p>
                         </div>
-                        <div class="border-l border-slate-200">
-                            <p class="text-xs text-gray-500 uppercase font-bold tracking-wider">Compressed</p>
-                            <p id="new-size" class="text-lg font-bold text-green-600">0 KB</p>
+                        <div class="border-l border-slate-200 dark:border-slate-700">
+                            <p class="text-xs text-gray-500 dark:text-slate-400 uppercase font-bold tracking-wider">Compressed</p>
+                            <p id="new-size" class="text-lg font-bold text-green-600 dark:text-green-400">0 KB</p>
                         </div>
                     </div>
                     
@@ -581,81 +724,123 @@ const compressorPage = `
 
         <!-- SEO Content -->
         <article class="prose prose-slate max-w-none">
-             <h3 class="text-2xl font-bold text-slate-900 mb-4">Why is this useful?</h3>
-             <ul class="list-disc pl-5 space-y-2 text-slate-700 mb-6">
+             <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Why is this useful?</h3>
+             <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-6">
                 <li><strong>Portals:</strong> Many portals demand under 100KB photos.</li>
                 <li><strong>Speed:</strong> Faster uploads on slow networks.</li>
                 <li><strong>Storage:</strong> Save space on your device.</li>
             </ul>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Key Features</h3>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Key Features</h3>
             <div class="grid md:grid-cols-2 gap-6 mb-8">
                 <div class="flex gap-4">
                     <span class="text-2xl">🎯</span>
                     <div>
-                        <h4 class="font-bold text-slate-800">Target Size Mode</h4>
-                        <p class="text-sm text-slate-600">Compress specific KB size (e.g. 50KB) magically.</p>
+                        <h4 class="font-bold text-slate-800 dark:text-slate-100">Target Size Mode</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">Compress specific KB size (e.g. 50KB) magically.</p>
                     </div>
                 </div>
                 <div class="flex gap-4">
                      <span class="text-2xl">⚡</span>
                     <div>
-                        <h4 class="font-bold text-slate-800">Instant Preview</h4>
-                        <p class="text-sm text-slate-600">Compare before and after side-by-side.</p>
+                        <h4 class="font-bold text-slate-800 dark:text-slate-100">Instant Preview</h4>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">Compare before and after side-by-side.</p>
                     </div>
                 </div>
             </div>
             
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">FAQ</h3>
-             <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer">
-                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
-                    Does quality drop?
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-4 text-slate-600 border-t border-slate-200">
-                    Minimal — the tool balances sharpness and size.
-                </div>
-            </details>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
+            <div class="space-y-4">
             
-            <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does it overwrite my original image?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            No. The compressed image is saved as a new file, leaving your original photo untouched.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I specify an exact file size?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. Use the 'Target Size' mode to request a specific limit, like 50KB or 100KB, and we will adjust quality to fit.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Which formats can be compressed?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            It works best with JPG, PNG, and WEBP files.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Is the compression lossy?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes, it intelligently reduces data while maintaining visual clarity. You can control the aggressiveness using the slider.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Is it safe for personal photos?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. Processing is local. Your photos never leave your device.
+        </div>
+    </details>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
                 <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
             </div>
         </article>
     </div>
 `;
 const pdfPage = `
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
         <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 border-b pb-4">PDF Compressor</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl">
+            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">PDF Compressor</h1>
+            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
                 PDF Compressor reduces the size of heavy PDF documents without ruining text clarity or image quality. 
                 Perfect for job portals, online submissions, academic work, and email attachments that demand specific size limits.
             </p>
             
-            <div class="bg-red-50 p-6 rounded-2xl border border-red-100">
-                <input type="file" id="pdf-input" accept=".pdf" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white file:text-red-700 hover:file:bg-red-100 mb-6 cursor-pointer">
+            <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-2xl border border-red-100">
+                <input type="file" id="pdf-input" accept=".pdf" class="block w-full text-sm text-slate-500 dark:text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white dark:bg-slate-800 file:text-red-700 hover:file:bg-red-100 mb-6 cursor-pointer">
                 
                 <div id="pdf-status" class="hidden">
                     <div class="w-full bg-gray-200 rounded-full h-2.5 mb-2">
                         <div id="pdf-progress" class="bg-red-600 h-2.5 rounded-full" style="width: 0%"></div>
                     </div>
-                    <p id="pdf-status-text" class="text-sm text-center text-gray-600">Processing...</p>
+                    <p id="pdf-status-text" class="text-sm text-center text-gray-600 dark:text-slate-300">Processing...</p>
                 </div>
 
                 <!-- Quality Slider -->
-                <div class="mb-6 mt-4 p-4 bg-white rounded-xl border border-red-100">
-                    <label class="block text-sm font-bold text-gray-700 mb-2">
-                        Compression Aggressiveness: <span id="pdf-qual-val" class="text-red-600">70</span>%
+                <div class="mb-6 mt-4 p-4 bg-white dark:bg-slate-800 rounded-xl border border-red-100">
+                    <label class="block text-sm font-bold text-gray-700 dark:text-slate-200 mb-2">
+                        Compression Aggressiveness: <span id="pdf-qual-val" class="text-red-600 dark:text-red-400">70</span>%
                     </label>
                     <input type="range" id="pdf-qual-slider" min="10" max="100" value="70" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-red-600">
-                    <p class="text-xs text-gray-500 mt-2">Lower % = Smaller File Size. 70% is recommended for balanced quality.</p>
+                    <p class="text-xs text-gray-500 dark:text-slate-400 mt-2">Lower % = Smaller File Size. 70% is recommended for balanced quality.</p>
                 </div>
 
                 <!-- Size Comparison UI -->
-                <div class="grid grid-cols-2 gap-4 text-center bg-white p-4 rounded-lg mt-4 mb-4 border border-red-100">
-                    <div><p class="text-xs text-gray-500 uppercase tracking-widest">Original Size</p><p id="pdf-orig-size" class="font-bold text-gray-800">0 KB</p></div>
-                    <div class="border-l border-red-100"><p class="text-xs text-green-600 uppercase tracking-widest">Compressed</p><p id="pdf-new-size" class="font-bold text-green-600">0 KB</p></div>
+                <div class="grid grid-cols-2 gap-4 text-center bg-white dark:bg-slate-800 p-4 rounded-lg mt-4 mb-4 border border-red-100">
+                    <div><p class="text-xs text-gray-500 dark:text-slate-400 uppercase tracking-widest">Original Size</p><p id="pdf-orig-size" class="font-bold text-gray-800 dark:text-slate-100">0 KB</p></div>
+                    <div class="border-l border-red-100"><p class="text-xs text-green-600 dark:text-green-400 uppercase tracking-widest">Compressed</p><p id="pdf-new-size" class="font-bold text-green-600 dark:text-green-400">0 KB</p></div>
                 </div>
 
                 <div id="pdf-actions" class="hidden flex flex-col sm:flex-row gap-4 mt-6">
@@ -664,71 +849,113 @@ const pdfPage = `
                 </div>
                 
                 <div id="pdf-computing" class="hidden text-center mt-4">
-                    <p class="text-sm font-semibold text-red-600 animate-pulse">Calculating Size...</p>
+                    <p class="text-sm font-semibold text-red-600 dark:text-red-400 animate-pulse">Calculating Size...</p>
                 </div>
             </div>
         </div>
 
         <!-- SEO Content -->
         <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Advantages</h3>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Advantages</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>Resolution:</strong> Keeps resolution readable while discarding unused data.</li>
                 <li><strong>Privacy:</strong> Works offline inside browser.</li>
                 <li><strong>Engine:</strong> Fast compression engine suitable for large multi-page documents.</li>
             </ul>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">How to Operate</h3>
-            <ol class="list-decimal pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">How to Operate</h3>
+            <ol class="list-decimal pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>Upload PDF:</strong> Select your file.</li>
                 <li><strong>Select Level:</strong> Use the slider to choose how much to compress.</li>
                 <li><strong>Save:</strong> Download the compressed file instantly.</li>
             </ol>
             
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">FAQ</h3>
-             <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer">
-                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
-                    Is quality compromised?
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-4 text-slate-600 border-t border-slate-200">
-                    Only minimal — the tool balances size and clarity intelligently. You can use the slider to control this balance.
-                </div>
-            </details>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
+            <div class="space-y-4">
             
-            <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            How much can it reduce file size?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Typically 40-90%, depending on the content. Scanned documents with images compress the best.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does it make text blurry?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            We use smart vector compression which keeps text sharp while optimizing images. Readability is preserved.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does it work on scanned PDFs?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. It is highly effective at shrinking scanned documents by optimizing the embedded page images.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Is there a page limit?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            There is no hard limit, but very large files (e.g., 200MB+) might require a device with more RAM.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I use this for official uploads?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. It creates standard compatible PDFs perfect for portals like government sites or job applications.
+        </div>
+    </details>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
                 <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
             </div>
         </article>
     </div>
 `;
 const humanizerPage = `
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
         <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 border-b pb-4">AI Text Humanizer</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl">
+            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">AI Text Humanizer</h1>
+            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
                 AI Humanizer rewrites AI-generated text into natural, human-sounding language. 
                 Whether you use ChatGPT, Gemini, Claude or Copilot, this tool removes robotic tone and fixes repetition.
             </p>
             
-            <div class="bg-purple-50 p-6 rounded-2xl border border-purple-100">
+            <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-2xl border border-purple-100">
                 <div class="mb-6">
-                    <label class="block text-sm font-bold text-gray-700 mb-2">Enter your Gemini API Key <span class="text-gray-400 font-normal">(stored locally in browser)</span></label>
+                    <label class="block text-sm font-bold text-gray-700 dark:text-slate-200 mb-2">Enter your Gemini API Key <span class="text-gray-400 font-normal">(stored locally in browser)</span></label>
                     <div class="flex gap-2">
-                         <input type="password" id="api-key" class="flex-1 border-2 border-gray-200 p-3 rounded-xl focus:border-purple-500 outline-none" placeholder="AIzaSy...">
+                         <input type="password" id="api-key" class="flex-1 border-2 border-gray-200 dark:border-slate-700 p-3 rounded-xl focus:border-purple-500 outline-none" placeholder="AIzaSy...">
                          <button onclick="saveKey()" class="bg-gray-800 text-white px-6 rounded-xl font-bold hover:bg-gray-900">Save</button>
                     </div>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-2">Input AI Text</label>
-                        <textarea id="human-input" class="w-full h-64 p-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 outline-none resize-none transition-all" placeholder="Paste ChatGPT text here..."></textarea>
+                        <label class="block text-sm font-bold text-gray-700 dark:text-slate-200 mb-2">Input AI Text</label>
+                        <textarea id="human-input" class="w-full h-64 p-4 border-2 border-gray-200 dark:border-slate-700 rounded-xl focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 outline-none resize-none transition-all" placeholder="Paste ChatGPT text here..."></textarea>
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-2">Humanized Result</label>
-                        <div id="human-result" class="w-full h-64 p-4 bg-white border border-gray-200 rounded-xl overflow-y-auto text-gray-600 italic whitespace-pre-wrap">Result will appear here...</div>
+                        <label class="block text-sm font-bold text-gray-700 dark:text-slate-200 mb-2">Humanized Result</label>
+                        <div id="human-result" class="w-full h-64 p-4 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl overflow-y-auto text-gray-600 dark:text-slate-300 italic whitespace-pre-wrap">Result will appear here...</div>
                     </div>
                 </div>
 
@@ -740,37 +967,79 @@ const humanizerPage = `
 
         <!-- SEO Content -->
         <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Why use AI Humanizer?</h3>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Why use AI Humanizer?</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>Natural Flow:</strong> Makes AI text look written by a real person.</li>
                 <li><strong>Emotion:</strong> Improves emotion, flow & sentence structure.</li>
                 <li><strong>Anti-Detection:</strong> Avoid robotic rhythm & repetitive vocab to protect against AI plagiarism checks.</li>
             </ul>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Who is this for?</h3>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Who is this for?</h3>
             <div class="grid md:grid-cols-2 gap-4 mb-8">
-                <div class="bg-white border rounded-lg p-4">
-                    <span class="font-bold text-purple-700">Students</span>
+                <div class="bg-white dark:bg-slate-800 border rounded-lg p-4">
+                    <span class="font-bold text-purple-700 dark:text-purple-300">Students</span>
                     <p class="text-sm">For assignments and reports.</p>
                 </div>
-                <div class="bg-white border rounded-lg p-4">
-                    <span class="font-bold text-purple-700">Creators</span>
+                <div class="bg-white dark:bg-slate-800 border rounded-lg p-4">
+                    <span class="font-bold text-purple-700 dark:text-purple-300">Creators</span>
                     <p class="text-sm">For captions and scripts.</p>
                 </div>
             </div>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">FAQ</h3>
-             <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer">
-                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
-                    Will this pass university AI checks?
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-4 text-slate-600 border-t border-slate-200">
-                    It improves originality significantly. However, users must always verify before submission.
-                </div>
-            </details>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
+            <div class="space-y-4">
             
-            <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can this bypass AI detection?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            It significantly alters the structure and vocabulary to sound more natural, which often reduces AI detection scores. However, always review the output.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Is my API key safe?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. Your Gemini API Key is stored in your browser's LocalStorage and sent directly to Google's servers. We never see or store it.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Is it free?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            The tool interface is free. You use your own API key, which usually has a generous free tier from Google.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does it change the meaning?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            It aims to preserve the original meaning while improving flow, but you should always proofread the result.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            What languages are supported?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            It is optimized for English but works well with most major languages supported by the AI model.
+        </div>
+    </details>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
                 <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
             </div>
         </article>
@@ -778,26 +1047,26 @@ const humanizerPage = `
 `;
 
 const pdfArrangerPage = `
-    <div class="max-w-6xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <div class="max-w-6xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
         <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 border-b pb-4">PDF Arranger</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl">
+            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">PDF Arranger</h1>
+            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
                 PDF Arranger allows users to reorder, rotate, or delete specific PDF pages using a visual interface. 
                 Perfect for restructuring scanned documents, preparing exam notes, or adjusting PDF layouts before printing.
             </p>
             
-            <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
-                <input type="file" id="arranger-input" accept=".pdf" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white file:text-blue-700 hover:file:bg-blue-100 mb-6 cursor-pointer shadow-sm">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-100">
+                <input type="file" id="arranger-input" accept=".pdf" class="block w-full text-sm text-slate-500 dark:text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white dark:bg-slate-800 file:text-blue-700 dark:text-blue-300 hover:file:bg-blue-100 mb-6 cursor-pointer shadow-sm">
         
-                <div id="arranger-status" class="hidden text-center text-blue-600 font-bold mb-4 animate-pulse">Loading pages...</div>
+                <div id="arranger-status" class="hidden text-center text-blue-600 dark:text-blue-400 font-bold mb-4 animate-pulse">Loading pages...</div>
         
                 <div id="arranger-ui" class="hidden">
                     <div class="flex justify-between items-center mb-4">
-                        <p class="text-sm font-bold text-slate-500">Drag to reorder • Click 'X' to delete</p>
+                        <p class="text-sm font-bold text-slate-500 dark:text-slate-400">Drag to reorder • Click 'X' to delete</p>
                         <button id="btn-save-arranger" class="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 shadow-md transition-all">Save & Download PDF</button>
                     </div>
-                    <div id="arranger-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-6 min-h-[200px] border-2 border-dashed border-gray-300 rounded-xl p-4 bg-white/50">
+                    <div id="arranger-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-6 min-h-[200px] border-2 border-dashed border-gray-300 dark:border-slate-600 rounded-xl p-4 bg-white dark:bg-slate-800/50">
                         <!-- Thumbnails go here -->
                     </div>
                 </div>
@@ -806,32 +1075,74 @@ const pdfArrangerPage = `
 
         <!-- SEO Content -->
         <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Benefits</h3>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Benefits</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>Drag & Drop:</strong> Simple visual reordering.</li>
                 <li><strong>Preview:</strong> See exactly what you are changing in real-time.</li>
                 <li><strong>Secure:</strong> Offline secure editing on your device.</li>
             </ul>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Steps</h3>
-             <ol class="list-decimal pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Steps</h3>
+             <ol class="list-decimal pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>Upload PDF:</strong> Select your file.</li>
                 <li><strong>Organize:</strong> Drag pages into new order or delete unwanted ones.</li>
                 <li><strong>Save:</strong> Download the rearranged file.</li>
             </ol>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">FAQ</h3>
-             <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer">
-                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
-                    Does rearranging reduce quality?
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-4 text-slate-600 border-t border-slate-200">
-                    No — the original PDF quality is preserved.
-                </div>
-            </details>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
+            <div class="space-y-4">
             
-            <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I rotate pages?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. You can rotate individual pages 90, 180, or 270 degrees.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I delete pages?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. Simply click the 'X' on any page thumbnail to remove it from the final PDF.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does it allow undo?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Currently, the best way to undo is to reload the document, but we are working on an undo button.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Do I need Adobe Acrobat?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            No. This tool provides pro-level rearranging features directly in your browser for free.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Is it secure?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes, file manipulation happens locally in memory.
+        </div>
+    </details>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
                 <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
             </div>
         </article>
@@ -839,40 +1150,40 @@ const pdfArrangerPage = `
 `;
 
 const watermarkPage = `
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
         <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 border-b pb-4">Add Watermark to PDF</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl">
+            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">Add Watermark to PDF</h1>
+            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
                 Watermark PDF helps you add custom text watermarks to documents. 
                 Ideal for branding, copyright protection, draft labels, and secure sharing.
             </p>
             
-            <div class="grid md:grid-cols-2 gap-8 bg-blue-50 p-6 rounded-2xl border border-blue-100">
+            <div class="grid md:grid-cols-2 gap-8 bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-100">
                 <div>
-                     <input type="file" id="watermark-input" accept=".pdf" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white file:text-blue-700 hover:file:bg-blue-100 mb-6 cursor-pointer shadow-sm">
+                     <input type="file" id="watermark-input" accept=".pdf" class="block w-full text-sm text-slate-500 dark:text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white dark:bg-slate-800 file:text-blue-700 dark:text-blue-300 hover:file:bg-blue-100 mb-6 cursor-pointer shadow-sm">
                      
-                     <div class="space-y-4 bg-white p-4 rounded-xl shadow-sm border border-blue-100">
+                     <div class="space-y-4 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-blue-100">
                         <div>
-                            <label class="block font-bold mb-1 text-gray-700 text-sm">Watermark Text</label>
-                            <input id="wm-text" type="text" value="CONFIDENTIAL" class="w-full border-2 border-gray-200 p-2 rounded-lg focus:border-blue-500 outline-none">
+                            <label class="block font-bold mb-1 text-gray-700 dark:text-slate-200 text-sm">Watermark Text</label>
+                            <input id="wm-text" type="text" value="CONFIDENTIAL" class="w-full border-2 border-gray-200 dark:border-slate-700 p-2 rounded-lg focus:border-blue-500 outline-none">
                         </div>
                         <div class="flex gap-4">
                             <div class="flex-1">
-                                <label class="block font-bold mb-1 text-gray-700 text-sm">Size</label>
-                                <input id="wm-size" type="number" value="50" class="w-full border-2 border-gray-200 p-2 rounded-lg focus:border-blue-500 outline-none">
+                                <label class="block font-bold mb-1 text-gray-700 dark:text-slate-200 text-sm">Size</label>
+                                <input id="wm-size" type="number" value="50" class="w-full border-2 border-gray-200 dark:border-slate-700 p-2 rounded-lg focus:border-blue-500 outline-none">
                             </div>
                             <div class="flex-1">
-                                <label class="block font-bold mb-1 text-gray-700 text-sm">Opacity (0-1)</label>
-                                <input id="wm-opacity" type="number" value="0.5" step="0.1" max="1" class="w-full border-2 border-gray-200 p-2 rounded-lg focus:border-blue-500 outline-none">
+                                <label class="block font-bold mb-1 text-gray-700 dark:text-slate-200 text-sm">Opacity (0-1)</label>
+                                <input id="wm-opacity" type="number" value="0.5" step="0.1" max="1" class="w-full border-2 border-gray-200 dark:border-slate-700 p-2 rounded-lg focus:border-blue-500 outline-none">
                             </div>
                         </div>
                         <div>
-                             <label class="block font-bold mb-1 text-gray-700 text-sm">Rotation: <span id="wm-rot-val">45 deg</span></label>
+                             <label class="block font-bold mb-1 text-gray-700 dark:text-slate-200 text-sm">Rotation: <span id="wm-rot-val">45 deg</span></label>
                              <input id="wm-rotation" type="range" min="0" max="360" value="45" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600">
                         </div>
                         <div>
-                            <label class="block font-bold mb-1 text-gray-700 text-sm">Color</label>
+                            <label class="block font-bold mb-1 text-gray-700 dark:text-slate-200 text-sm">Color</label>
                             <input id="wm-color" type="color" value="#ff0000" class="w-full border p-1 rounded h-10 cursor-pointer">
                         </div>
                      </div>
@@ -881,12 +1192,12 @@ const watermarkPage = `
                 </div>
                 
                 <div class="flex flex-col gap-4">
-                    <div class="bg-gray-200 rounded-xl flex items-center justify-center p-4 relative overflow-hidden h-[400px] border-2 border-dashed border-gray-300">
+                    <div class="bg-gray-200 rounded-xl flex items-center justify-center p-4 relative overflow-hidden h-[400px] border-2 border-dashed border-gray-300 dark:border-slate-600">
                          <div id="wm-placeholder" class="text-gray-400 text-center absolute z-0">
                             <div class="text-4xl mb-2">👁️</div>
                             <p class="font-bold">Preview Area</p>
                          </div>
-                         <canvas id="wm-preview-canvas" class="border shadow-lg relative z-10 hidden max-h-full max-w-full bg-white"></canvas>
+                         <canvas id="wm-preview-canvas" class="border shadow-lg relative z-10 hidden max-h-full max-w-full bg-white dark:bg-slate-800"></canvas>
                          <div id="wm-status" class="hidden absolute top-2 right-2 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-md animate-pulse">Processing...</div>
                     </div>
                     
@@ -900,32 +1211,74 @@ const watermarkPage = `
 
         <!-- SEO Content -->
         <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Main Highlights</h3>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Main Highlights</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>Custom:</strong> Custom input, font size, and color.</li>
                 <li><strong>Privacy:</strong> Offline processing means no one sees your confidential files.</li>
                 <li><strong>Free:</strong> Unlimited document usage.</li>
             </ul>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">How to Apply</h3>
-             <ol class="list-decimal pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">How to Apply</h3>
+             <ol class="list-decimal pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>Load PDF:</strong> Upload the document securely.</li>
                 <li><strong>Customize:</strong> Type your text (e.g. DRAFT), choose opacity and rotation.</li>
                 <li><strong>Download:</strong> Get your protected file instantly.</li>
             </ol>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">FAQ</h3>
-             <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer">
-                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
-                    Can I place watermark diagonally?
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-4 text-slate-600 border-t border-slate-200">
-                    Yes — just use the rotation slider to set it to 45 degrees or any other angle.
-                </div>
-            </details>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
+            <div class="space-y-4">
             
-            <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I change the watermark angle?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. Use the rotation slider to place text diagonally (45°), vertically (90°), or horizontally.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Is the watermark permanent?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. Once applied and downloaded, the watermark becomes a permanent part of the PDF page content.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I adjust transparency?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. You can control the opacity (0.0 to 1.0) to make the watermark subtle or bold.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I use an image as a watermark?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Currently this tool supports Text watermarks only. Image watermarking is coming soon.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does it cover all pages?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes, the watermark is applied to every page of the document automatically.
+        </div>
+    </details>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
                 <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
             </div>
         </article>
@@ -933,17 +1286,17 @@ const watermarkPage = `
 `;
 
 const mp4ToMp3Page = `
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
         <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 border-b pb-4">MP4 to MP3 Audio Extractor</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl">
+            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">MP4 to MP3 Audio Extractor</h1>
+            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
                 This converter extracts clear MP3 audio from MP4 videos — perfect for lectures, background audio, music clips, and voice recordings.
                 Works entirely in your browser using secure WebAssembly technology.
             </p>
             
             <div class="bg-indigo-50 p-8 rounded-2xl border border-indigo-100">
-                <div id="mp3-drop-zone" class="bg-white border-2 border-dashed border-indigo-300 rounded-xl p-12 text-center cursor-pointer hover:bg-indigo-50 transition-colors shadow-sm">
+                <div id="mp3-drop-zone" class="bg-white dark:bg-slate-800 border-2 border-dashed border-indigo-300 rounded-xl p-12 text-center cursor-pointer hover:bg-indigo-50 transition-colors shadow-sm">
                     <p class="text-5xl mb-4">🎵</p>
                     <p class="text-xl font-bold text-indigo-700 mb-1">Click or Drag MP4 Video</p>
                     <p class="text-sm text-indigo-400">Supports .mp4 files up to 2GB (Browser Limit)</p>
@@ -958,12 +1311,12 @@ const mp4ToMp3Page = `
                     <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
                         <div id="mp3-progress" class="bg-indigo-600 h-3 rounded-full transition-all duration-300" style="width: 0%"></div>
                     </div>
-                    <p id="mp3-status-text" class="text-xs text-center text-gray-500 mt-2">Initializing FFmpeg Engine (this may take a moment first time)...</p>
+                    <p id="mp3-status-text" class="text-xs text-center text-gray-500 dark:text-slate-400 mt-2">Initializing FFmpeg Engine (this may take a moment first time)...</p>
                 </div>
 
-                <div id="mp3-result" class="hidden mt-8 text-center space-y-6 bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                <div id="mp3-result" class="hidden mt-8 text-center space-y-6 bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md border border-gray-100 dark:border-slate-800">
                     <div class="text-green-500 text-5xl mb-2">✓</div>
-                    <h3 class="text-xl font-bold text-gray-800">Conversion Complete!</h3>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-slate-100">Conversion Complete!</h3>
                     
                     <audio id="mp3-player" controls class="w-full outline-none"></audio>
                     
@@ -976,32 +1329,74 @@ const mp4ToMp3Page = `
 
         <!-- SEO Content -->
         <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Key Advantages</h3>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Key Advantages</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>Fast Extraction:</strong> Get audio in seconds without uploading.</li>
                 <li><strong>Quality:</strong> Keeps original sound quality intact (no re-encoding loss).</li>
                 <li><strong>Secure:</strong> No watermarks, no ads, no server uploads.</li>
             </ul>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">How to Convert MP4 to MP3</h3>
-            <ol class="list-decimal pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">How to Convert MP4 to MP3</h3>
+            <ol class="list-decimal pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>Upload MP4:</strong> Select your video file.</li>
                 <li><strong>Convert:</strong> The tool automatically processes the audio track.</li>
                 <li><strong>Save:</strong> Click download to save the .mp3 file to your device.</li>
             </ol>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">FAQ</h3>
-             <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer">
-                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
-                    Does conversion change pitch?
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-4 text-slate-600 border-t border-slate-200">
-                    No. The audio remains exactly as it was in the original video.
-                </div>
-            </details>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
+            <div class="space-y-4">
             
-            <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does conversion lose audio quality?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            No. We extract the original audio stream (AAC/MP3) without re-encoding whenever possible, preserving 100% quality.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            What video formats work?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            It accepts MP4, WEBM, and MOV files natively supported by your browser.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Is there a video length limit?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Technically no, but browser memory limits usually cap files around 2GB. It handles hours of audio easily.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does it work on mobile?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes, it works on modern Android and iOS browsers.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Is it fast?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes, because it doesn't upload the video. It extracts audio locally within seconds.
+        </div>
+    </details>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
                 <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
             </div>
         </article>
@@ -1009,17 +1404,17 @@ const mp4ToMp3Page = `
 `;
 
 const qrGeneratorPage = `
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
         <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 border-b pb-4">QR Code Generator</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl">
+            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">QR Code Generator</h1>
+            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
                 Create instant QR codes for URLs, text, Wi-Fi passwords, or emails. 
                 Customizable, fast, and secure. Download in high resolution.
             </p>
             
-            <div class="bg-gray-50 p-6 rounded-2xl border border-gray-200 text-center">
-                 <input id="qr-in" class="w-full border-2 border-gray-200 p-4 rounded-xl mb-6 outline-none focus:border-green-500 text-lg" placeholder="Enter link or text here (e.g. https://google.com)">
+            <div class="bg-gray-50 dark:bg-slate-900 p-6 rounded-2xl border border-gray-200 dark:border-slate-700 text-center">
+                 <input id="qr-in" class="w-full border-2 border-gray-200 dark:border-slate-700 p-4 rounded-xl mb-6 outline-none focus:border-green-500 text-lg" placeholder="Enter link or text here (e.g. https://google.com)">
                 
                 <button onclick="genQR()" class="w-full sm:w-auto bg-green-600 text-white px-10 py-3 rounded-xl font-bold text-lg hover:bg-green-700 shadow-lg shadow-green-600/20 transition-all hover:scale-[1.05]">
                     Generate QR Code 📱
@@ -1029,7 +1424,7 @@ const qrGeneratorPage = `
                     <p class="text-gray-400 italic">QR Code will appear here...</p>
                 </div>
                 
-                <a id="qr-download" class="hidden inline-block mt-6 text-green-600 font-bold border-2 border-green-600 px-6 py-2 rounded-lg hover:bg-green-50 transition-colors cursor-pointer" download="qrcode.png">
+                <a id="qr-download" class="hidden inline-block mt-6 text-green-600 dark:text-green-400 font-bold border-2 border-green-600 px-6 py-2 rounded-lg hover:bg-green-50 dark:bg-green-900/20 transition-colors cursor-pointer" download="qrcode.png">
                     Download PNG ⬇️
                 </a>
             </div>
@@ -1037,25 +1432,67 @@ const qrGeneratorPage = `
 
         <!-- SEO Content -->
         <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Uses</h3>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Uses</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>Business:</strong> Website links on business cards.</li>
                 <li><strong>Wi-Fi:</strong> Share network login easily.</li>
                 <li><strong>Events:</strong> Ticket scanning or info sheets.</li>
             </ul>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">FAQ</h3>
-             <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer">
-                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
-                    Does it expire?
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-4 text-slate-600 border-t border-slate-200">
-                    No. These are static QR codes. They work forever as long as the link works.
-                </div>
-            </details>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
+            <div class="space-y-4">
             
-            <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Do these QR codes expire?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            No. They are static QR codes containing the text/link directly. They work forever.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I generate WiFi codes?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. Format your text like <code>WIFI:S:MyNetwork;T:WPA;P:MyPassword;;</code> and it will work.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            What format is the download?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            We provide high-quality PNG images compatible with all design software.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I change the color?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Currently we output standard high-contrast black and white for maximum scan reliability.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Is there a scan limit?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            No. Since it's a direct static code, you can scan it a billion times.
+        </div>
+    </details>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
                 <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
             </div>
         </article>
@@ -1063,22 +1500,22 @@ const qrGeneratorPage = `
 `;
 
 const pageNumberPage = `
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
         <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 border-b pb-4">Add Page Numbers to PDF</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl">
+            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">Add Page Numbers to PDF</h1>
+            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
                 Insert page numbers into your PDF document instantly. 
                 Choose position, style, and font size. Essential for legal bundles and thesis submissions.
             </p>
             
-            <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
-                <input type="file" id="pagenum-input" accept=".pdf" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white file:text-blue-700 hover:file:bg-blue-100 mb-6 cursor-pointer shadow-sm">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-100">
+                <input type="file" id="pagenum-input" accept=".pdf" class="block w-full text-sm text-slate-500 dark:text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-white dark:bg-slate-800 file:text-blue-700 dark:text-blue-300 hover:file:bg-blue-100 mb-6 cursor-pointer shadow-sm">
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-xl shadow-sm border border-blue-100 mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-blue-100 mb-6">
                     <div>
-                        <label class="block font-bold mb-2 text-sm text-gray-700">Position</label>
-                        <select id="pg-pos" class="w-full border-2 border-gray-200 p-2 rounded-lg focus:border-blue-500 outline-none">
+                        <label class="block font-bold mb-2 text-sm text-gray-700 dark:text-slate-200">Position</label>
+                        <select id="pg-pos" class="w-full border-2 border-gray-200 dark:border-slate-700 p-2 rounded-lg focus:border-blue-500 outline-none">
                             <option value="bottom-center">Bottom Center</option>
                             <option value="bottom-right">Bottom Right</option>
                             <option value="bottom-left">Bottom Left</option>
@@ -1088,8 +1525,8 @@ const pageNumberPage = `
                         </select>
                     </div>
                     <div>
-                        <label class="block font-bold mb-2 text-sm text-gray-700">Format</label>
-                        <select id="pg-fmt" class="w-full border-2 border-gray-200 p-2 rounded-lg focus:border-blue-500 outline-none">
+                        <label class="block font-bold mb-2 text-sm text-gray-700 dark:text-slate-200">Format</label>
+                        <select id="pg-fmt" class="w-full border-2 border-gray-200 dark:border-slate-700 p-2 rounded-lg focus:border-blue-500 outline-none">
                             <option value="nb">1</option>
                             <option value="pg_nb">Page 1</option>
                             <option value="nb_of_total">1 of n</option>
@@ -1097,12 +1534,12 @@ const pageNumberPage = `
                         </select>
                     </div>
                      <div>
-                        <label class="block font-bold mb-2 text-sm text-gray-700">Font Size</label>
-                        <input type="number" id="pg-size" value="12" class="w-full border-2 border-gray-200 p-2 rounded-lg focus:border-blue-500 outline-none">
+                        <label class="block font-bold mb-2 text-sm text-gray-700 dark:text-slate-200">Font Size</label>
+                        <input type="number" id="pg-size" value="12" class="w-full border-2 border-gray-200 dark:border-slate-700 p-2 rounded-lg focus:border-blue-500 outline-none">
                     </div>
                     <div>
-                         <label class="block font-bold mb-2 text-sm text-gray-700">Start Number</label>
-                        <input type="number" id="pg-start" value="1" class="w-full border-2 border-gray-200 p-2 rounded-lg focus:border-blue-500 outline-none">
+                         <label class="block font-bold mb-2 text-sm text-gray-700 dark:text-slate-200">Start Number</label>
+                        <input type="number" id="pg-start" value="1" class="w-full border-2 border-gray-200 dark:border-slate-700 p-2 rounded-lg focus:border-blue-500 outline-none">
                     </div>
                 </div>
         
@@ -1116,12 +1553,12 @@ const pageNumberPage = `
                              <button id="btn-pg-preview" class="flex-1 bg-gray-700 text-white text-center py-3 rounded-xl font-bold hover:bg-gray-800 shadow">Preview</button>
                         </div>
                     </div>
-                    <div class="bg-gray-200 rounded-xl flex items-center justify-center p-4 h-[250px] relative border-2 border-dashed border-gray-300">
+                    <div class="bg-gray-200 rounded-xl flex items-center justify-center p-4 h-[250px] relative border-2 border-dashed border-gray-300 dark:border-slate-600">
                         <div id="pg-placeholder" class="text-gray-400 text-center absolute z-0 flex flex-col items-center">
                             <span class="text-4xl mb-2">👁️</span>
                             <span>Preview</span>
                         </div>
-                        <canvas id="pg-preview-canvas" class="border shadow-lg hidden max-h-full max-w-full relative z-10 bg-white"></canvas>
+                        <canvas id="pg-preview-canvas" class="border shadow-lg hidden max-h-full max-w-full relative z-10 bg-white dark:bg-slate-800"></canvas>
                     </div>
                 </div>
             </div>
@@ -1129,25 +1566,67 @@ const pageNumberPage = `
 
         <!-- SEO Content -->
         <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Features</h3>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Features</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>Customizable:</strong> Choose font size and starting number.</li>
                 <li><strong>Flexible:</strong> Formats like "Page 1 of 50" supported.</li>
                 <li><strong>Secure:</strong> Does not upload your document anywhere.</li>
             </ul>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">FAQ</h3>
-             <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer">
-                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
-                    Does it overwrite existing numbers?
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-4 text-slate-600 border-t border-slate-200">
-                    It simply adds text on top. If your document already has conflicting numbers, try cropping them first (feature coming soon!).
-                </div>
-            </details>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
+            <div class="space-y-4">
             
-            <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I start numbering from page 5?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. Set the 'Start Number' to 5 (or any number) to customize the sequence.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I skip the first page?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Currently it applies to all pages, but you can remove the first page using our Splitter tool first if needed.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            What format should I use?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            'Page 1 of N' is best for formal documents, while simple numbers work for drafts.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I change the font?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            It uses a standard Helvetica/Arial font for maximum compatibility.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does it cover text?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            It places the number in the margin. If your text has no margins, it might overlap.
+        </div>
+    </details>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
                 <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
             </div>
         </article>
@@ -1155,25 +1634,25 @@ const pageNumberPage = `
 `;
 
 const caseConverterPage = `
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
         <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 border-b pb-4">Case Converter</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl">
+            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">Case Converter</h1>
+            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
                 Convert text between Uppercase, Lowercase, Title Case, Sentence Case, and more instantly. 
                 Perfect for fixing accidentally capslocked text or formatting titles for blogs.
             </p>
             
-            <div class="bg-purple-50 p-6 rounded-2xl border border-purple-100">
-                <textarea id="case-input" class="w-full h-48 p-4 border-2 border-purple-200 rounded-xl focus:border-purple-500 outline-none mb-4 text-lg" placeholder="Type or paste your text here to convert..."></textarea>
+            <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-2xl border border-purple-100">
+                <textarea id="case-input" class="w-full h-48 p-4 border-2 border-purple-200 dark:border-purple-800 rounded-xl focus:border-purple-500 outline-none mb-4 text-lg bg-white dark:bg-slate-800 dark:text-white" placeholder="Type or paste your text here to convert..."></textarea>
                 
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                    <button onclick="convertCase('upper')" class="bg-white border border-purple-200 text-purple-700 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">UPPERCASE</button>
-                    <button onclick="convertCase('lower')" class="bg-white border border-purple-200 text-purple-700 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">lowercase</button>
-                    <button onclick="convertCase('title')" class="bg-white border border-purple-200 text-purple-700 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">Title Case</button>
-                    <button onclick="convertCase('sentence')" class="bg-white border border-purple-200 text-purple-700 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">Sentence case</button>
-                    <button onclick="convertCase('alternating')" class="bg-white border border-purple-200 text-purple-700 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">aLtErNaTiNg</button>
-                    <button onclick="convertCase('inverse')" class="bg-white border border-purple-200 text-purple-700 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">iNVERSE</button>
+                    <button onclick="convertCase('upper')" class="bg-white dark:bg-slate-800 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">UPPERCASE</button>
+                    <button onclick="convertCase('lower')" class="bg-white dark:bg-slate-800 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">lowercase</button>
+                    <button onclick="convertCase('title')" class="bg-white dark:bg-slate-800 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">Title Case</button>
+                    <button onclick="convertCase('sentence')" class="bg-white dark:bg-slate-800 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">Sentence case</button>
+                    <button onclick="convertCase('alternating')" class="bg-white dark:bg-slate-800 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">aLtErNaTiNg</button>
+                    <button onclick="convertCase('inverse')" class="bg-white dark:bg-slate-800 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">iNVERSE</button>
                      <button onclick="copyCase()" class="col-span-2 sm:col-span-1 md:col-span-2 bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700 shadow-md">Copy Result 📋</button>
                 </div>
             </div>
@@ -1181,31 +1660,73 @@ const caseConverterPage = `
 
         <!-- SEO Content -->
         <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Available Modes</h3>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Available Modes</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>UPPERCASE:</strong> Converts all letters to capitals.</li>
                 <li><strong>lowercase:</strong> Converts all letters to small case.</li>
                 <li><strong>Title Case:</strong> Capitalizes The First Letter Of Each Word.</li>
                 <li><strong>Sentence case:</strong> Capitalizes only the first letter of sentences.</li>
             </ul>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Why use this?</h3>
-            <p class="text-slate-700 mb-6">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Why use this?</h3>
+            <p class="text-slate-700 dark:text-slate-300 mb-6">
                 Developers use it to format constants. Writers use it for headlines. Students use it to fix essays typed with Caps Lock on.
             </p>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">FAQ</h3>
-             <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer">
-                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
-                    Does it keep my formatting?
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-4 text-slate-600 border-t border-slate-200">
-                    It affects letters only. Numbers, punctuation and spacing remain exactly as they were.
-                </div>
-            </details>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
+            <div class="space-y-4">
             
-            <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does it affect numbers?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            No. Numbers, punctuation, and special characters remain unchanged.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            What is 'Sentence Case'?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            It capitalizes the first letter of each sentence while making the rest lowercase.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            What is 'Title Case'?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            It capitalizes the first letter of every word (e.g., 'The Quick Brown Fox').
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Is my text sent to a server?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            No. All text transformations happen instantly in your browser via JavaScript.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Is there a character limit?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            No practical limit. You can paste entire essays or chapters.
+        </div>
+    </details>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
                 <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
             </div>
         </article>
@@ -1213,38 +1734,38 @@ const caseConverterPage = `
 `;
 
 const wordCounterPage = `
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
         <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 border-b pb-4">Word Counter Pro</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl">
+            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">Word Counter Pro</h1>
+            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
                 Count words, characters (with and without spaces), sentences, and paragraphs in real-time. 
                 Essential for essays, blog posts, and social media captions (X/Twitter, Instagram).
             </p>
             
-            <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-100">
                 <textarea id="wc-input" class="w-full h-64 p-4 border-2 border-blue-200 rounded-xl focus:border-blue-500 outline-none mb-6 text-lg" placeholder="Start typing or paste your document here..."></textarea>
                 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="bg-white p-4 rounded-xl shadow-sm md:col-span-1 border border-blue-100 text-center">
-                        <span id="wc-words" class="block text-4xl font-extrabold text-blue-600">0</span>
+                    <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm md:col-span-1 border border-blue-100 text-center">
+                        <span id="wc-words" class="block text-4xl font-extrabold text-blue-600 dark:text-blue-400">0</span>
                         <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">Words</span>
                     </div>
-                    <div class="bg-white p-4 rounded-xl shadow-sm md:col-span-1 border border-blue-100 text-center">
-                        <span id="wc-chars" class="block text-4xl font-extrabold text-blue-600">0</span>
+                    <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm md:col-span-1 border border-blue-100 text-center">
+                        <span id="wc-chars" class="block text-4xl font-extrabold text-blue-600 dark:text-blue-400">0</span>
                         <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">Characters</span>
                     </div>
-                     <div class="bg-white p-4 rounded-xl shadow-sm md:col-span-2 border border-blue-100 flex justify-around items-center">
+                     <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm md:col-span-2 border border-blue-100 flex justify-around items-center">
                         <div class="text-center">
-                            <span id="wc-sentences" class="block text-2xl font-bold text-gray-700">0</span>
+                            <span id="wc-sentences" class="block text-2xl font-bold text-gray-700 dark:text-slate-200">0</span>
                             <span class="text-xs text-gray-400">Sentences</span>
                         </div>
                         <div class="text-center">
-                            <span id="wc-paragraphs" class="block text-2xl font-bold text-gray-700">0</span>
+                            <span id="wc-paragraphs" class="block text-2xl font-bold text-gray-700 dark:text-slate-200">0</span>
                             <span class="text-xs text-gray-400">Paragraphs</span>
                         </div>
                          <div class="text-center">
-                            <span id="wc-spaces" class="block text-2xl font-bold text-gray-700">0</span>
+                            <span id="wc-spaces" class="block text-2xl font-bold text-gray-700 dark:text-slate-200">0</span>
                             <span class="text-xs text-gray-400">No Spaces</span>
                         </div>
                     </div>
@@ -1254,14 +1775,14 @@ const wordCounterPage = `
 
         <!-- SEO Content -->
         <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Real-Time Stats</h3>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700 mb-8">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Real-Time Stats</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
                 <li><strong>Words:</strong> Updates instantly as you type.</li>
                 <li><strong>Characters:</strong> Tracks specific limits for platforms.</li>
                 <li><strong>Privacy:</strong> We don't save your text. It vanishes when you close the tab.</li>
             </ul>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Platform Limits</h3>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Platform Limits</h3>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                  <div class="bg-gray-100 p-2 rounded text-center text-sm">
                     <strong>Twitter/X</strong><br>280 chars
@@ -1277,18 +1798,60 @@ const wordCounterPage = `
                 </div>
             </div>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">FAQ</h3>
-             <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer">
-                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
-                    Does it exclude spaces?
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <div class="p-4 text-slate-600 border-t border-slate-200">
-                    We show both. Look for the "No Spaces" stat to see the count without whitespace.
-                </div>
-            </details>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
+            <div class="space-y-4">
             
-            <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does it count while I type?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. The stats update in real-time with every keystroke.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does 'Characters' include spaces?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            We show two counts: one with spaces and one 'No Spaces' count for clarity.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Do you save my text?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Never. Your text vanishes from memory as soon as you close or refresh the tab.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            What is considered a word?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Any string of characters separated by whitespace is counted as a word.
+        </div>
+    </details>
+            
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Does it count paragraphs?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes, it detects paragraphs based on line breaks.
+        </div>
+    </details>
+            </div>
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
                 <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
             </div>
         </article>
@@ -1296,21 +1859,21 @@ const wordCounterPage = `
 `;
 
 const privacyModePage = `
-    <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-lg">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
         <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 border-b pb-4">Maximum Privacy Mode</h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl">
+            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">Maximum Privacy Mode</h1>
+            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
                 Articlarity is designed with a "Privacy First" architecture. 
                 Learn how we process files securely without ever uploading them to a cloud server.
             </p>
             
-            <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 mb-8">
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-100 mb-8">
                  <div class="flex items-start gap-4">
                     <span class="text-4xl">🛡️</span>
                     <div>
                         <h3 class="text-xl font-bold text-blue-900 mb-2">Offline Processing</h3>
-                         <p class="text-blue-800 leading-relaxed">
+                         <p class="text-blue-800 dark:text-blue-200 leading-relaxed">
                             Unlike most online tools, we do not have a backend server that sees your files. 
                             When you select a PDF or Image, it stays in your browser's memory (RAM). 
                             Our algorithms (WebAssembly) run directly on your device to process the data.
@@ -1320,38 +1883,38 @@ const privacyModePage = `
             </div>
 
              <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white border border-gray-200 p-6 rounded-xl shadow-sm">
+                <div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 p-6 rounded-xl shadow-sm">
                     <div class="text-3xl mb-3">⚡</div>
-                    <h4 class="font-bold text-gray-800 mb-2">Zero Latency</h4>
-                    <p class="text-sm text-gray-600">Since there is no upload, there is no waiting time. Processing is instant.</p>
+                    <h4 class="font-bold text-gray-800 dark:text-slate-100 mb-2">Zero Latency</h4>
+                    <p class="text-sm text-gray-600 dark:text-slate-300">Since there is no upload, there is no waiting time. Processing is instant.</p>
                 </div>
-                 <div class="bg-white border border-gray-200 p-6 rounded-xl shadow-sm">
+                 <div class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 p-6 rounded-xl shadow-sm">
                     <div class="text-3xl mb-3">🔐</div>
-                    <h4 class="font-bold text-gray-800 mb-2">GDPR Compliant</h4>
-                    <p class="text-sm text-gray-600">Your data never leaves your control, making it inherently compliant with data privacy laws.</p>
+                    <h4 class="font-bold text-gray-800 dark:text-slate-100 mb-2">GDPR Compliant</h4>
+                    <p class="text-sm text-gray-600 dark:text-slate-300">Your data never leaves your control, making it inherently compliant with data privacy laws.</p>
                 </div>
             </div>
         </div>
 
         <!-- SEO Content -->
         <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">Technical Details</h3>
-            <p class="text-slate-700 mb-6">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Technical Details</h3>
+            <p class="text-slate-700 dark:text-slate-300 mb-6">
                 We utilize technologies like <strong>WebAssembly (WASM)</strong>, <strong>FFmpeg.wasm</strong>, and <strong>PDF.js</strong> to bring desktop-class performance to the web.
             </p>
 
-            <h3 class="text-2xl font-bold text-slate-900 mb-4">FAQ</h3>
-             <details class="group bg-white border border-slate-200 rounded-lg cursor-pointer">
-                <summary class="font-semibold text-slate-800 p-4 list-none flex justify-between items-center group-open:bg-slate-50">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
+             <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+                <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
                     Does it work without internet?
                     <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
                 </summary>
-                <div class="p-4 text-slate-600 border-t border-slate-200">
+                <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
                     Yes! Once the page loads, you can disconnect from WiFi and still use all tools fully.
                 </div>
             </details>
             
-            <div class="mt-12 pt-8 border-t border-slate-200 text-sm text-slate-500">
+            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
                 <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
             </div>
         </article>
@@ -1408,11 +1971,11 @@ function render(pathOverride) {
         // 404 Handler
         appRoot.innerHTML = `
             <div class="text-center py-20">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">404</h2>
-                <p class="text-gray-600 mb-6">Tool not found or page missing.</p>
+                <h2 class="text-4xl font-bold text-gray-800 dark:text-slate-100 mb-4">404</h2>
+                <p class="text-gray-600 dark:text-slate-300 mb-6">Tool not found or page missing.</p>
                 <p class="text-sm text-gray-400 mb-8 font-mono bg-gray-100 inline-block px-3 py-1 rounded">Path: ${cleanPath}</p>
                 <div>
-                     <a href="/" class="text-blue-600 font-bold hover:underline">Go Home</a>
+                     <a href="/" class="text-blue-600 dark:text-blue-400 font-bold hover:underline">Go Home</a>
                 </div>
             </div>
         `;
@@ -1422,14 +1985,6 @@ function render(pathOverride) {
     appRoot.innerHTML = content;
     window.scrollTo(0, 0);
 
-    // ===== GA4 SPA PAGE VIEW TRACKING =====
-if (window.gtag) {
-  gtag('event', 'page_view', {
-    page_path: cleanPath,
-    page_title: document.title
-  });
-}
-    
     // Show/Hide Back Button
     const backBtn = document.getElementById('back-to-tools');
     if (backBtn) {
@@ -1743,24 +2298,24 @@ function initUniversalMerger() {
 
         pageItems.forEach((item, index) => {
             const card = document.createElement('div');
-            card.className = "relative bg-white p-2 border rounded-xl shadow-sm hover:shadow-md transition-all group";
+            card.className = "relative bg-white dark:bg-slate-800 p-2 border rounded-xl shadow-sm hover:shadow-md transition-all group";
 
             let content;
             if (item.type === 'text') {
-                content = `<div class="aspect-[3/4] flex items-center justify-center bg-gray-50 border rounded text-gray-500 font-mono text-xs p-2 overflow-hidden text-center">${item.file.name}</div>`;
+                content = `<div class="aspect-[3/4] flex items-center justify-center bg-gray-50 dark:bg-slate-900 border rounded text-gray-500 dark:text-slate-400 font-mono text-xs p-2 overflow-hidden text-center">${item.file.name}</div>`;
             } else {
                 content = `<img src="${item.thumbData}" class="w-full aspect-[3/4] object-contain border rounded bg-gray-100 mb-2">`;
             }
 
             card.innerHTML = content + `
                 <div class="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <button class="bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center shadow-sm hover:bg-red-600" onclick="window.deletePageItem(${index})">&times;</button>
+                    <button class="bg-red-50 dark:bg-red-900/200 text-white w-6 h-6 rounded-full flex items-center justify-center shadow-sm hover:bg-red-600" onclick="window.deletePageItem(${index})">&times;</button>
                 </div>
                 <div class="flex justify-between items-center text-xs text-gray-400 mt-1">
                     <span>${index + 1}</span>
                     <div class="flex gap-1">
-                        <button class="hover:text-blue-600" onclick="window.movePageItem(${index}, -1)" ${index === 0 ? 'disabled' : ''}>&larr;</button>
-                        <button class="hover:text-blue-600" onclick="window.movePageItem(${index}, 1)" ${index === pageItems.length - 1 ? 'disabled' : ''}>&rarr;</button>
+                        <button class="hover:text-blue-600 dark:text-blue-400" onclick="window.movePageItem(${index}, -1)" ${index === 0 ? 'disabled' : ''}>&larr;</button>
+                        <button class="hover:text-blue-600 dark:text-blue-400" onclick="window.movePageItem(${index}, 1)" ${index === pageItems.length - 1 ? 'disabled' : ''}>&rarr;</button>
                     </div>
                 </div>
             `;
@@ -1915,12 +2470,12 @@ function initImgToPdf() {
                 <img src="${item.thumbData}" class="w-full h-full object-cover">
                 <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-2">
                     <div class="flex justify-end">
-                         <button class="bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center hover:bg-red-600 shadow" onclick="window.delImg(${index})">&times;</button>
+                         <button class="bg-red-50 dark:bg-red-900/200 text-white w-6 h-6 rounded-full flex items-center justify-center hover:bg-red-600 shadow" onclick="window.delImg(${index})">&times;</button>
                     </div>
                     <div class="flex justify-between items-center text-white text-xs font-bold">
-                        <button class="bg-white/20 hover:bg-white/40 p-1 rounded" onclick="window.moveImg(${index}, -1)" ${index === 0 ? 'disabled' : ''}>&larr;</button>
+                        <button class="bg-white dark:bg-slate-800/20 hover:bg-white dark:bg-slate-800/40 p-1 rounded" onclick="window.moveImg(${index}, -1)" ${index === 0 ? 'disabled' : ''}>&larr;</button>
                         <span>${index + 1}</span>
-                        <button class="bg-white/20 hover:bg-white/40 p-1 rounded" onclick="window.moveImg(${index}, 1)" ${index === allImages.length - 1 ? 'disabled' : ''}>&rarr;</button>
+                        <button class="bg-white dark:bg-slate-800/20 hover:bg-white dark:bg-slate-800/40 p-1 rounded" onclick="window.moveImg(${index}, 1)" ${index === allImages.length - 1 ? 'disabled' : ''}>&rarr;</button>
                     </div>
                 </div>
             `;
@@ -2161,7 +2716,7 @@ function initPdfSplitter() {
         splitBtn.disabled = true;
         statusDiv.textContent = `Splitting and extracting ${indicesToExtract.length} pages...`;
         statusDiv.classList.remove('hidden', 'bg-red-100', 'text-red-800');
-        statusDiv.classList.add('bg-gray-100', 'text-gray-700');
+        statusDiv.classList.add('bg-gray-100', 'text-gray-700 dark:text-slate-200');
 
         try {
             // Create the new PDF to contain the extracted pages
@@ -2190,14 +2745,14 @@ function initPdfSplitter() {
             setTimeout(showSuccessModal, 1500);
 
             statusDiv.textContent = `Success! ${indicesToExtract.length} pages extracted and downloaded.`;
-            statusDiv.classList.remove('bg-gray-100', 'text-gray-700');
+            statusDiv.classList.remove('bg-gray-100', 'text-gray-700 dark:text-slate-200');
             statusDiv.classList.add('bg-green-100', 'text-green-800');
 
 
         } catch (error) {
             console.error('PDF Split Error:', error);
             statusDiv.textContent = 'Failed to split PDF.';
-            statusDiv.classList.remove('bg-gray-100', 'text-gray-700');
+            statusDiv.classList.remove('bg-gray-100', 'text-gray-700 dark:text-slate-200');
             statusDiv.classList.add('bg-red-100', 'text-red-800');
         } finally {
             splitBtn.disabled = false;
@@ -2611,7 +3166,7 @@ function initPdfArranger() {
         grid.innerHTML = '';
         pageOrder.forEach((item, index) => {
             const card = document.createElement('div');
-            card.className = "relative bg-white p-2 border rounded shadow group hover:shadow-md transition-shadow";
+            card.className = "relative bg-white dark:bg-slate-800 p-2 border rounded shadow group hover:shadow-md transition-shadow";
 
             // Image
             const img = document.createElement('img');
@@ -2621,7 +3176,7 @@ function initPdfArranger() {
             // Page Number Label
             const pgNum = document.createElement('div');
             pgNum.textContent = `Page ${item.displayNum}`;
-            pgNum.className = "text-xs text-center font-bold text-gray-500 mb-2";
+            pgNum.className = "text-xs text-center font-bold text-gray-500 dark:text-slate-400 mb-2";
 
             // Controls
             const controls = document.createElement('div');
@@ -2630,14 +3185,14 @@ function initPdfArranger() {
             // Left Btn
             const leftBtn = document.createElement('button');
             leftBtn.innerHTML = "&larr;";
-            leftBtn.className = "px-2 py-1 text-gray-600 hover:text-blue-600 hover:bg-blue-100 rounded disabled:opacity-30";
+            leftBtn.className = "px-2 py-1 text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:text-blue-400 hover:bg-blue-100 rounded disabled:opacity-30";
             leftBtn.disabled = index === 0;
             leftBtn.onclick = () => movePage(index, -1);
 
             // Right Btn
             const rightBtn = document.createElement('button');
             rightBtn.innerHTML = "&rarr;";
-            rightBtn.className = "px-2 py-1 text-gray-600 hover:text-blue-600 hover:bg-blue-100 rounded disabled:opacity-30";
+            rightBtn.className = "px-2 py-1 text-gray-600 dark:text-slate-300 hover:text-blue-600 dark:text-blue-400 hover:bg-blue-100 rounded disabled:opacity-30";
             rightBtn.disabled = index === pageOrder.length - 1;
             rightBtn.onclick = () => movePage(index, 1);
 
