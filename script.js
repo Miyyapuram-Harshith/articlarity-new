@@ -90,7 +90,7 @@ const dashboardPage = `
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     ${createToolCard('AI Humanizer', 'Rewrite AI text to sound natural.', '/humanizer', '📝', 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400', 'border-purple-100 hover:border-purple-300')}
                     ${createToolCard('Case Converter', 'UPPER, lower, Title Case transformations.', '/case', 'Aa', 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400', 'border-purple-100 hover:border-purple-300')}
-                    ${createToolCard('Word Counter Pro', 'Count words, chars, and paragraphs.', '/word-counter', '📊', 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400', 'border-purple-100 hover:border-purple-300')}
+                    ${createToolCard('Word Counter Pro', 'Count words, chars, and paragraphs.', '/counter', '📊', 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400', 'border-purple-100 hover:border-purple-300')}
                 </div>
             </div>
 
@@ -1936,7 +1936,7 @@ const routes = {
     '/mp4-to-mp3': mp4ToMp3Page,
     '/pagenumber': pageNumberPage,
     '/case': caseConverterPage,
-    '/word-counter': wordCounterPage,
+    '/counter': wordCounterPage,
     '/privacy-mode': privacyModePage,
 };
 
