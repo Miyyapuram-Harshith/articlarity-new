@@ -65,8 +65,8 @@ const dashboardPage = `
                     ${createToolCard('Img to PDF', 'Convert JPG, PNG, etc., to a single PDF.', '/img-to-pdf', '📸', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
                     ${createToolCard('PDF Compressor', 'Shrink PDF file size instantly.', '/pdf-tools', '🗜️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
                     ${createToolCard('PDF Arranger', 'Reorder or delete pages visually.', '/pdf-arranger', '📑', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
-                    ${createToolCard('Watermark PDF', 'Add customized text watermarks.', '/pdf-watermark', '✒️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
-                    ${createToolCard('Page Numberer', 'Add page numbers to PDF documents.', '/page-numberer', '🔢', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('Watermark PDF', 'Add customized text watermarks.', '/watermark', '✒️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('Page Numberer', 'Add page numbers to PDF documents.', '/pagenumber', '🔢', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
                 </div>
             </div>
 
@@ -88,7 +88,7 @@ const dashboardPage = `
                     <span class="bg-purple-100 text-purple-600 dark:text-purple-400 p-2 rounded-lg text-xl">🤖</span> AI & Text Tools
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    ${createToolCard('AI Humanizer', 'Rewrite AI text to sound natural.', '/ai-humanizer', '📝', 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400', 'border-purple-100 hover:border-purple-300')}
+                    ${createToolCard('AI Humanizer', 'Rewrite AI text to sound natural.', '/humanizer', '📝', 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400', 'border-purple-100 hover:border-purple-300')}
                     ${createToolCard('Case Converter', 'UPPER, lower, Title Case transformations.', '/case', 'Aa', 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400', 'border-purple-100 hover:border-purple-300')}
                     ${createToolCard('Word Counter Pro', 'Count words, chars, and paragraphs.', '/word-counter', '📊', 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400', 'border-purple-100 hover:border-purple-300')}
                 </div>
@@ -1924,7 +1924,7 @@ const privacyModePage = `
 const routes = {
     '/': dashboardPage,
     '/attendance': attendancePage,
-    '/ai-humanizer': humanizerPage,
+    '/humanizer': humanizerPage,
     '/compressor': compressorPage,
     '/file-merger': universalMergerPage,
     '/pdf-splitter': pdfSplitterPage,
@@ -1932,9 +1932,9 @@ const routes = {
     '/pdf-tools': pdfPage,
     '/qr': qrGeneratorPage,
     '/pdf-arranger': pdfArrangerPage,
-    '/pdf-watermark': watermarkPage,
+    '/watermark': watermarkPage,
     '/mp4-to-mp3': mp4ToMp3Page,
-    '/page-numberer': pageNumberPage,
+    '/pagenumber': pageNumberPage,
     '/case': caseConverterPage,
     '/word-counter': wordCounterPage,
     '/privacy-mode': privacyModePage,
@@ -2006,11 +2006,11 @@ function render(pathOverride) {
     if (cleanPath === '/file-merger') initUniversalMerger();
     if (cleanPath === '/pdf-splitter') initPdfSplitter();
     if (cleanPath === '/img-to-pdf') initImgToPdf();
-    if (cleanPath === '/ai-humanizer') initHumanizer();
+    if (cleanPath === '/humanizer') initHumanizer();
     if (cleanPath === '/pdf-arranger') initPdfArranger();
-    if (cleanPath === '/pdf-watermark') initWatermark();
+    if (cleanPath === '/watermark') initWatermark();
     if (cleanPath === '/mp4-to-mp3') initMp4ToMp3();
-    if (cleanPath === '/page-numberer') initPageNumber();
+    if (cleanPath === '/pagenumber') initPageNumber();
 }
 
 function navigateTo(url) {
