@@ -47,7 +47,7 @@ const dashboardPage = `
                 <span class="font-semibold text-slate-700 dark:text-slate-300">Popular Tools:</span> 
                 <a href="/file-merger" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">File Merger</a>, 
                 <a href="/img-to-pdf" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">Image to PDF</a>, 
-                <a href="/pdf-compressor" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">Compress PDF</a>
+                <a href="/pdf-tools" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">Compress PDF</a>
             </p>
         </div>
         
@@ -63,7 +63,7 @@ const dashboardPage = `
                     ${createToolCard('Universal Merger', 'Combine PDF, Images, Text, and more.', '/file-merger', '🧩', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
                     ${createToolCard('PDF Splitter', 'Extract pages or split into custom ranges.', '/pdf-splitter', '✂️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
                     ${createToolCard('Img to PDF', 'Convert JPG, PNG, etc., to a single PDF.', '/img-to-pdf', '📸', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
-                    ${createToolCard('PDF Compressor', 'Shrink PDF file size instantly.', '/pdf-compressor', '🗜️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('PDF Compressor', 'Shrink PDF file size instantly.', '/pdf-tools', '🗜️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
                     ${createToolCard('PDF Arranger', 'Reorder or delete pages visually.', '/pdf-arranger', '📑', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
                     ${createToolCard('Watermark PDF', 'Add customized text watermarks.', '/pdf-watermark', '✒️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
                     ${createToolCard('Page Numberer', 'Add page numbers to PDF documents.', '/page-numberer', '🔢', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
@@ -76,9 +76,9 @@ const dashboardPage = `
                     <span class="bg-green-100 text-green-600 dark:text-green-400 p-2 rounded-lg text-xl">🖼️</span> Image & Video
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    ${createToolCard('Smart Img Compressor', 'Compress to specific size (<100KB).', '/image-compressor-100kb', '📉', 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400', 'border-green-100 hover:border-green-300')}
+                    ${createToolCard('Smart Img Compressor', 'Compress to specific size (<100KB).', '/compressor', '📉', 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400', 'border-green-100 hover:border-green-300')}
                     ${createToolCard('MP4 to MP3', 'Extract audio from video files locally.', '/mp4-to-mp3', '🎵', 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400', 'border-green-100 hover:border-green-300')}
-                    ${createToolCard('QR Generator', 'Create custom QR codes.', '/qr-generator', '📱', 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400', 'border-green-100 hover:border-green-300')}
+                    ${createToolCard('QR Generator', 'Create custom QR codes.', '/qr', '📱', 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400', 'border-green-100 hover:border-green-300')}
                 </div>
             </div>
 
@@ -89,7 +89,7 @@ const dashboardPage = `
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     ${createToolCard('AI Humanizer', 'Rewrite AI text to sound natural.', '/ai-humanizer', '📝', 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400', 'border-purple-100 hover:border-purple-300')}
-                    ${createToolCard('Case Converter', 'UPPER, lower, Title Case transformations.', '/case-converter', 'Aa', 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400', 'border-purple-100 hover:border-purple-300')}
+                    ${createToolCard('Case Converter', 'UPPER, lower, Title Case transformations.', '/case', 'Aa', 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400', 'border-purple-100 hover:border-purple-300')}
                     ${createToolCard('Word Counter Pro', 'Count words, chars, and paragraphs.', '/word-counter', '📊', 'bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400', 'border-purple-100 hover:border-purple-300')}
                 </div>
             </div>
@@ -100,7 +100,7 @@ const dashboardPage = `
                     <span class="bg-yellow-100 text-yellow-600 dark:text-yellow-400 p-2 rounded-lg text-xl">🎓</span> Utilities
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    ${createToolCard('Attendance Calc', 'Check if you can skip or need to attend.', '/attendance-calculator', '📅', 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400', 'border-yellow-100 hover:border-yellow-300')}
+                    ${createToolCard('Attendance Calc', 'Check if you can skip or need to attend.', '/attendance', '📅', 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400', 'border-yellow-100 hover:border-yellow-300')}
                 </div>
             </div>
 
@@ -1923,19 +1923,19 @@ const privacyModePage = `
 
 const routes = {
     '/': dashboardPage,
-    '/attendance-calculator': attendancePage,
+    '/attendance': attendancePage,
     '/ai-humanizer': humanizerPage,
-    '/image-compressor-100kb': compressorPage,
+    '/compressor': compressorPage,
     '/file-merger': universalMergerPage,
     '/pdf-splitter': pdfSplitterPage,
     '/img-to-pdf': imgToPdfPage,
-    '/pdf-compressor': pdfPage,
-    '/qr-generator': qrGeneratorPage,
+    '/pdf-tools': pdfPage,
+    '/qr': qrGeneratorPage,
     '/pdf-arranger': pdfArrangerPage,
     '/pdf-watermark': watermarkPage,
     '/mp4-to-mp3': mp4ToMp3Page,
     '/page-numberer': pageNumberPage,
-    '/case-converter': caseConverterPage,
+    '/case': caseConverterPage,
     '/word-counter': wordCounterPage,
     '/privacy-mode': privacyModePage,
 };
@@ -2000,9 +2000,9 @@ function render(pathOverride) {
         }
     }
 
-    if (cleanPath === '/attendance-calculator') initAttendance();
-    if (cleanPath === '/image-compressor-100kb') initCompressor();
-    if (cleanPath === '/pdf-compressor') initPDF();
+    if (cleanPath === '/attendance') initAttendance();
+    if (cleanPath === '/compressor') initCompressor();
+    if (cleanPath === '/pdf-tools') initPDF();
     if (cleanPath === '/file-merger') initUniversalMerger();
     if (cleanPath === '/pdf-splitter') initPdfSplitter();
     if (cleanPath === '/img-to-pdf') initImgToPdf();
