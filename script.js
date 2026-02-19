@@ -1518,105 +1518,41 @@ const pageNumberPage = `
 `;
 
 const caseConverterPage = `
-    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
-        
-        <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">Case Converter</h1>
-            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
-                Convert text between Uppercase, Lowercase, Title Case, Sentence Case, and more instantly. 
-                Perfect for fixing accidentally capslocked text or formatting titles for blogs.
-            </p>
-            
-            <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-2xl border border-purple-100">
-                <textarea id="case-input" class="w-full h-48 p-4 border-2 border-purple-200 dark:border-purple-800 rounded-xl focus:border-purple-500 outline-none mb-4 text-lg bg-white dark:bg-slate-800 dark:text-white" placeholder="Type or paste your text here to convert..."></textarea>
-                
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                    <button onclick="convertCase('upper')" class="bg-white dark:bg-slate-800 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">UPPERCASE</button>
-                    <button onclick="convertCase('lower')" class="bg-white dark:bg-slate-800 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">lowercase</button>
-                    <button onclick="convertCase('title')" class="bg-white dark:bg-slate-800 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">Title Case</button>
-                    <button onclick="convertCase('sentence')" class="bg-white dark:bg-slate-800 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">Sentence case</button>
-                    <button onclick="convertCase('alternating')" class="bg-white dark:bg-slate-800 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">aLtErNaTiNg</button>
-                    <button onclick="convertCase('inverse')" class="bg-white dark:bg-slate-800 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 font-bold py-3 rounded-lg hover:bg-purple-600 hover:text-white transition-all">iNVERSE</button>
-                     <button onclick="copyCase()" class="col-span-2 sm:col-span-1 md:col-span-2 bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700 shadow-md">Copy Result 📋</button>
-                </div>
-            </div>
+<div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
+
+    <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">
+        Case Converter
+    </h1>
+
+    <p class="text-lg text-gray-600 dark:text-slate-300 mb-6">
+        Convert text between Uppercase, Lowercase, Title Case, Sentence Case and more instantly.
+    </p>
+
+    <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-2xl border border-purple-200 dark:border-purple-800">
+
+        <textarea id="case-input"
+            class="w-full h-48 p-4 border-2 border-purple-200 dark:border-purple-800 rounded-xl focus:border-purple-500 outline-none mb-4 text-lg bg-white dark:bg-slate-800 dark:text-white"
+            placeholder="Type or paste your text here..."></textarea>
+
+        <div class="flex justify-between text-sm mb-4 text-slate-600 dark:text-slate-300">
+            <span>Characters: <strong id="char-count">0</strong></span>
+            <span>Words: <strong id="word-count">0</strong></span>
         </div>
 
-        <!-- SEO Content -->
-        <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Available Modes</h3>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
-                <li><strong>UPPERCASE:</strong> Converts all letters to capitals.</li>
-                <li><strong>lowercase:</strong> Converts all letters to small case.</li>
-                <li><strong>Title Case:</strong> Capitalizes The First Letter Of Each Word.</li>
-                <li><strong>Sentence case:</strong> Capitalizes only the first letter of sentences.</li>
-            </ul>
-
-            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Why use this?</h3>
-            <p class="text-slate-700 dark:text-slate-300 mb-6">
-                Developers use it to format constants. Writers use it for headlines. Students use it to fix essays typed with Caps Lock on.
-            </p>
-
-            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
-            <div class="space-y-4">
-            
-    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
-        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
-            Does it affect numbers?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
-            No. Numbers, punctuation, and special characters remain unchanged.
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+            <button onclick="convertCase('upper')" class="btn-case">UPPERCASE</button>
+            <button onclick="convertCase('lower')" class="btn-case">lowercase</button>
+            <button onclick="convertCase('title')" class="btn-case">Title Case</button>
+            <button onclick="convertCase('sentence')" class="btn-case">Sentence case</button>
+            <button onclick="convertCase('alternating')" class="btn-case">aLtErNaTiNg</button>
+            <button onclick="convertCase('inverse')" class="btn-case">iNVERSE</button>
+            <button onclick="copyCase()" class="col-span-2 bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700">
+                Copy Result 📋
+            </button>
         </div>
-    </details>
-            
-    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
-        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
-            What is 'Sentence Case'?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
-            It capitalizes the first letter of each sentence while making the rest lowercase.
-        </div>
-    </details>
-            
-    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
-        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
-            What is 'Title Case'?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
-            It capitalizes the first letter of every word (e.g., 'The Quick Brown Fox').
-        </div>
-    </details>
-            
-    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
-        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
-            Is my text sent to a server?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
-            No. All text transformations happen instantly in your browser via JavaScript.
-        </div>
-    </details>
-            
-    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
-        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
-            Is there a character limit?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
-            No practical limit. You can paste entire essays or chapters.
-        </div>
-    </details>
-            </div>
-            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
-                <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
-            </div>
-        </article>
     </div>
+</div>
 `;
-
 const wordCounterPage = `
     <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
@@ -3468,6 +3404,72 @@ function initPageNumber() {
         }
     });
 }
+function convertCase(type) {
+    const textarea = document.getElementById("case-input");
+    let text = textarea.value;
 
+    if (!text) return;
+
+    switch(type) {
+        case "upper":
+            text = text.toUpperCase();
+            break;
+
+        case "lower":
+            text = text.toLowerCase();
+            break;
+
+        case "title":
+            text = text.replace(/\w\S*/g,
+                txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+            );
+            break;
+
+        case "sentence":
+            text = text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g,
+                c => c.toUpperCase()
+            );
+            break;
+
+        case "alternating":
+            text = text.split("").map((c,i) =>
+                i % 2 === 0 ? c.toLowerCase() : c.toUpperCase()
+            ).join("");
+            break;
+
+        case "inverse":
+            text = text.split("").map(c =>
+                c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()
+            ).join("");
+            break;
+    }
+
+    textarea.value = text;
+    updateCaseCount();
+}
+
+function updateCaseCount() {
+    const text = document.getElementById("case-input").value;
+
+    document.getElementById("char-count").innerText = text.length;
+
+    const words = text.trim().length === 0
+        ? 0
+        : text.trim().split(/\s+/).length;
+
+    document.getElementById("word-count").innerText = words;
+}
+
+function copyCase() {
+    const textarea = document.getElementById("case-input");
+    textarea.select();
+    document.execCommand("copy");
+}
+
+document.addEventListener("input", function(e) {
+    if (e.target && e.target.id === "case-input") {
+        updateCaseCount();
+    }
+});
 
 
