@@ -1286,121 +1286,56 @@ const watermarkPage = `
 `;
 
 const mp4ToMp3Page = `
-    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
+<div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
+    
+    <div class="mb-12">
+        <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">
+            MP4 to MP3 Audio Extractor
+        </h1>
+
+        <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
+            Extract high-quality MP3 audio directly from MP4 videos. 
+            100% browser-based. No uploads. No server storage.
+        </p>
         
-        <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">MP4 to MP3 Audio Extractor</h1>
-            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
-                This converter extracts clear MP3 audio from MP4 videos — perfect for lectures, background audio, music clips, and voice recordings.
-                Works entirely in your browser using secure WebAssembly technology.
-            </p>
-            
-            <div class="bg-indigo-50 p-8 rounded-2xl border border-indigo-100">
-                <div id="mp3-drop-zone" class="bg-white dark:bg-slate-800 border-2 border-dashed border-indigo-300 rounded-xl p-12 text-center cursor-pointer hover:bg-indigo-50 transition-colors shadow-sm">
-                    <p class="text-5xl mb-4">🎵</p>
-                    <p class="text-xl font-bold text-indigo-700 mb-1">Click or Drag MP4 Video</p>
-                    <p class="text-sm text-indigo-400">Supports .mp4 files up to 2GB (Browser Limit)</p>
-                    <input type="file" id="mp4-input" class="hidden" accept=".mp4">
-                </div>
+        <div class="bg-indigo-50 dark:bg-slate-700 p-8 rounded-2xl border border-indigo-100 dark:border-slate-600">
 
-                <div id="mp3-status" class="hidden mt-8">
-                    <div class="flex justify-between text-sm font-bold text-indigo-800 mb-1">
-                        <span>Processing Audio...</span>
-                        <span id="mp3-percent">0%</span>
+            <div id="mp3-drop-zone"
+                class="bg-white dark:bg-slate-800 border-2 border-dashed border-indigo-300 
+                rounded-xl p-12 text-center cursor-pointer hover:bg-indigo-50 
+                dark:hover:bg-slate-700 transition-colors shadow-sm">
+
+                <p class="text-5xl mb-4">🎵</p>
+                <p class="text-xl font-bold text-indigo-700 dark:text-indigo-300 mb-1">
+                    Click to Upload MP4
+                </p>
+
+                <input type="file" id="mp4-input" class="hidden" accept=".mp4">
+            </div>
+
+            <div id="mp3-status" class="hidden mt-8">
+                <p id="mp3-status-text" class="text-sm mb-2 text-indigo-700 dark:text-indigo-300">
+                    Loading engine...
+                </p>
+                <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                    <div id="mp3-progress"
+                        class="bg-indigo-600 h-3 rounded-full transition-all duration-300"
+                        style="width: 0%">
                     </div>
-                    <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
-                        <div id="mp3-progress" class="bg-indigo-600 h-3 rounded-full transition-all duration-300" style="width: 0%"></div>
-                    </div>
-                    <p id="mp3-status-text" class="text-xs text-center text-gray-500 dark:text-slate-400 mt-2">Initializing FFmpeg Engine (this may take a moment first time)...</p>
-                </div>
-
-                <div id="mp3-result" class="hidden mt-8 text-center space-y-6 bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md border border-gray-100 dark:border-slate-800">
-                    <div class="text-green-500 text-5xl mb-2">✓</div>
-                    <h3 class="text-xl font-bold text-gray-800 dark:text-slate-100">Conversion Complete!</h3>
-                    
-                    <audio id="mp3-player" controls class="w-full outline-none"></audio>
-                    
-                    <a id="mp3-download" class="inline-block w-full sm:w-auto bg-green-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-green-700 shadow-lg shadow-green-600/20 transition-transform hover:scale-105 cursor-pointer">
-                        Download MP3 Audio
-                    </a>
                 </div>
             </div>
-        </div>
 
-        <!-- SEO Content -->
-        <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Key Advantages</h3>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
-                <li><strong>Fast Extraction:</strong> Get audio in seconds without uploading.</li>
-                <li><strong>Quality:</strong> Keeps original sound quality intact (no re-encoding loss).</li>
-                <li><strong>Secure:</strong> No watermarks, no ads, no server uploads.</li>
-            </ul>
-
-            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">How to Convert MP4 to MP3</h3>
-            <ol class="list-decimal pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
-                <li><strong>Upload MP4:</strong> Select your video file.</li>
-                <li><strong>Convert:</strong> The tool automatically processes the audio track.</li>
-                <li><strong>Save:</strong> Click download to save the .mp3 file to your device.</li>
-            </ol>
-
-            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
-            <div class="space-y-4">
-            
-    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
-        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
-            Does conversion lose audio quality?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
-            No. We extract the original audio stream (AAC/MP3) without re-encoding whenever possible, preserving 100% quality.
-        </div>
-    </details>
-            
-    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
-        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
-            What video formats work?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
-            It accepts MP4, WEBM, and MOV files natively supported by your browser.
-        </div>
-    </details>
-            
-    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
-        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
-            Is there a video length limit?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
-            Technically no, but browser memory limits usually cap files around 2GB. It handles hours of audio easily.
-        </div>
-    </details>
-            
-    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
-        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
-            Does it work on mobile?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
-            Yes, it works on modern Android and iOS browsers.
-        </div>
-    </details>
-            
-    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
-        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
-            Is it fast?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
-            Yes, because it doesn't upload the video. It extracts audio locally within seconds.
-        </div>
-    </details>
+            <div id="mp3-result" class="hidden mt-8 text-center space-y-4">
+                <audio id="mp3-player" controls class="w-full"></audio>
+                <a id="mp3-download"
+                    class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 cursor-pointer">
+                    Download MP3
+                </a>
             </div>
-            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
-                <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
-            </div>
-        </article>
+
+        </div>
     </div>
+</div>
 `;
 
 const qrGeneratorPage = `
@@ -3685,4 +3620,9 @@ async function initMp4ToMp3() {
             alert("FFmpeg Initialization Failed:\n" + msg + "\n\nPlease check console for details.");
         }
     });
+    document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.pathname.includes("mp4-to-mp3")) {
+        initMp4ToMp3();
+    }
+});
 }
