@@ -1868,7 +1868,8 @@ const routes = {
     '/qr': qrGeneratorPage,
     '/pdf-arranger': pdfArrangerPage,
     '/watermark': watermarkPage,
-    '/mp4-to-mp3': mp4ToMp3Page,
+
+
     '/pagenumber': pageNumberPage,
     '/case': caseConverterPage,
     '/counter': wordCounterPage,
@@ -1944,7 +1945,7 @@ function render(pathOverride) {
     if (cleanPath === '/humanizer') initHumanizer();
     if (cleanPath === '/pdf-arranger') initPdfArranger();
     if (cleanPath === '/watermark') initWatermark();
-    if (cleanPath === '/mp4-to-mp3') initMp4ToMp3();
+  
     if (cleanPath === '/pagenumber') initPageNumber();
 }
 
@@ -3620,9 +3621,5 @@ async function initMp4ToMp3() {
             alert("FFmpeg Initialization Failed:\n" + msg + "\n\nPlease check console for details.");
         }
     });
-    document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname.includes("mp4-to-mp3")) {
-        initMp4ToMp3();
-    }
-});
+   
 }
