@@ -1784,7 +1784,7 @@ const privacyModePage = `
         <article class="prose prose-slate max-w-none">
             <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Technical Details</h3>
             <p class="text-slate-700 dark:text-slate-300 mb-6">
-                We utilize technologies like <strong>WebAssembly (WASM)</strong>, <strong>FFmpeg.wasm</strong>, and <strong>PDF.js</strong> to bring desktop-class performance to the web.
+                We utilize technologies like <strong>WebAssembly (WASM)</strong> and <strong>PDF.js</strong> to bring desktop-class performance to the web.
             </p>
 
             <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
