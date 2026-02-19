@@ -77,7 +77,7 @@ const dashboardPage = `
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     ${createToolCard('Smart Img Compressor', 'Compress to specific size (<100KB).', '/compressor', '📉', 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400', 'border-green-100 hover:border-green-300')}
-                    ${createToolCard('MP4 to MP3', 'Extract audio from video files locally.', '/mp4-to-mp3', '🎵', 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400', 'border-green-100 hover:border-green-300')}
+                   
                     ${createToolCard('QR Generator', 'Create custom QR codes.', '/qr', '📱', 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400', 'border-green-100 hover:border-green-300')}
                 </div>
             </div>
