@@ -3511,3 +3511,18 @@ function initWordCounter() {
     // Initialize once
     updateCounts();
 }
+
+document.addEventListener("input", function(e) {
+    if (e.target.id === "count-in") {
+        const text = e.target.value;
+
+        const words = text.trim().length === 0
+            ? 0
+            : text.trim().split(/\s+/).length;
+
+        const chars = text.length;
+
+        document.getElementById("w-count").innerText = words;
+        document.getElementById("c-count").innerText = chars;
+    }
+});
