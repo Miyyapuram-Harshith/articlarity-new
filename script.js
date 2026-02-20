@@ -3512,17 +3512,28 @@ function initWordCounter() {
     updateCounts();
 }
 
-document.addEventListener("input", function(e) {
+
+document.addEventListener("input", function (e) {
     if (e.target.id === "count-in") {
+
         const text = e.target.value;
 
-        const words = text.trim().length === 0
+        const words = text.trim() === ""
             ? 0
             : text.trim().split(/\s+/).length;
 
         const chars = text.length;
 
-        document.getElementById("w-count").innerText = words;
-        document.getElementById("c-count").innerText = chars;
+        const charsNoSpaces = text.replace(/\s/g, "").length;
+
+        const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+
+        const paragraphs = text.split(/\n+/).filter(p => p.trim().length > 0).length;
+
+        document.querySelector("#w-count").innerText = words;
+        document.querySelector("#c-count").innerText = chars;
+        document.querySelector("#no-spaces-count").innerText = charsNoSpaces;
+        document.querySelector("#sentence-count").innerText = sentences;
+        document.querySelector("#para-count").innerText = paragraphs;
     }
 });
