@@ -3371,170 +3371,55 @@ function convertCase(type) {
     updateCaseCount();
 }
 
-function updateCaseCount() {
-    const text = document.getElementById("case-input").value;
+// ===== CLEAN WORD COUNTER (FINAL WORKING VERSION) =====
 
-    document.getElementById("char-count").innerText = text.length;
+function startWordCounterWatcher() {
 
-    const words = text.trim().length === 0
-        ? 0
-        : text.trim().split(/\s+/).length;
-
-    document.getElementById("word-count").innerText = words;
-}
-
-function copyCase() {
-    const textarea = document.getElementById("case-input");
-    textarea.select();
-    document.execCommand("copy");
-}
-
-document.addEventListener("input", function(e) {
-    if (e.target && e.target.id === "case-input") {
-        updateCaseCount();
-    }
-});
-
-function initWordCounter() {
-    const input = document.getElementById("wc-input");
-    if (!input) return;
-
-    function updateCounts() {
-        const text = input.value;
-
-        // Characters (with spaces)
-        document.getElementById("wc-chars").innerText = text.length;
-
-        // Characters (without spaces)
-        const noSpaces = text.replace(/\s/g, "");
-        document.getElementById("wc-spaces").innerText = noSpaces.length;
-
-        // Words
-        const words = text.trim().split(/\s+/).filter(word => word.length > 0);
-        document.getElementById("wc-words").innerText =
-            text.trim() === "" ? 0 : words.length;
-
-        // Sentences
-        const sentences = text
-            .split(/[.!?]+/)
-            .filter(sentence => sentence.trim().length > 0);
-        document.getElementById("wc-sentences").innerText = sentences.length;
-
-        // Paragraphs
-        const paragraphs = text
-            .split(/\n+/)
-            .filter(p => p.trim().length > 0);
-        document.getElementById("wc-paragraphs").innerText = paragraphs.length;
-    }
-
-    input.addEventListener("input", updateCounts);
-
-    // Initialize once
-    updateCounts();
-}
-
-
-document.addEventListener("input", function (e) {
-    if (e.target.id === "count-in") {
-
-        const text = e.target.value;
-
-        const words = text.trim() === ""
-            ? 0
-            : text.trim().split(/\s+/).length;
-
-        const chars = text.length;
-
-        const charsNoSpaces = text.replace(/\s/g, "").length;
-
-        const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
-
-        const paragraphs = text.split(/\n+/).filter(p => p.trim().length > 0).length;
-
-        document.querySelector("#w-count").innerText = words;
-        document.querySelector("#c-count").innerText = chars;
-        document.querySelector("#no-spaces-count").innerText = charsNoSpaces;
-        document.querySelector("#sentence-count").innerText = sentences;
-        document.querySelector("#para-count").innerText = paragraphs;
-    }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const textarea = document.getElementById("count-in");
-    const wordEl = document.getElementById("w-count");
-    const charEl = document.getElementById("c-count");
-
-    if (!textarea) return; // stop if not on counter page
-
-    textarea.addEventListener("input", function () {
-
-        const text = textarea.value;
-
-        const words = text.trim() === ""
-            ? 0
-            : text.trim().split(/\s+/).length;
-
-        const chars = text.length;
-
-        wordEl.textContent = words;
-        charEl.textContent = chars;
-    });
-
-});
-function initWordCounter() {
-
-    const input = document.getElementById("wc-input");
-    if (!input) return;
-
-    const wordsEl = document.getElementById("wc-words");
-    const charsEl = document.getElementById("wc-chars");
-    const noSpacesEl = document.getElementById("wc-spaces");
-    const sentencesEl = document.getElementById("wc-sentences");
-
-    input.addEventListener("input", () => {
-
-        const text = input.value;
-
-        const words = text.trim() ? text.trim().split(/\s+/).length : 0;
-        const chars = text.length;
-        const noSpaces = text.replace(/\s/g, "").length;
-        const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
-
-        wordsEl.textContent = words;
-        charsEl.textContent = chars;
-        noSpacesEl.textContent = noSpaces;
-        sentencesEl.textContent = sentences;
-    });
-}
-document.addEventListener("DOMContentLoaded", function () {
-
-    function initWordCounter() {
+    setInterval(() => {
 
         const input = document.getElementById("wc-input");
         if (!input) return;
+
+        // Prevent duplicate listener
+        if (input.dataset.active === "true") return;
+        input.dataset.active = "true";
 
         const wordsEl = document.getElementById("wc-words");
         const charsEl = document.getElementById("wc-chars");
         const noSpacesEl = document.getElementById("wc-spaces");
         const sentencesEl = document.getElementById("wc-sentences");
+        const paragraphsEl = document.getElementById("wc-paragraphs");
 
-        input.addEventListener("input", () => {
+        function updateCounts() {
 
             const text = input.value;
 
-            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            const words = text.trim() === "" ? 0 :
+                text.trim().split(/\s+/).length;
+
             const chars = text.length;
+
             const noSpaces = text.replace(/\s/g, "").length;
-            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+
+            const sentences = text
+                .split(/[.!?]+/)
+                .filter(s => s.trim().length > 0).length;
+
+            const paragraphs = text
+                .split(/\n+/)
+                .filter(p => p.trim().length > 0).length;
 
             wordsEl.textContent = words;
             charsEl.textContent = chars;
             noSpacesEl.textContent = noSpaces;
             sentencesEl.textContent = sentences;
-        });
-    }
+            paragraphsEl.textContent = paragraphs;
+        }
 
-    // Run it with small delay (for dynamic router loading)
-    setTimeout(initWordCounter, 100);
-});
+        input.addEventListener("input", updateCounts);
+        updateCounts();
+
+    }, 400);
+}
+
+startWordCounterWatcher();
