@@ -1554,132 +1554,53 @@ const caseConverterPage = `
 </div>
 `;
 const wordCounterPage = `
-    <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
-        
-        <div class="mb-12">
-            <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">Word Counter Pro</h1>
-            <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
-                Count words, characters (with and without spaces), sentences, and paragraphs in real-time. 
-                Essential for essays, blog posts, and social media captions (X/Twitter, Instagram).
-            </p>
-            
-            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-100">
-               <textarea id="wc-input"
-class="w-full h-64 p-4 border-2 border-blue-200 rounded-xl focus:border-blue-500 outline-none mb-6 text-lg bg-white dark:bg-slate-900 text-slate-900 dark:text-white"
-placeholder="Start typing or paste your document here..."></textarea>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm md:col-span-1 border border-blue-100 text-center">
-                        <span id="wc-words" class="block text-4xl font-extrabold text-blue-600 dark:text-blue-400">0</span>
-                        <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">Words</span>
-                    </div>
-                    <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm md:col-span-1 border border-blue-100 text-center">
-                        <span id="wc-chars" class="block text-4xl font-extrabold text-blue-600 dark:text-blue-400">0</span>
-                        <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">Characters</span>
-                    </div>
-                     <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm md:col-span-2 border border-blue-100 flex justify-around items-center">
-                        <div class="text-center">
-                            <span id="wc-sentences" class="block text-2xl font-bold text-gray-700 dark:text-slate-200">0</span>
-                            <span class="text-xs text-gray-400">Sentences</span>
-                        </div>
-                        <div class="text-center">
-                            <span id="wc-paragraphs" class="block text-2xl font-bold text-gray-700 dark:text-slate-200">0</span>
-                            <span class="text-xs text-gray-400">Paragraphs</span>
-                        </div>
-                         <div class="text-center">
-                            <span id="wc-spaces" class="block text-2xl font-bold text-gray-700 dark:text-slate-200">0</span>
-                            <span class="text-xs text-gray-400">No Spaces</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
 
-        <!-- SEO Content -->
-        <article class="prose prose-slate max-w-none">
-            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Real-Time Stats</h3>
-            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
-                <li><strong>Words:</strong> Updates instantly as you type.</li>
-                <li><strong>Characters:</strong> Tracks specific limits for platforms.</li>
-                <li><strong>Privacy:</strong> We don't save your text. It vanishes when you close the tab.</li>
-            </ul>
+    <div class="mb-12">
+        <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">
+            Word Counter Pro
+        </h1>
 
-            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Platform Limits</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                 <div class="bg-gray-100 p-2 rounded text-center text-sm">
-                    <strong>Twitter/X</strong><br>280 chars
+        <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-100">
+
+            <textarea 
+                id="wc-input"
+                class="w-full h-64 p-4 border-2 border-blue-200 rounded-xl 
+                       focus:border-blue-500 outline-none mb-6 text-lg 
+                       bg-white dark:bg-slate-900 
+                       text-slate-900 dark:text-white"
+                placeholder="Start typing or paste your document here..."
+            ></textarea>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-blue-100 text-center">
+                    <span id="wc-words" class="block text-4xl font-extrabold text-blue-600 dark:text-blue-400">0</span>
+                    <span class="text-xs text-gray-400 font-bold uppercase">Words</span>
                 </div>
-                <div class="bg-gray-100 p-2 rounded text-center text-sm">
-                    <strong>LinkedIn</strong><br>3000 chars
+
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-blue-100 text-center">
+                    <span id="wc-chars" class="block text-4xl font-extrabold text-blue-600 dark:text-blue-400">0</span>
+                    <span class="text-xs text-gray-400 font-bold uppercase">Characters</span>
                 </div>
-                 <div class="bg-gray-100 p-2 rounded text-center text-sm">
-                    <strong>Google Meta</strong><br>160 chars
+
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-blue-100 text-center">
+                    <span id="wc-spaces" class="block text-2xl font-bold text-gray-700 dark:text-slate-200">0</span>
+                    <span class="text-xs text-gray-400">No Spaces</span>
                 </div>
-                 <div class="bg-gray-100 p-2 rounded text-center text-sm">
-                    <strong>Instagram</strong><br>2200 chars
+
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-blue-100 text-center">
+                    <span id="wc-sentences" class="block text-2xl font-bold text-gray-700 dark:text-slate-200">0</span>
+                    <span class="text-xs text-gray-400">Sentences</span>
                 </div>
+
             </div>
 
-            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
-            <div class="space-y-4">
-            
-    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
-        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
-            Does it count while I type?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
-            Yes. The stats update in real-time with every keystroke.
         </div>
-    </details>
-            
-    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
-        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
-            Does 'Characters' include spaces?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
-            We show two counts: one with spaces and one 'No Spaces' count for clarity.
-        </div>
-    </details>
-            
-    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
-        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
-            Do you save my text?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
-            Never. Your text vanishes from memory as soon as you close or refresh the tab.
-        </div>
-    </details>
-            
-    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
-        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
-            What is considered a word?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
-            Any string of characters separated by whitespace is counted as a word.
-        </div>
-    </details>
-            
-    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
-        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
-            Does it count paragraphs?
-            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-        </summary>
-        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
-            Yes, it detects paragraphs based on line breaks.
-        </div>
-    </details>
-            </div>
-            <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
-                <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
-            </div>
-        </article>
     </div>
-`;
 
+</div>
+`;
 const privacyModePage = `
     <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
@@ -3560,4 +3481,60 @@ document.addEventListener("DOMContentLoaded", function () {
         charEl.textContent = chars;
     });
 
+});
+function initWordCounter() {
+
+    const input = document.getElementById("wc-input");
+    if (!input) return;
+
+    const wordsEl = document.getElementById("wc-words");
+    const charsEl = document.getElementById("wc-chars");
+    const noSpacesEl = document.getElementById("wc-spaces");
+    const sentencesEl = document.getElementById("wc-sentences");
+
+    input.addEventListener("input", () => {
+
+        const text = input.value;
+
+        const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+        const chars = text.length;
+        const noSpaces = text.replace(/\s/g, "").length;
+        const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+
+        wordsEl.textContent = words;
+        charsEl.textContent = chars;
+        noSpacesEl.textContent = noSpaces;
+        sentencesEl.textContent = sentences;
+    });
+}
+document.addEventListener("DOMContentLoaded", function () {
+
+    function initWordCounter() {
+
+        const input = document.getElementById("wc-input");
+        if (!input) return;
+
+        const wordsEl = document.getElementById("wc-words");
+        const charsEl = document.getElementById("wc-chars");
+        const noSpacesEl = document.getElementById("wc-spaces");
+        const sentencesEl = document.getElementById("wc-sentences");
+
+        input.addEventListener("input", () => {
+
+            const text = input.value;
+
+            const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+            const chars = text.length;
+            const noSpaces = text.replace(/\s/g, "").length;
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+
+            wordsEl.textContent = words;
+            charsEl.textContent = chars;
+            noSpacesEl.textContent = noSpaces;
+            sentencesEl.textContent = sentences;
+        });
+    }
+
+    // Run it with small delay (for dynamic router loading)
+    setTimeout(initWordCounter, 100);
 });
