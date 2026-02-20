@@ -1680,7 +1680,7 @@ const routes = {
 
     '/pagenumber': pageNumberPage,
     '/case': caseConverterPage,
-    '/counter': wordCounterPage,
+    "/counter": () => wordCounterPage,
     '/privacy-mode': privacyModePage,
 };
 
