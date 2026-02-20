@@ -3472,4 +3472,40 @@ document.addEventListener("input", function(e) {
     }
 });
 
+function initWordCounter() {
+    const input = document.getElementById("wc-input");
+    if (!input) return;
 
+    function updateCounts() {
+        const text = input.value;
+
+        // Characters (with spaces)
+        document.getElementById("wc-chars").innerText = text.length;
+
+        // Characters (without spaces)
+        const noSpaces = text.replace(/\s/g, "");
+        document.getElementById("wc-spaces").innerText = noSpaces.length;
+
+        // Words
+        const words = text.trim().split(/\s+/).filter(word => word.length > 0);
+        document.getElementById("wc-words").innerText =
+            text.trim() === "" ? 0 : words.length;
+
+        // Sentences
+        const sentences = text
+            .split(/[.!?]+/)
+            .filter(sentence => sentence.trim().length > 0);
+        document.getElementById("wc-sentences").innerText = sentences.length;
+
+        // Paragraphs
+        const paragraphs = text
+            .split(/\n+/)
+            .filter(p => p.trim().length > 0);
+        document.getElementById("wc-paragraphs").innerText = paragraphs.length;
+    }
+
+    input.addEventListener("input", updateCounts);
+
+    // Initialize once
+    updateCounts();
+}
