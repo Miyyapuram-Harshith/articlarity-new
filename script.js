@@ -3537,3 +3537,27 @@ document.addEventListener("input", function (e) {
         document.querySelector("#para-count").innerText = paragraphs;
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const textarea = document.getElementById("count-in");
+    const wordEl = document.getElementById("w-count");
+    const charEl = document.getElementById("c-count");
+
+    if (!textarea) return; // stop if not on counter page
+
+    textarea.addEventListener("input", function () {
+
+        const text = textarea.value;
+
+        const words = text.trim() === ""
+            ? 0
+            : text.trim().split(/\s+/).length;
+
+        const chars = text.length;
+
+        wordEl.textContent = words;
+        charEl.textContent = chars;
+    });
+
+});
