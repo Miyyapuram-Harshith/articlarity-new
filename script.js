@@ -1564,7 +1564,8 @@ const wordCounterPage = `
             </p>
             
             <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-100">
-                <textarea id="wc-input" class="w-full h-64 p-4 border-2 border-blue-200 rounded-xl focus:border-blue-500 outline-none mb-6 text-lg" placeholder="Start typing or paste your document here..."></textarea>
+                <textarea id="wc-input"
+class="w-full h-64 p-4 border-2 border-blue-200 rounded-xl focus:border-blue-500 outline-none mb-6 text-lg bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
                 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm md:col-span-1 border border-blue-100 text-center">
