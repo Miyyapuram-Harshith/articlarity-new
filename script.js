@@ -1802,6 +1802,7 @@ function render(pathOverride) {
     if (cleanPath === '/watermark') initWatermark();
   
     if (cleanPath === '/pagenumber') initPageNumber();
+    if (cleanPath === '/counter') startWordCounterWatcher();
 }
 
 function navigateTo(url) {
