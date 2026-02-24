@@ -1677,10 +1677,9 @@ const routes = {
     '/pdf-arranger': pdfArrangerPage,
     '/watermark': watermarkPage,
 
-
     '/pagenumber': pageNumberPage,
     '/case': caseConverterPage,
-    "/counter": () => wordCounterPage,
+    '/counter': wordCounterPage,   // ✅ FIXED
     '/privacy-mode': privacyModePage,
 };
 
