@@ -1553,13 +1553,19 @@ const caseConverterPage = `
     </div>
 </div>
 `;
-const wordCounterPage = `
+function wordCounterPage() {
+    return `
 <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
 
     <div class="mb-12">
         <h1 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white border-b pb-4">
             Word Counter Pro
         </h1>
+
+        <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
+            Count words, characters (with and without spaces), sentences, and paragraphs in real-time.
+            Perfect for essays, assignments, blog posts, LinkedIn captions, and social media writing.
+        </p>
 
         <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-100">
 
@@ -1599,8 +1605,62 @@ const wordCounterPage = `
         </div>
     </div>
 
+    <!-- SEO CONTENT -->
+    <article class="mt-12 space-y-8">
+
+        <div>
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+                Why Use Our Word Counter?
+            </h2>
+            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                Our free online word counter tool instantly calculates word count, character count,
+                sentence count, and paragraph count directly inside your browser.
+                Your text is never stored or sent to any server — ensuring complete privacy.
+            </p>
+        </div>
+
+        <div>
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+                Social Media Character Limits
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                <div class="bg-gray-100 dark:bg-slate-700 p-3 rounded text-center">Twitter/X<br><strong>280</strong></div>
+                <div class="bg-gray-100 dark:bg-slate-700 p-3 rounded text-center">LinkedIn<br><strong>3000</strong></div>
+                <div class="bg-gray-100 dark:bg-slate-700 p-3 rounded text-center">Instagram<br><strong>2200</strong></div>
+                <div class="bg-gray-100 dark:bg-slate-700 p-3 rounded text-center">Meta Description<br><strong>160</strong></div>
+            </div>
+        </div>
+
+        <div>
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+                Frequently Asked Questions
+            </h2>
+
+            <div class="space-y-4 text-slate-700 dark:text-slate-300">
+
+                <div>
+                    <h3 class="font-semibold">Does this tool count words in real-time?</h3>
+                    <p>Yes. All counts update instantly as you type.</p>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold">Does character count include spaces?</h3>
+                    <p>Yes. We display both total characters and characters without spaces.</p>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold">Is my text saved?</h3>
+                    <p>No. Everything runs locally in your browser for maximum privacy.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </article>
+
 </div>
 `;
+}
 const privacyModePage = `
     <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
