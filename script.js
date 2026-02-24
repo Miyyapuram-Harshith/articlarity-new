@@ -1553,8 +1553,7 @@ const caseConverterPage = `
     </div>
 </div>
 `;
-function wordCounterPage() {
-    return `
+const wordCounterPage = `
 <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
 
     <div class="mb-12">
@@ -1609,7 +1608,6 @@ function wordCounterPage() {
         </div>
     </div>
 
-    <!-- SEO CONTENT -->
     <article class="mt-12 space-y-8">
 
         <h2 class="text-2xl font-bold text-slate-900 dark:text-white">
@@ -1650,7 +1648,6 @@ function wordCounterPage() {
 
 </div>
 `;
-}
 const privacyModePage = `
     <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
