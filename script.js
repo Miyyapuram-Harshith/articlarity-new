@@ -3479,6 +3479,174 @@ function startWordCounterWatcher() {
         updateCounts();
 
     }, 400);
+    <!-- EXTENDED SEO CONTENT -->
+<article class="mt-12 space-y-10">
+
+    <!-- DESCRIPTION -->
+    <div>
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+            About This Word Counter Tool
+        </h2>
+
+        <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+            Our Word Counter tool provides instant word count, character count, sentence count, and
+            character count without spaces directly in your browser. It is designed for students,
+            content creators, bloggers, professionals, and social media users who need accurate
+            writing metrics in real-time.
+        </p>
+
+        <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+            Unlike many online tools, all processing happens locally on your device. Your text is
+            never uploaded, stored, or shared — ensuring complete privacy and security while you write.
+        </p>
+    </div>
+
+    <!-- HOW TO USE -->
+    <div>
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+            How to Use the Word Counter
+        </h2>
+
+        <p class="text-slate-700 dark:text-slate-300 leading-relaxed mb-4">
+            Simply type or paste your text into the input box above. As you write, the tool
+            automatically updates the word count, total characters, characters without spaces,
+            and sentence count in real-time.
+        </p>
+
+        <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+            This makes it ideal for checking essay limits, meeting social media character restrictions,
+            optimizing blog posts, or ensuring professional documents meet required word counts.
+        </p>
+    </div>
+
+    <!-- BENEFITS -->
+    <div>
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+            Key Benefits
+        </h2>
+
+        <ul class="list-disc pl-6 space-y-2 text-slate-700 dark:text-slate-300">
+            <li>Real-time word and character tracking</li>
+            <li>Counts characters with and without spaces</li>
+            <li>Instant sentence detection</li>
+            <li>No registration required</li>
+            <li>100% browser-based and secure</li>
+            <li>Works on desktop and mobile devices</li>
+        </ul>
+    </div>
+
+    <!-- FAQ -->
+    <div>
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+            Frequently Asked Questions
+        </h2>
+
+        <div class="space-y-4">
+
+            <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg">
+                <summary class="cursor-pointer font-semibold p-4 flex justify-between items-center">
+                    Is this word counter free?
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="p-4 text-slate-600 dark:text-slate-400 border-t">
+                    Yes, it is completely free and requires no sign-up.
+                </div>
+            </details>
+
+            <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg">
+                <summary class="cursor-pointer font-semibold p-4 flex justify-between items-center">
+                    Does it count words instantly?
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="p-4 text-slate-600 dark:text-slate-400 border-t">
+                    Yes. Counts update automatically with every keystroke.
+                </div>
+            </details>
+
+            <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg">
+                <summary class="cursor-pointer font-semibold p-4 flex justify-between items-center">
+                    Does character count include spaces?
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="p-4 text-slate-600 dark:text-slate-400 border-t">
+                    We show both total characters and characters without spaces.
+                </div>
+            </details>
+
+            <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg">
+                <summary class="cursor-pointer font-semibold p-4 flex justify-between items-center">
+                    Is my text saved?
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="p-4 text-slate-600 dark:text-slate-400 border-t">
+                    No. Everything runs locally in your browser.
+                </div>
+            </details>
+
+            <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg">
+                <summary class="cursor-pointer font-semibold p-4 flex justify-between items-center">
+                    Can I use this for essays?
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="p-4 text-slate-600 dark:text-slate-400 border-t">
+                    Yes, it is ideal for academic assignments and reports.
+                </div>
+            </details>
+
+            <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg">
+                <summary class="cursor-pointer font-semibold p-4 flex justify-between items-center">
+                    Does it count sentences?
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="p-4 text-slate-600 dark:text-slate-400 border-t">
+                    Yes, sentences are detected automatically.
+                </div>
+            </details>
+
+            <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg">
+                <summary class="cursor-pointer font-semibold p-4 flex justify-between items-center">
+                    Does it work on mobile?
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="p-4 text-slate-600 dark:text-slate-400 border-t">
+                    Yes, the tool is fully responsive.
+                </div>
+            </details>
+
+            <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg">
+                <summary class="cursor-pointer font-semibold p-4 flex justify-between items-center">
+                    Is there a word limit?
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="p-4 text-slate-600 dark:text-slate-400 border-t">
+                    There is no fixed limit, but very large text may slow older devices.
+                </div>
+            </details>
+
+            <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg">
+                <summary class="cursor-pointer font-semibold p-4 flex justify-between items-center">
+                    Can I paste large documents?
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="p-4 text-slate-600 dark:text-slate-400 border-t">
+                    Yes, you can paste long articles or reports.
+                </div>
+            </details>
+
+            <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg">
+                <summary class="cursor-pointer font-semibold p-4 flex justify-between items-center">
+                    Is this tool secure?
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="p-4 text-slate-600 dark:text-slate-400 border-t">
+                    Yes. No data leaves your browser.
+                </div>
+            </details>
+
+        </div>
+    </div>
+
+</article>
 }
 
 startWordCounterWatcher();
