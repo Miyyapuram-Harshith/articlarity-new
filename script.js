@@ -1562,7 +1562,7 @@ function wordCounterPage() {
             Word Counter Pro
         </h1>
 
-        <p class="text-lg text-gray-600 dark:text-slate-300 mb-8 max-w-2xl">
+        <p class="text-lg text-gray-600 dark:text-slate-300 mb-8">
             Count words, characters (with and without spaces), sentences, and paragraphs in real-time.
             Perfect for essays, assignments, blog posts, LinkedIn captions, and social media writing.
         </p>
@@ -1578,83 +1578,73 @@ function wordCounterPage() {
                 placeholder="Start typing or paste your document here..."
             ></textarea>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
 
-                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-blue-100 text-center">
-                    <span id="wc-words" class="block text-4xl font-extrabold text-blue-600 dark:text-blue-400">0</span>
-                    <span class="text-xs text-gray-400 font-bold uppercase">Words</span>
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm text-center">
+                    <span id="wc-words" class="block text-3xl font-bold text-blue-600 dark:text-blue-400">0</span>
+                    <span class="text-xs text-gray-400 uppercase">Words</span>
                 </div>
 
-                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-blue-100 text-center">
-                    <span id="wc-chars" class="block text-4xl font-extrabold text-blue-600 dark:text-blue-400">0</span>
-                    <span class="text-xs text-gray-400 font-bold uppercase">Characters</span>
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm text-center">
+                    <span id="wc-chars" class="block text-3xl font-bold text-blue-600 dark:text-blue-400">0</span>
+                    <span class="text-xs text-gray-400 uppercase">Characters</span>
                 </div>
 
-                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-blue-100 text-center">
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm text-center">
                     <span id="wc-spaces" class="block text-2xl font-bold text-gray-700 dark:text-slate-200">0</span>
                     <span class="text-xs text-gray-400">No Spaces</span>
                 </div>
 
-                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-blue-100 text-center">
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm text-center">
                     <span id="wc-sentences" class="block text-2xl font-bold text-gray-700 dark:text-slate-200">0</span>
                     <span class="text-xs text-gray-400">Sentences</span>
                 </div>
 
-            </div>
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm text-center">
+                    <span id="wc-paragraphs" class="block text-2xl font-bold text-gray-700 dark:text-slate-200">0</span>
+                    <span class="text-xs text-gray-400">Paragraphs</span>
+                </div>
 
+            </div>
         </div>
     </div>
 
     <!-- SEO CONTENT -->
     <article class="mt-12 space-y-8">
 
-        <div>
-            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                Why Use Our Word Counter?
-            </h2>
-            <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
-                Our free online word counter tool instantly calculates word count, character count,
-                sentence count, and paragraph count directly inside your browser.
-                Your text is never stored or sent to any server — ensuring complete privacy.
-            </p>
-        </div>
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white">
+            About This Word Counter Tool
+        </h2>
 
-        <div>
-            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                Social Media Character Limits
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                <div class="bg-gray-100 dark:bg-slate-700 p-3 rounded text-center">Twitter/X<br><strong>280</strong></div>
-                <div class="bg-gray-100 dark:bg-slate-700 p-3 rounded text-center">LinkedIn<br><strong>3000</strong></div>
-                <div class="bg-gray-100 dark:bg-slate-700 p-3 rounded text-center">Instagram<br><strong>2200</strong></div>
-                <div class="bg-gray-100 dark:bg-slate-700 p-3 rounded text-center">Meta Description<br><strong>160</strong></div>
-            </div>
-        </div>
+        <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+            This online Word Counter tool provides instant word count, character count, sentence detection,
+            and paragraph tracking directly inside your browser. It is designed for students,
+            content creators, bloggers, marketers, and professionals who need accurate writing metrics
+            in real-time without installing any software.
+        </p>
 
-        <div>
-            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">
-                Frequently Asked Questions
-            </h2>
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white">
+            How to Use
+        </h2>
 
-            <div class="space-y-4 text-slate-700 dark:text-slate-300">
+        <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+            Simply type or paste your content into the text area above. The tool automatically updates
+            all statistics including total words, characters (with and without spaces), sentences,
+            and paragraphs as you type.
+        </p>
 
-                <div>
-                    <h3 class="font-semibold">Does this tool count words in real-time?</h3>
-                    <p>Yes. All counts update instantly as you type.</p>
-                </div>
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white">
+            Key Benefits
+        </h2>
 
-                <div>
-                    <h3 class="font-semibold">Does character count include spaces?</h3>
-                    <p>Yes. We display both total characters and characters without spaces.</p>
-                </div>
-
-                <div>
-                    <h3 class="font-semibold">Is my text saved?</h3>
-                    <p>No. Everything runs locally in your browser for maximum privacy.</p>
-                </div>
-
-            </div>
-        </div>
+        <ul class="list-disc pl-6 space-y-2 text-slate-700 dark:text-slate-300">
+            <li>Real-time word tracking</li>
+            <li>Counts characters with and without spaces</li>
+            <li>Automatic sentence detection</li>
+            <li>Paragraph identification</li>
+            <li>No registration required</li>
+            <li>100% privacy – text never leaves your device</li>
+        </ul>
 
     </article>
 
@@ -3618,3 +3608,38 @@ function startWordCounterWatcher() {
 }
 
 startWordCounterWatcher();
+
+function startWordCounterWatcher() {
+
+    const input = document.getElementById("wc-input");
+    if (!input) return;
+
+    if (input.dataset.active === "true") return;
+    input.dataset.active = "true";
+
+    const wordsEl = document.getElementById("wc-words");
+    const charsEl = document.getElementById("wc-chars");
+    const noSpacesEl = document.getElementById("wc-spaces");
+    const sentencesEl = document.getElementById("wc-sentences");
+    const paragraphsEl = document.getElementById("wc-paragraphs");
+
+    function updateCounts() {
+
+        const text = input.value;
+
+        const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+        const chars = text.length;
+        const noSpaces = text.replace(/\s/g, "").length;
+        const sentences = text.split(/[.!?]+/).filter(s => s.trim()).length;
+        const paragraphs = text.split(/\n+/).filter(p => p.trim()).length;
+
+        wordsEl.textContent = words;
+        charsEl.textContent = chars;
+        noSpacesEl.textContent = noSpaces;
+        sentencesEl.textContent = sentences;
+        paragraphsEl.textContent = paragraphs;
+    }
+
+    input.addEventListener("input", updateCounts);
+    updateCounts();
+}
