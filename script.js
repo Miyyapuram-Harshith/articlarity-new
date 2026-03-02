@@ -48,6 +48,7 @@ const dashboardPage = `
                 <a href="/file-merger" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">File Merger</a>, 
                 <a href="/img-to-pdf" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">Image to PDF</a>, 
                 <a href="/pdf-tools" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">Compress PDF</a>
+                <a href="/ipynb-to-pdf" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">IPYNB to PDF</a>
             </p>
         </div>
         
@@ -67,6 +68,7 @@ const dashboardPage = `
                     ${createToolCard('PDF Arranger', 'Reorder or delete pages visually.', '/pdf-arranger', '📑', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
                     ${createToolCard('Watermark PDF', 'Add customized text watermarks.', '/watermark', '✒️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
                     ${createToolCard('Page Numberer', 'Add page numbers to PDF documents.', '/pagenumber', '🔢', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('IPYNB to PDF', 'Convert Jupyter Notebooks to polished PDFs.', '/ipynb-to-pdf', '📓', 'bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400', 'border-orange-100 hover:border-orange-300')}
                 </div>
             </div>
 
@@ -1711,6 +1713,634 @@ const privacyModePage = `
     </div>
 `;
 
+const ipynbToPdfPage = `
+    <style>
+        /* Jupyter Notebook Styling Mimicry */
+        .notebook-container {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .cell {
+            margin-bottom: 2rem;
+            page-break-inside: avoid;
+            overflow-wrap: break-word;
+        }
+
+        pre {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        .input-area {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0.5rem;
+            background: #f7f7f7;
+            border: 1px solid #cfcfcf;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .dark .input-area {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        .prompt {
+            font-family: monospace;
+            font-size: 12px;
+            color: #303f9f;
+            padding: 0.5rem;
+            background: #e0e0e0;
+            border-bottom: 1px solid #cfcfcf;
+            user-select: none;
+        }
+
+        .dark .prompt {
+            color: #93c5fd;
+            background: #334155;
+            border-color: #475569;
+        }
+
+        .input_area_code {
+            padding: 0.5rem;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .output_wrapper {
+            margin-top: 0.5rem;
+            padding-left: 0.5rem;
+        }
+
+        .output_subarea {
+            padding: 0.5rem;
+        }
+
+        .output_text pre {
+            margin: 0;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 13px;
+        }
+
+        .output_png img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Markdown Styles within Notebook */
+        .markdown-cell {
+            padding: 0.5rem 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .markdown-cell h1 {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 0.3em;
+        }
+
+        .markdown-cell h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 0.3em;
+        }
+
+        .markdown-cell h3 {
+            font-size: 1.25em;
+            font-weight: bold;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }
+
+        .markdown-cell p {
+            margin-bottom: 1em;
+        }
+
+        .markdown-cell ul {
+            list-style-type: disc;
+            padding-left: 2em;
+            margin-bottom: 1em;
+        }
+
+        .markdown-cell ol {
+            list-style-type: decimal;
+            padding-left: 2em;
+            margin-bottom: 1em;
+        }
+
+        .markdown-cell blockquote {
+            border-left: 4px solid #dfe2e5;
+            color: #6a737d;
+            padding-left: 1em;
+            margin-left: 0;
+        }
+
+        .markdown-cell code {
+            background-color: rgba(27, 31, 35, 0.05);
+            border-radius: 3px;
+            padding: 0.2em 0.4em;
+            font-family: monospace;
+        }
+
+        .dark .markdown-cell code {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .markdown-cell pre {
+            background-color: #f6f8fa;
+            border-radius: 3px;
+            padding: 16px;
+            overflow: auto;
+            margin-bottom: 1em;
+        }
+
+        .dark .markdown-cell pre {
+            background-color: #1e293b;
+        }
+
+        .markdown-cell table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 1em;
+        }
+
+        .markdown-cell th,
+        .markdown-cell td {
+            border: 1px solid #dfe2e5;
+            padding: 6px 13px;
+        }
+
+        .dark .markdown-cell th,
+        .dark .markdown-cell td {
+            border-color: #475569;
+        }
+
+        .markdown-cell tr:nth-child(2n) {
+            background-color: #f6f8fa;
+        }
+
+        .dark .markdown-cell tr:nth-child(2n) {
+            background-color: #1e293b;
+        }
+
+        .output_subarea table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 1em;
+            font-size: 14px;
+        }
+
+        .output_subarea th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+        }
+
+        .output_subarea th,
+        .output_subarea td {
+            border: 1px solid #dfe2e5;
+            padding: 6px 13px;
+        }
+
+        .dark .output_subarea th,
+        .dark .output_subarea td {
+            border-color: #475569;
+        }
+
+        .output_subarea tr:nth-child(2n) {
+            background-color: #f6f8fa;
+        }
+
+        .dark .output_subarea tr:nth-child(2n) {
+            background-color: #1e293b;
+        }
+    </style>
+
+    <div class="max-w-5xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
+
+        <div class="mb-10 text-center">
+            <h1 class="text-4xl font-extrabold mb-4 text-slate-900 dark:text-white pb-2 flex items-center justify-center gap-3">
+                <span class="text-orange-500">📓</span> IPYNB to PDF Converter – Convert Jupyter Notebook to PDF Online Free
+            </h1>
+            <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+                Convert Jupyter Notebooks (.ipynb) to clean, professional PDFs.
+                Process runs 100% locally in your browser.
+            </p>
+        </div>
+
+        <!-- Upload Zone -->
+        <div class="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 mb-8 transition-all" id="upload-container">
+            <label id="drop-zone" class="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed border-orange-300 rounded-xl cursor-pointer bg-white dark:bg-slate-800 hover:bg-orange-50 dark:hover:bg-orange-900/10 transition-colors group">
+                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                    <span class="text-5xl mb-4 group-hover:scale-110 transition-transform">📂</span>
+                    <p class="mb-2 text-xl font-bold text-slate-700 dark:text-slate-200">Click to upload or drag .ipynb file</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Supported: Jupyter Notebook (.ipynb)</p>
+                </div>
+                <input type="file" id="file-input" class="hidden" accept=".ipynb">
+            </label>
+        </div>
+
+        <!-- Settings & Preview (Hidden Initially) -->
+        <div id="workspace" class="hidden space-y-6">
+
+            <!-- Toolbar -->
+            <div class="flex flex-col md:flex-row justify-between items-center bg-slate-100 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-700 gap-4 sticky top-20 z-30 shadow-sm">
+                <div class="flex items-center gap-4 flex-wrap">
+                    <label class="flex items-center gap-2 cursor-pointer select-none text-sm font-semibold text-slate-700 dark:text-slate-300">
+                        <input type="checkbox" id="toggle-code" checked class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500">
+                        Show Code
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer select-none text-sm font-semibold text-slate-700 dark:text-slate-300">
+                        <input type="checkbox" id="toggle-output" checked class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500">
+                        Show Output
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer select-none text-sm font-semibold text-slate-700 dark:text-slate-300">
+                        <input type="checkbox" id="toggle-markdown" checked class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500">
+                        Show Markdown
+                    </label>
+                </div>
+
+                <div class="flex gap-2 w-full md:w-auto">
+                    <button id="btn-reset" class="px-4 py-2 text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg font-bold transition-colors">
+                        Reset
+                    </button>
+                    <button id="btn-download" class="flex-1 md:flex-none px-6 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg font-bold shadow-lg shadow-orange-500/30 transition-transform hover:scale-105 flex items-center gap-2 justify-center">
+                        <span>Download PDF</span> ⬇️
+                    </button>
+                </div>
+            </div>
+
+            <!-- Preview Area -->
+            <div id="notebook-preview" class="notebook-container bg-white text-black p-8 md:p-16 border border-gray-200 shadow-xl min-h-[800px] mx-auto w-full max-w-[210mm]">
+                <!-- Canvas Content will be injected here -->
+            </div>
+        </div>
+
+        <!-- SEO Content -->
+        <article class="prose prose-slate max-w-none mt-12 border-t border-slate-200 dark:border-slate-700 pt-8">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Free Online IPYNB to PDF Converter</h2>
+            <p class="text-slate-700 dark:text-slate-300 mb-8 leading-relaxed">
+                Transform your Jupyter Notebook (.ipynb) files into high-quality, professional PDF documents instantly with our reliable IPYNB to PDF converter. Whether you are a Data Science student submitting assignments, a Machine Learning learner sharing code analysis, or a developer presenting Kaggle results, this free online tool ensures your charts, Markdown formatting, and code snippets are perfectly preserved in a standalone PDF format. There is no need to install Python, LaTeX, or any complex command-line utilities.
+            </p>
+
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">How to Use the IPYNB Converter</h3>
+            <ol class="list-decimal pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
+                <li><strong>Upload Notebook:</strong> Drag and drop your target .ipynb file into the upload zone above, or click to browse your device.</li>
+                <li><strong>Review Output:</strong> Instantly preview how the rendered notebook will look. </li>
+                <li><strong>Customize Formatting:</strong> Toggle visibility for Code, Markdown, and Output blocks to tailor the final document to your needs.</li>
+                <li><strong>Download PDF:</strong> Click the "Download PDF" button to generate and save your formatted PDF locally.</li>
+            </ol>
+
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Key Features</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
+                <li><strong>Rich Rendering:</strong> Maintains accurate syntax highlighting, Markdown tables, mathematical equations (via MathJax), and inline plots.</li>
+                <li><strong>Custom Toggles:</strong> Easily hide raw code cells and only show outputs, or vice versa.</li>
+                <li><strong>Client-Side Processing:</strong> Your code never leaves your computer, ensuring total privacy.</li>
+                <li><strong>Zero Installation:</strong> Completely browser-based, eliminating the need for strict dependency management or command-line setups.</li>
+            </ul>
+
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Common Use Cases</h3>
+            <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300 mb-8">
+                <li><strong>B.Tech & University Students:</strong> Submit coursework and lab manuals cleanly.</li>
+                <li><strong>Kaggle Users & ML Practitioners:</strong> Share exploratory data analysis (EDA) results with non-technical stakeholders safely.</li>
+                <li><strong>Hackathon Participants:</strong> Export beautifully styled projects for quick judging.</li>
+            </ul>
+
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Frequently Asked Questions</h3>
+            <div class="space-y-4 mb-10">
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+                    <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center">
+                        Is it safe to convert my code?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700 pt-3">
+                        Yes! All file reading, rendering, and PDF generation processes happen entirely inside your web browser. No data is stored on or transmitted to external servers.
+                    </div>
+                </details>
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+                    <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center">
+                        Do I need Python installed to use this?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700 pt-3">
+                        Not at all. This tool requires no local environments, pip packages, or Jupyter installations to convert your files.
+                    </div>
+                </details>
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+                    <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center">
+                        Are embedded charts and data visualizations supported?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700 pt-3">
+                        Yes, standard visual outputs like line graphs, bar charts, and plot images are directly rendered into the final PDF.
+                    </div>
+                </details>
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+                    <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center">
+                        Can I hide the raw Python code?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700 pt-3">
+                        Yes. Use the "Show Code" toggle at the top of the workspace to hide all input cells, leaving only the markdown and output blocks visible.
+                    </div>
+                </details>
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+                    <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center">
+                        Will MathJax or LaTeX formulas render properly?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700 pt-3">
+                        Absolutely. The converter supports MathJax text-rendering, meaning all equation syntax remains clean and readable.
+                    </div>
+                </details>
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+                    <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center">
+                        Why is this better than Jupyter's native export?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700 pt-3">
+                        Jupyter often requires pandoc, XeLaTeX, or nbconvert configurations which can break easily. Our service is simpler and just works out of the box.
+                    </div>
+                </details>
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+                    <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center">
+                        Is there a file size limit for converting?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700 pt-3">
+                        The only limit is your browser's local memory. The majority of assignment and project notebooks upload and convert within seconds.
+                    </div>
+                </details>
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+                    <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center">
+                        Do I have to pay to use this platform?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700 pt-3">
+                        No. The IPYNB to PDF converter is 100% free with no hidden charges, watermarks, or subscription tiers.
+                    </div>
+                </details>
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+                    <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center">
+                        Can I use this on a mobile device or tablet?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700 pt-3">
+                        Yes, the tool is fully responsive and supports downloading PDF files directly to iPads, iPhones, and Android devices.
+                    </div>
+                </details>
+                <details class="group bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+                    <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center">
+                        Does the generated PDF include page numbers?
+                        <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700 pt-3">
+                        By default, the layout resembles an infinite scroll notebook. However, you can use our separate "Page Numberer" tool afterward to neatly add numbers.
+                    </div>
+                </details>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
+                <p class="text-sm text-slate-500 dark:text-slate-400 italic font-medium">
+                    This IPYNB to PDF tool is optimized for students and developers who need fast, secure notebook conversion without installing additional software. All processing happens locally in your browser, ensuring complete data privacy.
+                </p>
+            </div>
+        </article>
+`;
+
+function initIpynbToPdf() {
+    const fileInput = document.getElementById('file-input');
+    const dropZone = document.getElementById('drop-zone');
+    const workspace = document.getElementById('workspace');
+    const uploadContainer = document.getElementById('upload-container');
+    const preview = document.getElementById('notebook-preview');
+    const btnDownload = document.getElementById('btn-download');
+    const btnReset = document.getElementById('btn-reset');
+
+    const toggleCode = document.getElementById('toggle-code');
+    const toggleOutput = document.getElementById('toggle-output');
+    const toggleMarkdown = document.getElementById('toggle-markdown');
+
+    let currentNotebookData = null;
+
+    // Helper Functions
+    function renderNotebook() {
+        if (!currentNotebookData) return;
+
+        preview.innerHTML = ''; // Clear existing
+        const cells = currentNotebookData.cells;
+
+        cells.forEach(cell => {
+            const cellDiv = document.createElement('div');
+            cellDiv.className = 'cell';
+
+            // MARKDOWN CELLS
+            if (cell.cell_type === 'markdown' && toggleMarkdown.checked) {
+                const mdDiv = document.createElement('div');
+                mdDiv.className = 'markdown-cell';
+                const sourceText = Array.isArray(cell.source) ? cell.source.join('') : cell.source;
+                if (window.marked) {
+                    let htmlContent = marked.parse(sourceText);
+                    if (window.DOMPurify) htmlContent = DOMPurify.sanitize(htmlContent);
+                    mdDiv.innerHTML = htmlContent;
+                } else {
+                    mdDiv.textContent = sourceText; // Fallback
+                }
+                cellDiv.appendChild(mdDiv);
+            }
+
+            // CODE CELLS
+            else if (cell.cell_type === 'code') {
+                // Input (Code)
+                if (toggleCode.checked) {
+                    const inputDiv = document.createElement('div');
+                    inputDiv.className = 'input-area';
+
+                    const promptDiv = document.createElement('div');
+                    promptDiv.className = 'prompt';
+                    promptDiv.innerText = `In [${cell.execution_count || ' '}]:`;
+
+                    const codePre = document.createElement('pre');
+                    codePre.className = 'input_area_code language-python';
+                    const sourceCode = Array.isArray(cell.source) ? cell.source.join('') : cell.source;
+                    codePre.textContent = sourceCode;
+
+                    inputDiv.appendChild(promptDiv);
+                    inputDiv.appendChild(codePre);
+                    cellDiv.appendChild(inputDiv);
+                }
+
+                // Output
+                if (toggleOutput.checked && cell.outputs && cell.outputs.length > 0) {
+                    const outputWrapper = document.createElement('div');
+                    outputWrapper.className = 'output_wrapper';
+
+                    cell.outputs.forEach(output => {
+                        const subArea = document.createElement('div');
+                        subArea.className = 'output_subarea';
+
+                        // Text Output / Stream
+                        if (output.output_type === 'stream') {
+                            const pre = document.createElement('pre');
+                            pre.className = 'output_text';
+                            pre.textContent = Array.isArray(output.text) ? output.text.join('') : output.text;
+                            subArea.appendChild(pre);
+                        }
+                        // Execute Result (Text)
+                        else if (output.output_type === 'execute_result' || output.output_type === 'display_data') {
+                            const data = output.data;
+
+                            // Image (PNG/JPEG)
+                            if (data['image/png']) {
+                                const img = document.createElement('img');
+                                const b64 = Array.isArray(data['image/png']) ? data['image/png'].join('') : data['image/png'];
+                                img.src = 'data:image/png;base64,' + b64;
+                                img.className = 'output_png';
+                                subArea.appendChild(img);
+                            }
+                            else if (data['image/jpeg']) {
+                                const img = document.createElement('img');
+                                const b64 = Array.isArray(data['image/jpeg']) ? data['image/jpeg'].join('') : data['image/jpeg'];
+                                img.src = 'data:image/jpeg;base64,' + b64;
+                                img.className = 'output_jpeg';
+                                subArea.appendChild(img);
+                            }
+                            // HTML Output
+                            else if (data['text/html']) {
+                                const div = document.createElement('div');
+                                let htmlOutput = Array.isArray(data['text/html']) ? data['text/html'].join('') : data['text/html'];
+                                if (window.DOMPurify) htmlOutput = DOMPurify.sanitize(htmlOutput);
+                                div.innerHTML = htmlOutput;
+                                subArea.appendChild(div);
+                            }
+                            // Plain Text Fallback
+                            else if (data['text/plain']) {
+                                const pre = document.createElement('pre');
+                                pre.className = 'output_text';
+                                pre.textContent = Array.isArray(data['text/plain']) ? data['text/plain'].join('') : data['text/plain'];
+                                subArea.appendChild(pre);
+                            }
+                        }
+                        // Error
+                        else if (output.output_type === 'error') {
+                            const pre = document.createElement('pre');
+                            pre.className = 'output_text text-red-600 bg-red-50 p-2 rounded';
+                            pre.textContent = output.traceback.join('\n');
+                            subArea.appendChild(pre);
+                        }
+
+                        outputWrapper.appendChild(subArea);
+                    });
+                    cellDiv.appendChild(outputWrapper);
+                }
+            }
+
+            // Add to preview if it has content
+            if (cellDiv.hasChildNodes()) {
+                preview.appendChild(cellDiv);
+            }
+        });
+
+        // Trigger Syntax Highlight
+        if (window.Prism) Prism.highlightAllUnder(preview);
+
+        // Trigger MathJax
+        if (window.MathJax) {
+            MathJax.typesetPromise([preview]);
+        }
+    }
+
+    function processFile(file) {
+        if (!file.name.endsWith('.ipynb')) {
+            alert('Please upload a valid .ipynb file');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                const json = JSON.parse(e.target.result);
+                currentNotebookData = json;
+                uploadContainer.classList.add('hidden');
+                workspace.classList.remove('hidden');
+                renderNotebook();
+            } catch (error) {
+                console.error("JSON Parse Error:", error);
+                alert('Error parsing the file. Please ensure it is a valid .ipynb (JSON) file.\n\nDetails: ' + error.message);
+            }
+        };
+        reader.onerror = (e) => {
+            console.error("File Read Error:", e);
+            alert('Error reading file.');
+        };
+        reader.readAsText(file);
+    }
+
+    function handleFileSelect(e) {
+        const file = e.target.files[0];
+        if (file) processFile(file);
+    }
+
+    // Bind Events
+    fileInput.addEventListener('change', handleFileSelect);
+
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('bg-orange-50', 'dark:bg-slate-700');
+    });
+    dropZone.addEventListener('dragleave', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('bg-orange-50', 'dark:bg-slate-700');
+    });
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('bg-orange-50', 'dark:bg-slate-700');
+        const files = e.dataTransfer.files;
+        if (files.length) processFile(files[0]);
+    });
+
+    btnReset.addEventListener('click', () => {
+        fileInput.value = '';
+        preview.innerHTML = '';
+        workspace.classList.add('hidden');
+        uploadContainer.classList.remove('hidden');
+        currentNotebookData = null;
+    });
+
+    toggleCode.addEventListener('change', renderNotebook);
+    toggleOutput.addEventListener('change', renderNotebook);
+    toggleMarkdown.addEventListener('change', renderNotebook);
+
+    btnDownload.addEventListener('click', () => {
+        const element = document.getElementById('notebook-preview');
+        const opt = {
+            margin: [10, 10],
+            filename: 'notebook.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+            pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+        };
+
+        btnDownload.innerText = 'Generating...';
+        btnDownload.disabled = true;
+
+        html2pdf().set(opt).from(element).save().then(() => {
+            btnDownload.innerHTML = '<span>Download PDF</span> ⬇️';
+            btnDownload.disabled = false;
+        });
+    });
+}
 
 const routes = {
     '/': dashboardPage,
@@ -1727,7 +2357,8 @@ const routes = {
 
     '/pagenumber': pageNumberPage,
     '/case': caseConverterPage,
-    '/counter': wordCounterPage,   // ✅ FIXED
+    '/counter': wordCounterPage,
+    '/ipynb-to-pdf': ipynbToPdfPage,
     '/privacy-mode': privacyModePage,
 };
 
@@ -1803,6 +2434,7 @@ function render(pathOverride) {
   
     if (cleanPath === '/pagenumber') initPageNumber();
     if (cleanPath === '/counter') startWordCounterWatcher();
+    if (cleanPath === '/ipynb-to-pdf') initIpynbToPdf();
 }
 
 function navigateTo(url) {
