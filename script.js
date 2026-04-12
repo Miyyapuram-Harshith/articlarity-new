@@ -52,9 +52,9 @@ const dashboardPage = `
             <p class="text-sm text-slate-500 dark:text-slate-400 mt-8 animate-fade-in delay-100">
                 <span class="font-semibold text-slate-700 dark:text-slate-300">Popular Tools:</span> 
                 <a href="/file-merger/" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">File Merger</a>, 
-                <a href="/img-to-pdf" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">Image to PDF</a>, 
-                <a href="/pdf-tools" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">Compress PDF</a>
-                <a href="/ipynb-to-pdf" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">IPYNB to PDF</a>
+                <a href="/img-to-pdf/" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">Image to PDF</a>, 
+                <a href="/pdf-tools/" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">Compress PDF</a>
+                <a href="/ipynb-to-pdf/" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">IPYNB to PDF</a>
             </p>
         </div>
         
@@ -67,7 +67,7 @@ const dashboardPage = `
                     <span class="bg-red-100 text-red-600 dark:text-red-400 p-2 rounded-lg text-xl">📄</span> PDF Tools
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    ${createToolCard('Universal Merger', 'Combine PDF, Images, Text, and more.', '/file-merger//', '🧩', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('Universal Merger', 'Combine PDF, Images, Text, and more.', '/file-merger/', '🧩', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
                     ${createToolCard('PDF Splitter', 'Extract pages or split into custom ranges.', '/pdf-splitter/', '✂️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
                     ${createToolCard('Img to PDF', 'Convert JPG, PNG, etc., to a single PDF.', '/img-to-pdf/', '📸', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
                     ${createToolCard('PDF Compressor', 'Shrink PDF file size instantly.', '/pdf-tools/', '🗜️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
@@ -2359,8 +2359,7 @@ const routes = {
     '/pdf-tools/': pdfPage,
     '/qr/': qrGeneratorPage,
     '/pdf-arranger/': pdfArrangerPage,
-    '/watermark': watermarkPage,
-
+    '/watermark/': watermarkPage,
     '/pagenumber/': pageNumberPage,
     '/case/': caseConverterPage,
     '/counter/': wordCounterPage,
@@ -2428,19 +2427,19 @@ function render(pathOverride) {
         }
     }
 
-    if (cleanPath === '/attendance') initAttendance();
+    if (cleanPath === '/attendance/') initAttendance();
     if (cleanPath === '/compressor/') initCompressor();
-    if (cleanPath === '/pdf-tools') initPDF();
+    if (cleanPath === '/pdf-tools/') initPDF();
     if (cleanPath === '/file-merger/') initUniversalMerger();
-    if (cleanPath === '/pdf-splitter') initPdfSplitter();
-    if (cleanPath === '/img-to-pdf') initImgToPdf();
-    if (cleanPath === '/humanizer') initHumanizer();
-    if (cleanPath === '/pdf-arranger') initPdfArranger();
-    if (cleanPath === '/watermark') initWatermark();
+    if (cleanPath === '/pdf-splitter/') initPdfSplitter();
+    if (cleanPath === '/img-to-pdf/') initImgToPdf();
+    if (cleanPath === '/humanizer/') initHumanizer();
+    if (cleanPath === '/pdf-arranger/') initPdfArranger();
+    if (cleanPath === '/watermark/') initWatermark();
   
-    if (cleanPath === '/pagenumber') initPageNumber();
-    if (cleanPath === '/counter') startWordCounterWatcher();
-    if (cleanPath === '/ipynb-to-pdf') initIpynbToPdf();
+    if (cleanPath === '/pagenumber/') initPageNumber();
+    if (cleanPath === '/counter/') startWordCounterWatcher();
+    if (cleanPath === '/ipynb-to-pdf/') initIpynbToPdf();
 }
 
 function navigateTo(url) {
