@@ -1,0 +1,11 @@
+<script>
+  var path = location.pathname;
+
+  // add slash if missing
+  if (!path.endsWith("/")) {
+    location.replace(path + "/");
+  } else {
+    // reload main app with correct route
+    location.replace("/?redirect=" + path);
+  }
+</script>
