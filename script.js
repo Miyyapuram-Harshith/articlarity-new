@@ -1,11 +1,4 @@
-// 🔥 Normalize path (MOST IMPORTANT FIX)
-let path = window.location.pathname;
 
-// if no trailing slash → add it
-if (!path.endsWith("/")) {
-    path = path + "/";
-    history.replaceState(null, "", path);
-}
 
 // handle redirect param (optional)
 const params = new URLSearchParams(window.location.search);
