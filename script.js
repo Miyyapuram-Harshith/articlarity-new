@@ -55,9 +55,9 @@ const dashboardPage = `
             <p class="text-sm text-slate-500 dark:text-slate-400 mt-8 animate-fade-in delay-100">
                 <span class="font-semibold text-slate-700 dark:text-slate-300">Popular Tools:</span> 
                 <a href="/file-merger" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">File Merger</a>, 
-                <a href="/img-to-pdf/" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">Image to PDF</a>, 
-                <a href="/pdf-tools/" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">Compress PDF</a>
-                <a href="/ipynb-to-pdf/" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">IPYNB to PDF</a>
+                <a href="/img-to-pdf" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">Image to PDF</a>, 
+                <a href="/pdf-tools" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">Compress PDF</a>
+                <a href="/ipynb-to-pdf" class="text-blue-600 dark:text-blue-400 hover:underline hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors mx-1">IPYNB to PDF</a>
             </p>
         </div>
         
@@ -71,13 +71,13 @@ const dashboardPage = `
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     ${createToolCard('Universal Merger', 'Combine PDF, Images, Text, and more.', '/file-merger', '🧩', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
-                    ${createToolCard('PDF Splitter', 'Extract pages or split into custom ranges.', '/pdf-splitter/', '✂️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
-                    ${createToolCard('Img to PDF', 'Convert JPG, PNG, etc., to a single PDF.', '/img-to-pdf/', '📸', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
-                    ${createToolCard('PDF Compressor', 'Shrink PDF file size instantly.', '/pdf-tools/', '🗜️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
-                    ${createToolCard('PDF Arranger', 'Reorder or delete pages visually.', '/pdf-arranger/', '📑', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
-                    ${createToolCard('Watermark PDF', 'Add customized text watermarks.', '/watermark/', '✒️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
-                    ${createToolCard('Page Numberer', 'Add page numbers to PDF documents.', '/pagenumber/', '🔢', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
-                    ${createToolCard('IPYNB to PDF', 'Convert Jupyter Notebooks to polished PDFs.', '/ipynb-to-pdf/', '📓', 'bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400', 'border-orange-100 hover:border-orange-300')}
+                    ${createToolCard('PDF Splitter', 'Extract pages or split into custom ranges.', '/pdf-splitter', '✂️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('Img to PDF', 'Convert JPG, PNG, etc., to a single PDF.', '/img-to-pdf', '📸', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('PDF Compressor', 'Shrink PDF file size instantly.', '/pdf-tools', '🗜️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('PDF Arranger', 'Reorder or delete pages visually.', '/pdf-arranger', '📑', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('Watermark PDF', 'Add customized text watermarks.', '/watermark', '✒️', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('Page Numberer', 'Add page numbers to PDF documents.', '/pagenumber', '🔢', 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400', 'border-red-100 hover:border-red-300')}
+                    ${createToolCard('IPYNB to PDF', 'Convert Jupyter Notebooks to polished PDFs.', '/ipynb-to-pdf', '📓', 'bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400', 'border-orange-100 hover:border-orange-300')}
                 </div>
             </div>
 
@@ -87,7 +87,7 @@ const dashboardPage = `
                     <span class="bg-green-100 text-green-600 dark:text-green-400 p-2 rounded-lg text-xl">🖼️</span> Image & Video
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    ${createToolCard('Smart Img Compressor', 'Compress to specific size (<100KB).', '/compressor/', '📉', 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400', 'border-green-100 hover:border-green-300')}
+                    ${createToolCard('Smart Img Compressor', 'Compress to specific size (<100KB).', '/compressor', '📉', 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400', 'border-green-100 hover:border-green-300')}
                    
                     ${createToolCard('QR Generator', 'Create custom QR codes.', '/qr', '📱', 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400', 'border-green-100 hover:border-green-300')}
                 </div>
@@ -2353,21 +2353,21 @@ function initIpynbToPdf() {
 
 const routes = {
     '/': dashboardPage,
-    '/attendance/': attendancePage,
-    '/humanizer/': humanizerPage,
-    '/compressor/': compressorPage,
+    '/attendance': attendancePage,
+    '/humanizer': humanizerPage,
+    '/compressor': compressorPage,
     '/file-merger': universalMergerPage,
-    '/pdf-splitter/': pdfSplitterPage,
-    '/img-to-pdf/': imgToPdfPage,
-    '/pdf-tools/': pdfPage,
-    '/qr/': qrGeneratorPage,
-    '/pdf-arranger/': pdfArrangerPage,
-    '/watermark/': watermarkPage,
-    '/pagenumber/': pageNumberPage,
-    '/case/': caseConverterPage,
-    '/counter/': wordCounterPage,
-    '/ipynb-to-pdf/': ipynbToPdfPage,
-    '/privacy-mode/': privacyModePage,
+    '/pdf-splitter': pdfSplitterPage,
+    '/img-to-pdf': imgToPdfPage,
+    '/pdf-tools': pdfPage,
+    '/qr': qrGeneratorPage,
+    '/pdf-arranger': pdfArrangerPage,
+    '/watermark': watermarkPage,
+    '/pagenumber': pageNumberPage,
+    '/case': caseConverterPage,
+    '/counter': wordCounterPage,
+    '/ipynb-to-pdf': ipynbToPdfPage,
+    '/privacy-mode': privacyModePage,
 };
 
 function render(pathOverride) {
@@ -2430,19 +2430,19 @@ function render(pathOverride) {
         }
     }
 
-    if (cleanPath === '/attendance/') initAttendance();
-    if (cleanPath === '/compressor/') initCompressor();
-    if (cleanPath === '/pdf-tools/') initPDF();
+    if (cleanPath === '/attendance') initAttendance();
+    if (cleanPath === '/compressor') initCompressor();
+    if (cleanPath === '/pdf-tools') initPDF();
     if (cleanPath === '/file-merger') initUniversalMerger();
-    if (cleanPath === '/pdf-splitter/') initPdfSplitter();
-    if (cleanPath === '/img-to-pdf/') initImgToPdf();
-    if (cleanPath === '/humanizer/') initHumanizer();
-    if (cleanPath === '/pdf-arranger/') initPdfArranger();
-    if (cleanPath === '/watermark/') initWatermark();
+    if (cleanPath === '/pdf-splitter') initPdfSplitter();
+    if (cleanPath === '/img-to-pdf') initImgToPdf();
+    if (cleanPath === '/humanizer') initHumanizer();
+    if (cleanPath === '/pdf-arranger') initPdfArranger();
+    if (cleanPath === '/watermark') initWatermark();
   
-    if (cleanPath === '/pagenumber/') initPageNumber();
-    if (cleanPath === '/counter/') startWordCounterWatcher();
-    if (cleanPath === '/ipynb-to-pdf/') initIpynbToPdf();
+    if (cleanPath === '/pagenumber') initPageNumber();
+    if (cleanPath === '/counter') startWordCounterWatcher();
+    if (cleanPath === '/ipynb-to-pdf') initIpynbToPdf();
 }
 
 function navigateTo(url) {
