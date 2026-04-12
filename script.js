@@ -1,3 +1,9 @@
+const params = new URLSearchParams(window.location.search);
+const redirectPath = params.get("redirect");
+
+if (redirectPath) {
+    history.replaceState(null, "", redirectPath);
+}
 const appRoot = document.getElementById('app-root');
 let geminiApiKey = localStorage.getItem('articlarity_api_key') || '';
 // Globals
