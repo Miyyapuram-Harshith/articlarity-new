@@ -424,6 +424,13 @@ const imgToPdfPage = `
 `;
 
 // 4. PDF SPLITTER
+/* ==========================================================================
+   PDF Splitter — client-side only (pdf-lib + JSZip, loaded from CDN on use)
+   Fixed: mode toggle wasn't wired up, and #btn-split had no click handler
+   at all, so nothing happened when a user picked a mode or hit "Split PDF".
+   Added: "Split into Equal Parts" and "Remove Specific Pages" modes.
+   ========================================================================== */
+
 const pdfSplitterPage = `
     <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
         
@@ -452,16 +459,27 @@ const pdfSplitterPage = `
                         </label>
                         <input id="split-range" placeholder="e.g. 1-5, 8, 10-12" class="w-full border-2 border-gray-200 dark:border-slate-700 p-2 rounded-lg ml-7 mt-1 focus:border-red-500 outline-none" disabled>
                     </div>
+                    <div>
+                        <label class="font-bold flex items-center gap-2 mb-2">
+                            <input type="radio" name="split-mode" value="chunk" class="accent-red-600 w-5 h-5"> 
+                            Split into Equal Parts
+                        </label>
+                        <input id="split-chunk-size" type="number" min="1" placeholder="Pages per file, e.g. 10" class="w-full border-2 border-gray-200 dark:border-slate-700 p-2 rounded-lg ml-7 mt-1 focus:border-red-500 outline-none" disabled>
+                    </div>
+                    <div>
+                        <label class="font-bold flex items-center gap-2 mb-2">
+                            <input type="radio" name="split-mode" value="delete" class="accent-red-600 w-5 h-5"> 
+                            Remove Specific Pages
+                        </label>
+                        <input id="split-delete-pages" placeholder="e.g. 2, 7-9" class="w-full border-2 border-gray-200 dark:border-slate-700 p-2 rounded-lg ml-7 mt-1 focus:border-red-500 outline-none" disabled>
+                    </div>
                 </div>
-
                 <div id="split-status" class="hidden mt-4 text-center font-bold text-red-600 dark:text-red-400 animate-pulse">Processing split...</div>
-
                 <button id="btn-split" class="w-full mt-6 bg-red-600 text-white py-4 rounded-xl font-bold text-xl hover:bg-red-700 shadow-lg shadow-red-600/20 transition-all hover:scale-[1.01]">
                     Split PDF ✂️
                 </button>
             </div>
         </div>
-
         <!-- SEO Content -->
         <article class="prose prose-slate max-w-none">
             <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Use Cases</h3>
@@ -469,8 +487,9 @@ const pdfSplitterPage = `
                 <li><strong>Legal:</strong> Extract specific contract pages.</li>
                 <li><strong>Books:</strong> Split a large ebook into chapters.</li>
                 <li><strong>Invoices:</strong> Separate bulk invoices into individual files.</li>
+                <li><strong>Reports:</strong> Break a long report into equal-sized handouts.</li>
+                <li><strong>Cleanup:</strong> Remove blank, duplicate, or unwanted pages before sharing a PDF.</li>
             </ul>
-
             <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Methods</h3>
              <div class="grid md:grid-cols-2 gap-4 mb-8">
                 <div class="bg-gray-50 dark:bg-slate-900 p-4 rounded-lg">
@@ -481,8 +500,15 @@ const pdfSplitterPage = `
                     <h4 class="font-bold text-red-700">Custom Extract</h4>
                     <p class="text-sm">Pick specific pages like "1,3,5" to create a new summarized PDF.</p>
                 </div>
+                <div class="bg-gray-50 dark:bg-slate-900 p-4 rounded-lg">
+                    <h4 class="font-bold text-red-700">Equal Parts</h4>
+                    <p class="text-sm">Automatically cut a long PDF into fixed-size chunks, e.g. every 10 pages, packaged as a ZIP.</p>
+                </div>
+                <div class="bg-gray-50 dark:bg-slate-900 p-4 rounded-lg">
+                    <h4 class="font-bold text-red-700">Remove Pages</h4>
+                    <p class="text-sm">Delete unwanted pages like "2, 7-9" and keep everything else as one clean PDF.</p>
+                </div>
             </div>
-
             <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">FAQ</h3>
             <div class="space-y-4">
             
@@ -535,6 +561,26 @@ const pdfSplitterPage = `
             Extremely fast. It cuts the PDF structurally without re-rendering, so even large books split in seconds.
         </div>
     </details>
+
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I split a PDF into equal-sized parts automatically?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. Choose 'Split into Equal Parts' and enter how many pages you want per file, e.g. 10. A 100-page PDF becomes 10 files of 10 pages each, packaged as a ZIP.
+        </div>
+    </details>
+
+    <details class="group bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg cursor-pointer">
+        <summary class="font-semibold text-slate-800 dark:text-slate-100 p-4 list-none flex justify-between items-center group-open:bg-slate-50 dark:group-open:bg-slate-800">
+            Can I delete specific pages instead of extracting them?
+            <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="p-4 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">
+            Yes. Choose 'Remove Specific Pages' and enter the pages or ranges you want gone, e.g. '2, 7-9'. Everything else is kept and saved as a single PDF.
+        </div>
+    </details>
             </div>
             <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700 text-sm text-slate-500 dark:text-slate-400">
                 <p>This tool is optimized for students, teachers, professionals, and daily computer users. It works on laptops, mobile browsers, and tablets without installation. All processing happens inside your browser for maximum speed and privacy.</p>
@@ -542,6 +588,195 @@ const pdfSplitterPage = `
         </article>
     </div>
 `;
+
+/* ==========================================================================
+   Logic — call initPdfSplitter() once pdfSplitterPage has been inserted
+   into the DOM (e.g. right after you set innerHTML = pdfSplitterPage).
+   Nothing loads from the network until the user actually clicks "Split PDF",
+   so it doesn't cost you anything on initial page load / Core Web Vitals.
+   ========================================================================== */
+
+function initPdfSplitter() {
+  const CDN_PDFLIB = 'https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js';
+  const CDN_JSZIP = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      if (document.querySelector(`script[src="${src}"]`)) return resolve();
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = () => resolve();
+      s.onerror = () => reject(new Error('Failed to load ' + src));
+      document.head.appendChild(s);
+    });
+  }
+
+  const fileInput   = document.getElementById('split-input');
+  const modeRadios  = document.querySelectorAll('input[name="split-mode"]');
+  const rangeInput  = document.getElementById('split-range');
+  const chunkInput  = document.getElementById('split-chunk-size');
+  const deleteInput = document.getElementById('split-delete-pages');
+  const statusEl    = document.getElementById('split-status');
+  const btn         = document.getElementById('btn-split');
+
+  if (!fileInput || !btn) return; // page not mounted yet
+
+  let selectedFile = null;
+  fileInput.addEventListener('change', (e) => {
+    selectedFile = e.target.files[0] || null;
+  });
+
+  // FIX: this wiring was missing entirely — inputs never enabled/disabled.
+  function updateModeUI() {
+    const mode = document.querySelector('input[name="split-mode"]:checked').value;
+    rangeInput.disabled  = mode !== 'range';
+    chunkInput.disabled  = mode !== 'chunk';
+    deleteInput.disabled = mode !== 'delete';
+  }
+  modeRadios.forEach(r => r.addEventListener('change', updateModeUI));
+  updateModeUI();
+
+  function setStatus(msg, show = true) {
+    if (!statusEl) return;
+    statusEl.textContent = msg;
+    statusEl.classList.toggle('hidden', !show);
+  }
+
+  // Parses "1-3, 5, 8-10" into a sorted, deduped array of 0-based indices,
+  // silently clipped to the document's actual page count.
+  function parseRanges(rangeStr, pageCount) {
+    const indices = new Set();
+    const parts = rangeStr.split(',').map(p => p.trim()).filter(Boolean);
+    if (parts.length === 0) throw new Error('Please enter at least one page or range.');
+    for (const part of parts) {
+      const m = part.match(/^(\d+)\s*-\s*(\d+)$/);
+      if (m) {
+        let start = parseInt(m[1], 10);
+        let end = parseInt(m[2], 10);
+        if (start > end) [start, end] = [end, start];
+        for (let p = start; p <= end; p++) {
+          if (p >= 1 && p <= pageCount) indices.add(p - 1);
+        }
+      } else if (/^\d+$/.test(part)) {
+        const p = parseInt(part, 10);
+        if (p >= 1 && p <= pageCount) indices.add(p - 1);
+      } else {
+        throw new Error(`Invalid entry: "${part}". Use numbers or ranges like 1-5.`);
+      }
+    }
+    if (indices.size === 0) throw new Error('No valid pages found for this document.');
+    return Array.from(indices).sort((a, b) => a - b);
+  }
+
+  function downloadBlob(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 5000);
+  }
+
+  btn.addEventListener('click', async () => {
+    if (!selectedFile) {
+      alert('Please choose a PDF file first.');
+      return;
+    }
+    const mode = document.querySelector('input[name="split-mode"]:checked').value;
+    const baseName = selectedFile.name.replace(/\.pdf$/i, '');
+
+    try {
+      btn.disabled = true;
+      setStatus('Loading PDF engine…');
+      await loadScript(CDN_PDFLIB);
+
+      setStatus('Reading file…');
+      const arrayBuffer = await selectedFile.arrayBuffer();
+      const { PDFDocument } = PDFLib;
+      const srcDoc = await PDFDocument.load(arrayBuffer, { ignoreEncryption: true });
+      const pageCount = srcDoc.getPageCount();
+
+      if (mode === 'all') {
+        setStatus('Loading ZIP engine…');
+        await loadScript(CDN_JSZIP);
+        const zip = new JSZip();
+        for (let i = 0; i < pageCount; i++) {
+          setStatus(`Splitting page ${i + 1} of ${pageCount}…`);
+          const newDoc = await PDFDocument.create();
+          const [copiedPage] = await newDoc.copyPages(srcDoc, [i]);
+          newDoc.addPage(copiedPage);
+          const bytes = await newDoc.save();
+          zip.file(`${baseName}_page_${i + 1}.pdf`, bytes);
+        }
+        setStatus('Zipping files…');
+        const zipBlob = await zip.generateAsync({ type: 'blob' });
+        downloadBlob(zipBlob, `${baseName}_all_pages.zip`);
+
+      } else if (mode === 'range') {
+        const rangeStr = rangeInput.value.trim();
+        if (!rangeStr) throw new Error('Please enter a page range, e.g. 1-5, 8, 10-12');
+        const indices = parseRanges(rangeStr, pageCount);
+        setStatus('Extracting pages…');
+        const newDoc = await PDFDocument.create();
+        const copiedPages = await newDoc.copyPages(srcDoc, indices);
+        copiedPages.forEach(p => newDoc.addPage(p));
+        const bytes = await newDoc.save();
+        downloadBlob(new Blob([bytes], { type: 'application/pdf' }), `${baseName}_extracted.pdf`);
+
+      } else if (mode === 'chunk') {
+        const chunkSize = parseInt(chunkInput.value, 10);
+        if (!chunkSize || chunkSize < 1) throw new Error('Enter a valid number of pages per file (1 or more).');
+        setStatus('Loading ZIP engine…');
+        await loadScript(CDN_JSZIP);
+        const zip = new JSZip();
+        let fileNum = 1;
+        for (let start = 0; start < pageCount; start += chunkSize) {
+          setStatus(`Building part ${fileNum}…`);
+          const end = Math.min(start + chunkSize, pageCount);
+          const indices = [];
+          for (let i = start; i < end; i++) indices.push(i);
+          const newDoc = await PDFDocument.create();
+          const copiedPages = await newDoc.copyPages(srcDoc, indices);
+          copiedPages.forEach(p => newDoc.addPage(p));
+          const bytes = await newDoc.save();
+          zip.file(`${baseName}_part_${fileNum}.pdf`, bytes);
+          fileNum++;
+        }
+        setStatus('Zipping files…');
+        const zipBlob = await zip.generateAsync({ type: 'blob' });
+        downloadBlob(zipBlob, `${baseName}_split_by_${chunkSize}.zip`);
+
+      } else if (mode === 'delete') {
+        const delStr = deleteInput.value.trim();
+        if (!delStr) throw new Error('Enter the page(s) you want to remove, e.g. 2, 7-9');
+        const toDelete = new Set(parseRanges(delStr, pageCount));
+        const keepIndices = [];
+        for (let i = 0; i < pageCount; i++) {
+          if (!toDelete.has(i)) keepIndices.push(i);
+        }
+        if (keepIndices.length === 0) throw new Error('You cannot remove every page in the document.');
+        setStatus('Removing pages…');
+        const newDoc = await PDFDocument.create();
+        const copiedPages = await newDoc.copyPages(srcDoc, keepIndices);
+        copiedPages.forEach(p => newDoc.addPage(p));
+        const bytes = await newDoc.save();
+        downloadBlob(new Blob([bytes], { type: 'application/pdf' }), `${baseName}_pages_removed.pdf`);
+      }
+
+      setStatus('Done ✅');
+      setTimeout(() => setStatus('', false), 2000);
+
+    } catch (err) {
+      console.error(err);
+      alert('Error: ' + err.message);
+      setStatus('', false);
+    } finally {
+      btn.disabled = false;
+    }
+  });
+}
 // ... (Attendance, Compressor, PDF Compressor, Humanizer, Password, etc. pages are unchanged) ...
 const attendancePage = `
     <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-lg">
