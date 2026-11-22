@@ -1,1 +1,1 @@
-
+ARTICLARITY
